@@ -10,34 +10,36 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-
 
 namespace FinalProject
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for BuyProducts.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class BuyProducts : Window
     {
-        public MainWindow()
+        public BuyProducts()
         {
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            BuyProducts purchases = new BuyProducts();
-            purchases.ShowDialog();
+            DialogResult = true;
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void ListBoxItem_Selected1(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void ListBoxItem_Selected2(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ListBoxItem_Selected3(object sender, RoutedEventArgs e)
         {
 
         }
