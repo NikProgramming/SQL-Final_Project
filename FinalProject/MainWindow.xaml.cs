@@ -34,12 +34,14 @@ namespace FinalProject
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            MarketPlace market = new MarketPlace();
+            market.ShowDialog();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-
+            DeliveryTimes delivery = new DeliveryTimes();
+            delivery.ShowDialog();
         }
     }
 }
