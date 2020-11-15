@@ -24,9 +24,24 @@ namespace FinalProject
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click1(object sender, RoutedEventArgs e)
         {
             DialogResult = true;
+        }
+
+        private void Button_Click2(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click3(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click4(object sender, RoutedEventArgs e)
+        {
+
         }
 
         private void ListBoxItem_Selected1(object sender, RoutedEventArgs e)
