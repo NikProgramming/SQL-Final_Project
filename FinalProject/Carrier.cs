@@ -4,13 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServerSide
+namespace FinalProject
 {
-    class Program
+    class Carrier
     {
-        static void Main(string[] args)
+        int carrierID;
+        string address;
+        public string SetTrip()
         {
-
+            return "s";
         }
     }
 }

@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServerSide
+namespace FinalProject
 {
-    class Program
+    class Invoice
     {
-        static void Main(string[] args)
-        {
-
-        }
+        int invoiceID;
+        int orderID;
+        int customerID;
     }
 }

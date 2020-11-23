@@ -4,13 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ServerSide
+namespace FinalProject
 {
-    class Program
+    class Billing
     {
-        static void Main(string[] args)
-        {
-
-        }
     }
 }
