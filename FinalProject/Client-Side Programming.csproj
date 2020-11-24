@@ -55,7 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="BuyProducts.xaml">
+    <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -74,8 +74,8 @@
     </Compile>
     <Compile Include="Billing.cs" />
     <Compile Include="Buyer.cs" />
-    <Compile Include="BuyProducts.xaml.cs">
-      <DependentUpon>BuyProducts.xaml</DependentUpon>
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Compile Include="Carrier.cs" />
     <Compile Include="Contract.cs" />

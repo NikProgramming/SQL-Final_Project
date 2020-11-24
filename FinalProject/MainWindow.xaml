@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="475" Width="800">
     <Grid>
-        <Button Content="Purchase Products" FontSize="15" Margin="70,326,556,57" Height="38" Click="Button_Click" RenderTransformOrigin="0.514,-1.958"/>
+        <Button Content="Login" FontSize="15" Margin="70,326,556,57" Height="38" Click="Button_Click" RenderTransformOrigin="0.514,-1.958"/>
         <Button Content="Market Place" FontSize="15" Margin="319,326,307,57"  Height="38" Click="Button_Click_1"/>
         <Button Content="Delivery Date" FontSize="15" Margin="556,326,70,57" Height="38" Click="Button_Click_2"/>
         <TextBlock TextWrapping="Wrap" FontSize="25" VerticalAlignment="Top" Margin="275,87,275,0" RenderTransformOrigin="0.615,0.588" Height="79"><Run Text="TMS:"/><Run Text=" Transportation Management System"/></TextBlock>

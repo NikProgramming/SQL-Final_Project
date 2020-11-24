@@ -29,17 +29,7 @@ namespace FinalProject
             DialogResult = true;
         }
 
-        private void Button_Click2(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Button_Click3(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click4(object sender, RoutedEventArgs e)
         {
 
         }
