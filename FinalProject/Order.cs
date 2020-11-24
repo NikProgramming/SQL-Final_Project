@@ -11,6 +11,7 @@ namespace FinalProject
         int orderID;
         int customerID;
         int itemID;
+        string itemName;
         public Boolean OrderConfirmation()
         {
             return true;
