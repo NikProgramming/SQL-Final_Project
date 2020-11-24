@@ -7,12 +7,24 @@
         ResizeMode="CanMinimize"
         mc:Ignorable="d"
         Title="MainWindow" Height="475" Width="800">
-    <Grid>
-        <Button Content="Login" FontSize="15" Margin="70,326,556,57" Height="38" Click="Button_Click" RenderTransformOrigin="0.514,-1.958"/>
-        <Button Content="Market Place" FontSize="15" Margin="319,326,307,57"  Height="38" Click="Button_Click_1"/>
-        <Button Content="Delivery Date" FontSize="15" Margin="556,326,70,57" Height="38" Click="Button_Click_2"/>
-        <TextBlock TextWrapping="Wrap" FontSize="25" VerticalAlignment="Top" Margin="275,87,275,0" RenderTransformOrigin="0.615,0.588" Height="79"><Run Text="TMS:"/><Run Text=" Transportation Management System"/></TextBlock>
 
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_Sign-In">
+                <MenuItem Header="_Login..." Click="Login_Click"></MenuItem>
+                <MenuItem Header="_Register..." Click="Login_Click1"></MenuItem>
+            </MenuItem>
 
-    </Grid>
+        </Menu>
+
+        <!-- The text box where the files are written and saved. -->
+
+        <Grid>
+            <Button x:Name="loginUser" Content="Login" FontSize="15" Margin="616,10,10,380" Height="38" Click="Button_Click" IsEnabled="False" RenderTransformOrigin="0.514,-1.958"/>
+            <Button x:Name="enterMarketplace" Content="Market Place" FontSize="15" Margin="150,330,476,60"  Height="38" IsEnabled="False" Click="Button_Click_1"/>
+            <Button x:Name="deliveryTimes" Content="Delivery Date" FontSize="15" Margin="476,330,150,60" Height="38" IsEnabled="False" Click="Button_Click_2"/>
+            <TextBlock TextWrapping="Wrap" FontSize="25" VerticalAlignment="Top" Margin="275,87,275,0" RenderTransformOrigin="0.615,0.588" Height="79"><Run Text="TMS:"/><Run Text=" Transportation Management System"/></TextBlock>
+        </Grid>
+    </DockPanel>
+
 </Window>

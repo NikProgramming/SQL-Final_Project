@@ -15,36 +15,22 @@ using System.Windows.Shapes;
 namespace FinalProject
 {
     /// <summary>
-    /// Interaction logic for BuyProducts.xaml
+    /// Interaction logic for login.xaml
     /// </summary>
-    public partial class BuyProducts : Window
+    public partial class login : Window
     {
-        public BuyProducts()
+        public login()
         {
             InitializeComponent();
         }
 
+
         private void Button_Click1(object sender, RoutedEventArgs e)
         {
-            DialogResult = true;
+            DialogResult = false;
         }
 
-        private void Button_Click3(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ListBoxItem_Selected1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ListBoxItem_Selected2(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ListBoxItem_Selected3(object sender, RoutedEventArgs e)
+        private void Button_Click2(object sender, RoutedEventArgs e)
         {
 
         }
