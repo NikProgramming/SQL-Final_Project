@@ -8,10 +8,11 @@ namespace FinalProject
 {
     class Order
     {
-        int orderID;
-        int customerID;
-        int itemID;
-        string itemName;
+        public void takeOrder(int orderID, int customerID, int itemID, string itemName)
+        {
+
+        }
+
         public Boolean OrderConfirmation()
         {
             return true;
