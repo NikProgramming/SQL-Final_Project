@@ -8,9 +8,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="475" Width="800">
 
-<<<<<<< HEAD
-    </Grid>
-=======
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_Sign-In">
@@ -29,6 +26,4 @@
             <TextBlock TextWrapping="Wrap" FontSize="25" VerticalAlignment="Top" Margin="275,87,275,0" RenderTransformOrigin="0.615,0.588" Height="79"><Run Text="TMS:"/><Run Text=" Transportation Management System"/></TextBlock>
         </Grid>
     </DockPanel>
-
->>>>>>> e6e8dca8e3485c662602aca52d19cbc9099f1703
 </Window>
