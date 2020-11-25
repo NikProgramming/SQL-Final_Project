@@ -22,6 +22,7 @@ namespace FinalProject
     public partial class MainWindow : Window
     {
         bool? userOn;
+
         public MainWindow()
         {
             userOn = false;
@@ -57,7 +58,8 @@ namespace FinalProject
 
         private void Login_Click1(object sender, RoutedEventArgs e)
         {
-
+           register regUser = new register();
+           regUser.ShowDialog();
         }
     }
 }
