@@ -13,8 +13,8 @@ namespace FinalProject
     ///
     /// \brief The purpose of this class is to realistically model the billing for the TMS system.
     ///	
-    ///		NAME: Circle
-    ///		PURPOSE : The billing class has been created to 
+    ///		NAME: Billing
+    ///		PURPOSE : The billing class has been created to bill the user
     ///
     /// Within the class definition 
     /// - int buyerID	- models the ID of a buyer.
@@ -36,7 +36,7 @@ namespace FinalProject
         ///     \param orderID - <b>int</b> - Represents the orderID.
         ///     \param customerID - <b>int</b> - Represents the customerID.
         ///     
-        ///		This Function returns the Verifies the if thew user has payed to call billing function.
+        ///		This Method returns the Verifies the if thew user has payed to call billing function.
         /// 
         ///		\return void.
         ///
