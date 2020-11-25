@@ -20,10 +20,10 @@
         <!-- The text box where the files are written and saved. -->
 
         <Grid>
-            <Button x:Name="loginUser" Content="Login" FontSize="15" Margin="616,10,10,380" Height="38" Click="Button_Click" IsEnabled="False" RenderTransformOrigin="0.514,-1.958"/>
             <Button x:Name="enterMarketplace" Content="Market Place" FontSize="15" Margin="150,330,476,60"  Height="38" IsEnabled="False" Click="Button_Click_1"/>
             <Button x:Name="deliveryTimes" Content="Delivery Date" FontSize="15" Margin="476,330,150,60" Height="38" IsEnabled="False" Click="Button_Click_2"/>
             <TextBlock TextWrapping="Wrap" FontSize="25" VerticalAlignment="Top" Margin="275,87,275,0" RenderTransformOrigin="0.615,0.588" Height="79"><Run Text="TMS:"/><Run Text=" Transportation Management System"/></TextBlock>
         </Grid>
     </DockPanel>
+
 </Window>
