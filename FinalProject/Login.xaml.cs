@@ -31,7 +31,7 @@ namespace FinalProject
     public partial class login : Window
     {
         ///
-        ///		\brief Called to check if the payment has gone Threw for the payment.
+        ///		\brief Used to initialize the login.
         ///		\details <b>Details</b>
         ///     
         ///		This Method initializes the login area and displays all the buttons and designs
