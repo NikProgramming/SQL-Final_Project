@@ -1,4 +1,5 @@
-﻿using System;
+﻿//register.xaml.cs
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,38 +15,36 @@ using System.Windows.Shapes;
 
 namespace FinalProject
 {
-
     /// 
-    /// \class DeliveryTimes
+    /// \class register
     ///
-    /// \brief The purpose of this class is to realistically model the Delievery times for the TMS system.
+    /// \brief The purpose of this class is to realistically model the register for the TMS system.
     ///	
-    ///		NAME: DeliveryTimes
-    ///		PURPOSE : The DeliveryTimes class has been created to 
-    ///
+    ///		NAME: register
+    ///		PURPOSE : This class is created for registering into the program which allows 
+    ///               the creation of a new user
     /// Within the class definition 
     /// - N/A
     ///
-    /// \author  <i>Justin Langevin</i>
+    /// \author  <i>Nikola Ristic</i>
     ///
-    public partial class DeliveryTimes : Window
+    public partial class register : Window
     {
         ///
-        ///		\brief Started when Delivery date is clicked
+        ///		\brief Used to initialize the register.
         ///		\details <b>Details</b>
         ///     
-        ///		This Method initializes the DeliveryTimes area and displays all the buttons and designs
+        ///		This Method initializes the register area and displays all the buttons and designs
         /// 
         ///		\return N/A.
         ///
-        public DeliveryTimes()
+        public register()
         {
             InitializeComponent();
         }
 
-
         ///
-        ///		\brief Called to create the back button for the DeliveryTimes.
+        ///		\brief Called to create the back button for the register.
         ///		\details <b>Details</b>
         ///		\param sender - <b>object</b> - Represents the object that is calling the method.
         ///     \param e - <b>RoutedEventArgs</b> - Represents the item thats being sent in.
