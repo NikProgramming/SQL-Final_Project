@@ -24,8 +24,11 @@ namespace FinalProject
         int workHours;
         int driveHours;
         string company;
-        public string SetTrip(string destination)
+        public string SetTrip()
         {
+            Contract contract = new Contract();
+            string origin = contract.origin;
+            string destination = contract.destination;
             if (company == "Planet Express")
             {
                 

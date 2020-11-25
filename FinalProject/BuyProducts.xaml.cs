@@ -36,7 +36,8 @@ namespace FinalProject
 
         private void Button_Click3(object sender, RoutedEventArgs e)
         {
-
+            Contract insertContract = new Contract();
+            insertContract.connectMarketplace();
         }
 
         private void Button_Click4(object sender, RoutedEventArgs e)
