@@ -21,14 +21,16 @@ namespace FinalProject
     /// </summary>
     public partial class MainWindow : Window
     {
+        bool? userOn;
         public MainWindow()
         {
+            userOn = false;
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            BuyProducts purchases = new BuyProducts();
+            login purchases = new login();
             purchases.ShowDialog();
         }
 
@@ -42,6 +44,20 @@ namespace FinalProject
         {
             DeliveryTimes delivery = new DeliveryTimes();
             delivery.ShowDialog();
+        }
+
+        private void Login_Click(object sender, RoutedEventArgs e)
+        {
+            login loginUser = new login();
+            userOn = loginUser.ShowDialog();
+            deliveryTimes.IsEnabled = userOn.Value;
+            enterMarketplace.IsEnabled = userOn.Value;
+            
+        }
+
+        private void Login_Click1(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

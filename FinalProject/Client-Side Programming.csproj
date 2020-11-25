@@ -101,11 +101,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="BuyProducts.xaml">
+    <Page Include="DeliveryTimes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DeliveryTimes.xaml">
+    <Page Include="login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -120,9 +120,6 @@
     </Compile>
     <Compile Include="Billing.cs" />
     <Compile Include="Buyer.cs" />
-    <Compile Include="BuyProducts.xaml.cs">
-      <DependentUpon>BuyProducts.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Carrier.cs" />
     <Compile Include="Contract.cs" />
     <Compile Include="Customer.cs" />
@@ -130,6 +127,9 @@
       <DependentUpon>DeliveryTimes.xaml</DependentUpon>
     </Compile>
     <Compile Include="Invoice.cs" />
+    <Compile Include="login.xaml.cs">
+      <DependentUpon>login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
