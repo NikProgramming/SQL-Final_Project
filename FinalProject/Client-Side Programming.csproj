@@ -104,6 +104,7 @@
     <Compile Include="register.xaml.cs">
       <DependentUpon>register.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TmsDoxygenMainPage.cs" />
     <Page Include="DeliveryTimes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
