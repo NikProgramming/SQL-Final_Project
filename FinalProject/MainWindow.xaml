@@ -8,9 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="475" Width="800">
 
-<<<<<<< HEAD
-    </Grid>
-=======
+
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="_Sign-In">
@@ -30,5 +28,5 @@
         </Grid>
     </DockPanel>
 
->>>>>>> e6e8dca8e3485c662602aca52d19cbc9099f1703
+
 </Window>
