@@ -17,7 +17,7 @@ namespace TmsUnitTest
     ///		PURPOSE : The UnitTest1 class have been create to test the entire Tms solution.
     ///
     ///
-    /// \author  <i>Justin Langevin</i> <i>Troy Hill</i> <i>Nikola Ristic</i> <i>Josiah Rehkopf</i>
+    /// \author  <i>Justin Langevin</i>, <i>Troy Hill</i>, <i>Nikola Ristic</i>, <i>Josiah Rehkopf</i>
     ///
     [TestClass]
     public class UnitTest1
@@ -72,23 +72,34 @@ namespace TmsUnitTest
         [TestMethod]
         public void carrierTest()
         {
-
             //Arrange
-            
+            double expected = 11.5;
+            double result = 0.0;
             //Act
-
+            result = Carrier.SetTrip();
             //Assert
+            Assert.AreEqual(expected, result);
         }
 
+        ///
+        ///		\brief Called to check if the order method has sucessfully been processed.
+        ///		\details <b>Details</b>
+        ///     
+        ///		This Method Verifies the if the user has had their order confirmation confirmed
+        /// 
+        ///		\return void.
+        ///
         [TestMethod]
         public void orderTest()
         {
-
             //Arrange
-            
+            bool expected = true;
+            bool result;
+            Order testOrder = new Order();
             //Act
-
+            result= testOrder.OrderConfirmation();
             //Assert
+            Assert.AreEqual(expected, result);
         }
 
 
