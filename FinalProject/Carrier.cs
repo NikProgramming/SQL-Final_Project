@@ -26,9 +26,9 @@ namespace FinalProject
         string company;
         public string SetTrip()
         {
-            Contract contract = new Contract();
-            string origin = contract.origin;
-            string destination = contract.destination;
+            //Contract contract = new Contract();
+            string origin = Contract.origin;
+            string destination = Contract.destination;
             if (company == "Planet Express")
             {
                 
