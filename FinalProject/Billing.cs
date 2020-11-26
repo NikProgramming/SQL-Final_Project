@@ -18,7 +18,10 @@ namespace FinalProject
     ///
     /// Within the class definition 
     /// - int buyerID	- models the ID of a buyer.
-    ///
+    /// - int orderID   - models the ID of the order.
+    /// - int customerID  -models the ID of the customer.
+    /// - int itemID    - models the ID of the item.
+    /// - bool Payment  - holds a flag to verify the payment.
     /// \author  <i>Justin Langevin</i>
     ///
     public class Billing
