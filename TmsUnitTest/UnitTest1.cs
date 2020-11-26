@@ -26,7 +26,7 @@ namespace TmsUnitTest
         ///
         ///		\brief Called to check if the payment method has sucessfully been processed.
         ///     
-        ///		This Method Verifies the if thew user has payed with billing function This allows
+        ///		This Method Verifies if the user has payed with billing function. This allows
         ///		us to check if the test was successful by comparing the receipt logs sent in.
         /// 
         ///		\return void.
@@ -109,6 +109,14 @@ namespace TmsUnitTest
             //Assert
         }
 
+        ///
+        ///		\brief Called to check if the SelectCarrier method works properly.
+        ///     
+        ///		This Method Verifies that the correct carrier is selected based on the users
+        ///		location.
+        /// 
+        ///		\return void.
+        ///
         [TestMethod]
         public void plannerTest()
         {
