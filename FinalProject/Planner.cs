@@ -20,7 +20,7 @@ namespace FinalProject
     /// - int orderID   - models the ID of the order.
     /// - string address - models the ID of the address.
     ///
-    /// \author  <i>Input name here</i>
+    /// \author  <i>Josiah Rehkopf</i>
     ///
     public class Planner
     {
@@ -38,7 +38,42 @@ namespace FinalProject
         ///
         public string SelectCarrier()
         {
-            return "s";
+            string city = "";
+            string carrier = "";
+            if (city == "Windsor")
+            {
+                carrier = "Tillman Transport";
+            }
+            if (city == "Hamilton")
+            {
+                carrier = "Tillman Transport";
+            }
+            if (city == "Oshawa")
+            {
+                carrier = "Planet Express";
+            }
+            if (city == "Belleville")
+            {
+                carrier = "Planet Express";
+            }
+            if (city == "Ottawa") 
+            {
+                carrier = "We Haul";
+            }
+            if (city == "London")
+            {
+                carrier = "Schooner's";
+            }
+            if (city == "Toronto")
+            {
+                carrier = "We Haul";
+            }
+            if (city == "Kingston")
+            {
+                carrier = "Schooner's";
+            }
+
+            return carrier;
         }
     }
 }
