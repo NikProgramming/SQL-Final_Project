@@ -27,9 +27,9 @@ namespace TmsUnitTest
         {
 
             //Arrange
-            Billing bill = new Billing();
+            Contract contract = new Contract();
             //Act
-
+            Contract.connectMarketplace();
             //Assert
         }
 
