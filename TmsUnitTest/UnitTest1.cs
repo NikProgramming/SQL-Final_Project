@@ -17,7 +17,7 @@ namespace TmsUnitTest
     ///		PURPOSE : The UnitTest1 class have been create to test the entire Tms solution.
     ///
     ///
-    /// \author  <i>Justin Langevin</i> <i>Troy Hill</i> <i>Nikola Ristic</i> <i>Josiah Rehkopf</i>
+    /// \author  <i>Justin Langevin</i>, <i>Troy Hill</i>, <i>Nikola Ristic</i>, <i>Josiah Rehkopf</i>
     ///
     [TestClass]
     public class UnitTest1
