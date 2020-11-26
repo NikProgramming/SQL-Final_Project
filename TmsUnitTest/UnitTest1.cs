@@ -112,5 +112,16 @@ namespace TmsUnitTest
 
             //Assert
         }
+
+        [TestMethod]
+        public void plannerTest()
+        {
+            string expected = "Planet Express";
+            string city = "Oshawa";
+            Planner testPlanner = new Planner();
+            string result = testPlanner.SelectCarrier(city);
+            Assert.AreEqual(expected, result);
+
+        }
     }
 }
