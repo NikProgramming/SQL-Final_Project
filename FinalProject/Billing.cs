@@ -21,7 +21,7 @@ namespace FinalProject
     ///
     /// \author  <i>Justin Langevin</i>
     ///
-    class Billing
+    public class Billing
     {
         int buyerID;
         int orderID;

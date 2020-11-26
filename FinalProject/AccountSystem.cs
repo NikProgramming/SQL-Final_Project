@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FinalProject
 {
-    class AccountSystem
+    public class AccountSystem
     {
         int customerID;
         int orderID;

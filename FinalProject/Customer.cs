@@ -23,7 +23,7 @@ namespace FinalProject
     ///
     /// \author  <i>Input name here</i>
     ///
-    class Customer
+    public class Customer
     {
         int customerID;
         string name;

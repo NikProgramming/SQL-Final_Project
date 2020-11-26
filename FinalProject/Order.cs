@@ -24,7 +24,7 @@ namespace FinalProject
     ///
     /// \author  <i>Input name here</i>
     ///
-    class Order
+    public class Order
     {
         ///
         ///		\brief Called to take the order of the customer.

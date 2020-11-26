@@ -22,7 +22,7 @@ namespace FinalProject
     ///
     /// \author  <i>Input name here</i>
     ///
-    class Planner
+    public class Planner
     {
         int plannerID;
         int orderID;
