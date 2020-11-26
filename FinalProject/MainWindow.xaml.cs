@@ -45,6 +45,7 @@ namespace FinalProject
         {
             DeliveryTimes delivery = new DeliveryTimes();
             delivery.ShowDialog();
+
         }
 
         private void Login_Click(object sender, RoutedEventArgs e)
@@ -53,7 +54,6 @@ namespace FinalProject
             userOn = loginUser.ShowDialog();
             deliveryTimes.IsEnabled = userOn.Value;
             enterMarketplace.IsEnabled = userOn.Value;
-            
         }
 
         private void Login_Click1(object sender, RoutedEventArgs e)

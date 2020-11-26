@@ -72,12 +72,13 @@ namespace TmsUnitTest
         [TestMethod]
         public void carrierTest()
         {
-
             //Arrange
-            
+            double expected = 11.5;
+            double result = 0.0;
             //Act
-
+            result = Carrier.SetTrip();
             //Assert
+            Assert.AreEqual(expected, result);
         }
 
         [TestMethod]

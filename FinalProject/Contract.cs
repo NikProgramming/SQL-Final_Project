@@ -24,6 +24,14 @@ namespace FinalProject
         static public string destination;
         static public int vanType;
 
+        ///
+        ///		\brief Called to connect the program to the external contract marketplace
+        ///		\details <b>Details</b>
+        ///
+        ///		This Method returns if the connection succeeded.
+        /// 
+        ///		\return Returns a success value.
+        ///
         static public int connectMarketplace()
         {
             string cs = @"server=159.89.117.198;userid=DevOSHT;password=Snodgr4ss!;database=cmp";
@@ -59,6 +67,14 @@ namespace FinalProject
             return success;
         }
 
+        ///
+        ///		\brief Called to create the receiptLog for the billing.
+        ///		\details <b>Details</b>
+        ///
+        ///		This Method returns nothing
+        /// 
+        ///		\return Returns nothing.
+        ///
         static void storeContractLocal()
         {
             string cs = @"server=localhost;userid=root;password=123sql;database=TMS Database";
