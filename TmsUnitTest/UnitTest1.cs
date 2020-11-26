@@ -81,15 +81,25 @@ namespace TmsUnitTest
             Assert.AreEqual(expected, result);
         }
 
+        ///
+        ///		\brief Called to check if the order method has sucessfully been processed.
+        ///		\details <b>Details</b>
+        ///     
+        ///		This Method Verifies the if the user has had their order confirmation confirmed
+        /// 
+        ///		\return void.
+        ///
         [TestMethod]
         public void orderTest()
         {
-
             //Arrange
-            
+            bool expected = true;
+            bool result;
+            Order testOrder = new Order();
             //Act
-
+            result= testOrder.OrderConfirmation();
             //Assert
+            Assert.AreEqual(expected, result);
         }
 
 
