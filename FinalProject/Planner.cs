@@ -20,7 +20,7 @@ namespace FinalProject
     /// - int orderID   - models the ID of the order.
     /// - string address - models the ID of the address.
     ///
-    /// \author  <i>Input name here</i>
+    /// \author  <i>Josiah Rehkopf</i>
     ///
     public class Planner
     {
