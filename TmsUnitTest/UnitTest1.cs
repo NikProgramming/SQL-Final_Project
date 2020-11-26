@@ -25,10 +25,6 @@ namespace TmsUnitTest
 
         ///
         ///		\brief Called to check if the payment method has sucessfully been processed.
-        ///		\details <b>Details</b>
-        ///     \param buyerID - <b>int</b> - Represents the buyersID.
-        ///     \param orderID - <b>int</b> - Represents the orderID.
-        ///     \param customerID - <b>int</b> - Represents the customerID.
         ///     
         ///		This Method Verifies the if thew user has payed with billing function This allows
         ///		us to check if the test was successful by comparing the receipt logs sent in.
