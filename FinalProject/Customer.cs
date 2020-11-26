@@ -21,7 +21,7 @@ namespace FinalProject
     /// - string gender - models the gender of the customer.
     /// - string dateOfBirth - models the date of birth of the customer.
     ///
-    /// \author  <i>Input name here</i>
+    /// \author  <i>Josiah Rehkopf</i>
     ///
     public class Customer
     {

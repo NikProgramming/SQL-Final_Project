@@ -19,9 +19,10 @@ namespace FinalProject
     /// Within the class definition 
     /// - int buyerID	- models the ID of a buyer.
     /// - int orderID   - models the ID of the order.
-    /// - int customerID  -models the ID of the customer.
+    /// - int customerID - models the ID of the customer.
     /// - int itemID    - models the ID of the item.
     /// - bool Payment  - holds a flag to verify the payment.
+    /// 
     /// \author  <i>Justin Langevin</i>
     ///
     public class Billing
@@ -33,13 +34,13 @@ namespace FinalProject
         bool payment;
 
         ///
-        ///		\brief Called to check if the payment has gone Threw for the payment.
+        ///		\brief Called to check if the payment has gone through.
         ///		\details <b>Details</b>
         ///     \param buyerID - <b>int</b> - Represents the buyersID.
         ///     \param orderID - <b>int</b> - Represents the orderID.
         ///     \param customerID - <b>int</b> - Represents the customerID.
         ///     
-        ///		This Method returns the Verifies the if thew user has payed to call billing function.
+        ///		This Method verifies the payment.
         /// 
         ///		\return void.
         ///

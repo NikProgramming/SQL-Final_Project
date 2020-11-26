@@ -20,7 +20,7 @@ namespace FinalProject
     /// - int orderID   - models the ID of the order.
     /// - int customerID - models the ID of the customer.
     ///
-    /// \author  <i>Input name here</i>
+    /// \author  <i>Josiah Rehkopf</i>
     ///
     public class Buyer
     {
@@ -34,7 +34,7 @@ namespace FinalProject
         ///     
         ///		This Methods returns the customer contract.
         /// 
-        ///		\return void.
+        ///		\return customerContract.
         ///
         public void RequstCustomerContract()
         {
@@ -42,7 +42,7 @@ namespace FinalProject
         }
 
         ///
-        ///		\brief Called to request a create an order.
+        ///		\brief Called to create a order.
         ///		\details <b>Details</b>
         ///     
         ///		This Methods creates a customers order.

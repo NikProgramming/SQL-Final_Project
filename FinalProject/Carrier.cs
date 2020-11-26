@@ -225,7 +225,7 @@ namespace FinalProject
         ///		\brief Called to show the remaining time for the trip.
         ///		\details <b>Details</b>
         ///
-        ///		This Method returns the the remaining time for the trip.
+        ///		This Method returns the remaining time for the trip.
         /// 
         ///		\return Returns a remaining time in hours.
         ///
