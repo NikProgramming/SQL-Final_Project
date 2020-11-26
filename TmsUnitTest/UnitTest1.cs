@@ -11,9 +11,8 @@ namespace TmsUnitTest
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void billingTest()
         {
-            //example
 
             //Arrange
             Billing bill = new Billing();
@@ -21,6 +20,50 @@ namespace TmsUnitTest
 
             //Assert
 
+        }
+
+        [TestMethod]
+        public void contractTest()
+        {
+
+            //Arrange
+            Billing bill = new Billing();
+            //Act
+
+            //Assert
+        }
+
+        [TestMethod]
+        public void carrierTest()
+        {
+
+            //Arrange
+            
+            //Act
+
+            //Assert
+        }
+
+        [TestMethod]
+        public void orderTest()
+        {
+
+            //Arrange
+            
+            //Act
+
+            //Assert
+        }
+
+
+        [TestMethod]
+        public void buyerTest()
+        {
+            //Arrange
+           
+            //Act
+
+            //Assert
         }
     }
 }
