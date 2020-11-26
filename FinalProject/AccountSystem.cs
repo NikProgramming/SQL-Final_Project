@@ -15,7 +15,7 @@ namespace FinalProject
     ///		NAME: Account
     ///		PURPOSE : The Account class has been created to model the Account system
     ///
-    /// Within the class defintiion 
+    /// Within the class definition 
     /// - int customerID - models the ID of a customer.
     /// - Invoice myInvoice - models an invoice.
     ///
