@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FinalProject
 { 
-    class Carrier
+    public class Carrier
     {
         struct Destinations
         {

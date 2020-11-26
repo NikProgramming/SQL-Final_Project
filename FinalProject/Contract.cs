@@ -7,7 +7,7 @@ using MySql.Data.MySqlClient;
 
 namespace FinalProject
 {
-    class Contract
+    public class Contract
     {
         string incomingOrderID;
         string incomingCustomerID;
