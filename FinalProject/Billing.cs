@@ -23,10 +23,10 @@ namespace FinalProject
     ///
     public class Billing
     {
-        int buyerID;
-        int orderID;
-        int customerID;
-        int itemID;//idk if this is needed
+        int buyerID =1;
+        int orderID = 1;
+        int customerID = 1;
+        int itemID = 1;//idk if this is needed
         bool payment;
 
         ///
@@ -40,7 +40,7 @@ namespace FinalProject
         /// 
         ///		\return void.
         ///
-        public void VerifyPayment(int buyerID, int orderID, int customerID)
+        public void VerifyPayment(int buyerID, int orderID, int customerID, bool payment)
         {
             if (payment == true)
             {
