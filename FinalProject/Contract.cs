@@ -9,48 +9,57 @@ namespace FinalProject
 {
     public class Contract
     {
-        string incomingOrderID;
-        string incomingCustomerID;
+        //string incomingOrderID;
+        //string incomingCustomerID;
         int orderID;
         int customerID;
         
-        string customerGender;
-        string dateOfBirth;
+        //string customerGender;
+        //string dateOfBirth;
 
-        public string customerName;
-        public int jobType;
-        public int quantity;
-        public string origin;
-        public string destination;
-        public int vanType;
+        static public string customerName;
+        static public int jobType;
+        static public int quantity;
+        static public string origin;
+        static public string destination;
+        static public int vanType;
 
-        public void connectMarketplace()
+        static public int connectMarketplace()
         {
             string cs = @"server=159.89.117.198;userid=DevOSHT;password=Snodgr4ss!;database=cmp";
-
-            MySqlConnection con = new MySqlConnection(cs);
-            con.Open();
-
-
-            MySqlCommand cmd = new MySqlCommand("SELECT * FROM Contract", con);
-
-            MySqlDataReader rdr = cmd.ExecuteReader();
-
-            while(rdr.Read())
+            int success = 0;
+            try
             {
-                customerName = rdr.GetString(0);
-                jobType = rdr.GetInt32(1);
-                quantity = rdr.GetInt32(2);
-                origin = rdr.GetString(3);
-                destination = rdr.GetString(4);
-                vanType = rdr.GetInt32(5);
-                storeContractLocal();
+                MySqlConnection con = new MySqlConnection(cs);
+                con.Open();
+
+
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM Contract", con);
+
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    customerName = rdr.GetString(0);
+                    jobType = rdr.GetInt32(1);
+                    quantity = rdr.GetInt32(2);
+                    origin = rdr.GetString(3);
+                    destination = rdr.GetString(4);
+                    vanType = rdr.GetInt32(5);
+                    storeContractLocal();
+                }
+                rdr.Close();
+                con.Close();
+                success = 1;
             }
-            rdr.Close();
-            con.Close();
+            catch(MySqlException e)
+            {
+                throw e;
+            }
+            return success;
         }
 
-        void storeContractLocal()
+        static void storeContractLocal()
         {
             string cs = @"server=localhost;userid=root;password=123sql;database=TMS Database";
 
@@ -76,6 +85,7 @@ namespace FinalProject
 
         void infoValidation()
         {
+            /*
             if (int.TryParse(incomingOrderID, out orderID) == true)
             {
 
@@ -85,6 +95,7 @@ namespace FinalProject
             {
 
             }
+            */
         }
     }
 }

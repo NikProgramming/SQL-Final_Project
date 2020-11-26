@@ -60,12 +60,13 @@ namespace TmsUnitTest
         [TestMethod]
         public void contractTest()
         {
-
             //Arrange
-
+            int expected = 1;
+            int result = 0;
             //Act
-
+            result = Contract.connectMarketplace();
             //Assert
+            Assert.AreEqual(expected, result);
         }
 
         [TestMethod]
