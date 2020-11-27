@@ -47,7 +47,6 @@ namespace FinalProject
         ///		\details <b>Details</b>
         ///
         ///		This Method returns if the connection succeeded.
-        ///		This Method returns if the connection succeeded.
         /// 
         ///		\return Returns a success value.
         ///

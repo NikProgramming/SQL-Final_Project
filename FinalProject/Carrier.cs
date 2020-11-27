@@ -58,7 +58,7 @@ namespace FinalProject
         ///
         ///		This Method returns the total time for the trip.
         ///		
-        ///     Fault exceptions: -----------------------------   
+        ///     Fault exceptions: None  
         /// 
         ///		\return Returns a time in hours.
         ///
