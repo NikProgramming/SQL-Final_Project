@@ -72,9 +72,26 @@ namespace TmsUnitTest
 
 
 
+        ///
+        ///		\brief Called to check if the program successfully connects to the database and retrieves the data
+        ///     
+        ///		This Method Verifies that the program has connected to the external Contract Marketplace and has
+        ///		pulled the contracts in
+        ///     
+        ///     \details <b>Details</b>
+        ///     
+        ///     How the test is conducted: We used one of the buttons as a button to run the mysqlconnection
+        ///     to the marketplace and then it will grab the contracts, put them in our own database, and 
+        ///     will hopefully return 1. This whole process of the function being tested is in a try-catch block
         /// 
-        /// Add comments pls
+        ///     Type of test: Functional
+        ///     
+        ///     Expected outcome: For the test to retrn 1 to say it successfully connected.
+        ///     
+        ///     Result: It returned a successful connection.
         /// 
+        ///		\return void.
+        ///
         [TestMethod]
         public void contractTest()
         {
@@ -88,9 +105,26 @@ namespace TmsUnitTest
         }
 
 
+        ///
+        ///		\brief Called to set the trip for the carrier
+        ///     
+        ///		This Method Verifies that the SetTrip function correctly sets a length of time that the carrier will
+        ///		need to travel for
+        ///     
+        ///     \details <b>Details</b>
+        ///     
+        ///     How the test is conducted: We hardcoded "Windsor" as the origin and "Hamilton" as the destination which
+        ///     should take 11.5 hours and what we did was make sure that the function for setting the trip up returned 
+        ///     11.5 hours.
         /// 
-        /// Add comments pls
+        ///     Type of test: Functional
+        ///     
+        ///     Expected outcome: For the test to return 11.5(hours)
+        ///     
+        ///     Result: It returned a 11.5(hours)
         /// 
+        ///		\return void.
+        ///
         [TestMethod]
         public void carrierTest()
         {
