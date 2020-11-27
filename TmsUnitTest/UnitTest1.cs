@@ -173,6 +173,10 @@ namespace TmsUnitTest
         ///		This Method Verifies that the correct carrier is selected based on the users
         ///		location.
         ///		
+        ///     How the test is conducted: The test is conducted by creating a expected carrier and a city.
+        ///     The test then sends the created city to the selectCarrier and gets the return. The expected
+        ///     carrier is then compared to the carrier that is returned.
+        /// 
         ///     \details <b>Details</b>
         ///     
         ///     Type of test: Functional

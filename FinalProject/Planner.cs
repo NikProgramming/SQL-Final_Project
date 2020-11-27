@@ -45,7 +45,7 @@ namespace FinalProject
         public string SelectCarrier(string location)
         {
             string city = location;
-            string carrier = "";
+            string carrier = "N/A";
             if (city == "Windsor")
             {
                 carrier = "Tillman Transport";
