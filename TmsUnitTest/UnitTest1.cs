@@ -107,6 +107,10 @@ namespace TmsUnitTest
         ///		\brief Called to check if the order method has successfully been processed.
         ///		\details <b>Details</b>
         ///     
+        ///     How the test is conducted: We test the orderconfirmation by creating the expected result
+        ///     and returning the result that is given in the order confirmation. We then compare and see
+        ///     if the result is equal to the expected.
+        /// 
         ///     Type of test: Functional
         ///         
         ///     Expected outcome: It returns if the order is confirmed
