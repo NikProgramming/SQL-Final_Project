@@ -32,12 +32,12 @@ namespace FinalProject
         ///		\brief Called to select a carrier.
         ///		\details <b>Details</b>
         ///     \param location - <b>string</b> - Represents the location of the order.
-        ///     \param carrier  -<b>string</b> - Represents the carrier to select from. 
+        ///     \param carrier  -<b>string</b> - Represents the carriers to select from. 
         /// 
         ///		This Methods returns the carrier that has been selected.
         ///		
         ///     The Fault exceptions: the fault exceptions we have in place is to verify 
-        ///     that every city has an associated carrier so that way carrier dont have all the orders. 
+        ///     that every city has an associated carrier so that way one carrier doesn't have all the orders. 
         ///     
         /// 
         ///		\return void.
