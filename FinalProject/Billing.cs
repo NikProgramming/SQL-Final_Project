@@ -23,6 +23,7 @@ namespace FinalProject
     /// - int itemID    - models the ID of the item.
     /// - bool Payment  - holds a flag to verify the payment.
     /// 
+    /// 
     /// \author  <i>Justin Langevin</i>
     ///
     public class Billing
@@ -35,12 +36,16 @@ namespace FinalProject
 
         ///
         ///		\brief Called to check if the payment has gone through.
+        ///		
         ///		\details <b>Details</b>
         ///     \param buyerID - <b>int</b> - Represents the buyersID.
         ///     \param orderID - <b>int</b> - Represents the orderID.
         ///     \param customerID - <b>int</b> - Represents the customerID.
         ///     
         ///		This Method verifies the payment.
+        ///		
+        ///     Fault exceptions: We are checking to see if the payment has been 
+        ///     paid for this allows us to verify twice to certify the payment.        
         /// 
         ///		\return void.
         ///
@@ -66,6 +71,8 @@ namespace FinalProject
         ///     \param customerID - <b>int</b> - Represents the customerID.
         ///
         ///		This Method returns the Receipt for the user.
+        ///		
+        ///     Fault exceptions: The second time to verify the payment to ensure the value is correct.
         /// 
         ///		\return Returns a receipt log.
         ///
