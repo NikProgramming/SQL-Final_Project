@@ -102,6 +102,12 @@ namespace TmsUnitTest
         ///		\brief Called to check if the order method has sucessfully been processed.
         ///		\details <b>Details</b>
         ///     
+        ///     Type of test: Functional
+        ///         
+        ///     Expected outcome: It returns if the order is confirmed
+        ///     
+        ///     Result: it returns true to tell that the order was confirmed.
+        /// 
         ///		This Method Verifies the if the user has had their order confirmation confirmed
         /// 
         ///		\return void.
