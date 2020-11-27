@@ -23,6 +23,7 @@ namespace FinalProject
     ///		NAME: Login
     ///		PURPOSE : This class is created for logining into the program which allows 
     ///               the user, if valid, to enter the marketplace and see the schedules
+    ///     RELATIONSHIPS: Main menu(called from), MarketPlace (login required to enter UI), Delivery Date (login required to enter UI) 
     /// Within the class definition 
     /// - N/A
     ///

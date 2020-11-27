@@ -22,7 +22,7 @@ namespace FinalProject
     ///	
     ///		NAME: DeliveryTimes
     ///		PURPOSE : The DeliveryTimes class has been created to 
-    ///
+    ///     RELATIONSHIPS: Main menu (called from), login (required to enter UI)
     /// Within the class definition 
     /// - N/A
     ///

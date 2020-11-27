@@ -23,6 +23,7 @@ namespace FinalProject
     ///		NAME: register
     ///		PURPOSE : This class is created for registering into the program which allows 
     ///               the creation of a new user
+    ///     RELATIONSHIPS: Main menu (called from)
     /// Within the class definition 
     /// - N/A
     ///
