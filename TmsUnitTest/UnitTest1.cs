@@ -11,7 +11,10 @@ namespace TmsUnitTest
     /// 
     /// \class UnitTest1
     ///
+    /// \Test Plan
+    /// 
     /// \brief The purpose of this class is to test the classes and function within are tms solution.
+    /// this is the test plan for are TMS solution and milestone 3 since we chose to do it in doxygen and not excel.
     ///	
     ///		NAME: UnitTest1
     ///		PURPOSE : The UnitTest1 class have been create to test the entire Tms solution.
@@ -26,9 +29,10 @@ namespace TmsUnitTest
         ///
         ///		\brief Called to check if the payment method has successfully been processed.
         ///     
-        ///		This Method Verifies if the user has payed with billing function. This allows
+        ///		This Method Verifies if the user has payed within the billing function. This allows
         ///		us to check if the test was successful by comparing the receipt logs sent in.
-        /// 
+        ///     
+        ///     \details <b>Details</b>
         ///     Type of test: Functional
         ///     
         ///     Expected outcome: For the test to return payment declined.
@@ -58,6 +62,8 @@ namespace TmsUnitTest
             //Assert
             Assert.AreEqual(expected, result);
         }
+
+
 
         [TestMethod]
         public void contractTest()
@@ -120,6 +126,14 @@ namespace TmsUnitTest
         ///     
         ///		This Method Verifies that the correct carrier is selected based on the users
         ///		location.
+        ///		
+        ///     \details <b>Details</b>
+        ///     
+        ///     Type of test: Functional
+        ///         
+        ///     Expected outcome: For the test to return the carrier Planet Express.
+        ///     
+        ///     Result: it returned Planet Express.
         /// 
         ///		\return void.
         ///
