@@ -53,29 +53,43 @@ namespace FinalProject
         ///
         static public int connectMarketplace()
         {
+            //set up the connection string
             string cs = @"server=159.89.117.198;userid=DevOSHT;password=Snodgr4ss!;database=cmp";
             int success = 0;
             try
             {
+                //create mysqlconnection and connect to the string connection
                 MySqlConnection con = new MySqlConnection(cs);
+                //open the connection to the marketplace
                 con.Open();
 
-
+                //prepare to execute the command to grab everything form the marketplace
                 MySqlCommand cmd = new MySqlCommand("SELECT * FROM Contract", con);
 
+                //execute the command while putting everything into the reader
                 MySqlDataReader rdr = cmd.ExecuteReader();
 
+                //while still getting the contracts
                 while (rdr.Read())
                 {
+                    //get the customer name
                     customerName = rdr.GetString(0);
+                    //get the job type
                     jobType = rdr.GetInt32(1);
+                    //get the quantity of the item they want shipped
                     quantity = rdr.GetInt32(2);
+                    //get the origin city
                     origin = rdr.GetString(3);
+                    //get the destination city
                     destination = rdr.GetString(4);
+                    //set the van type to be used
                     vanType = rdr.GetInt32(5);
+                    //store the contract in our database
                     storeContractLocal();
                 }
+                //close the reader
                 rdr.Close();
+                //close the connection
                 con.Close();
                 success = 1;
             }
@@ -87,34 +101,39 @@ namespace FinalProject
         }
 
         ///
-        ///		\brief Called to create the receiptLog for the billing.
+        ///		\brief Called to store the contracts in the local database
         ///		\details <b>Details</b>
         ///
-        ///		This Method returns nothing
+        ///		This method stores each contract pulled in from the marketplace from the 
+        ///		connectMarketplace() function and stores them in our own database
         /// 
         ///		\return Returns nothing.
         ///
         static void storeContractLocal()
         {
+            //set up connection string for the local database
             string cs = @"server=localhost;userid=root;password=123sql;database=TMS Database";
-
+            //set up connection to the database
             MySqlConnection con = new MySqlConnection(cs);
+            //open the connection
             con.Open();
-
-            //string insertContractQuery = "INSERT INTO contract VALUES(" + customerName + "," + jobType.ToString() + "," + quantity.ToString() + "," + origin + "," + destination + "," + vanType + ");";
+            //set up the command string
             string insertContractQuery = "INSERT INTO contract VALUES(@name, @job, @quantity, @origin, @destination, @van);";
+            //set up the command itself and get ready to execute
             MySqlCommand cmd = new MySqlCommand(insertContractQuery, con);
 
+            //apply values to each parameter
             cmd.Parameters.AddWithValue("@name", customerName);
             cmd.Parameters.AddWithValue("@job", jobType.ToString());
             cmd.Parameters.AddWithValue("@quantity", quantity.ToString());
             cmd.Parameters.AddWithValue("@origin", origin);
             cmd.Parameters.AddWithValue("@destination", destination);
             cmd.Parameters.AddWithValue("@van", vanType.ToString());
+            //prepare the command
             cmd.Prepare();
-
+            //execute the query to insert the contract
             cmd.ExecuteNonQuery();
-
+            //close the connection
             con.Close();
         }
 
