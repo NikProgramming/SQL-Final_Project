@@ -24,10 +24,16 @@ namespace TmsUnitTest
     {
 
         ///
-        ///		\brief Called to check if the payment method has sucessfully been processed.
+        ///		\brief Called to check if the payment method has successfully been processed.
         ///     
         ///		This Method Verifies if the user has payed with billing function. This allows
         ///		us to check if the test was successful by comparing the receipt logs sent in.
+        /// 
+        ///     Type of test: Functional
+        ///     
+        ///     Expected outcome: For the test to return payment declined.
+        ///     
+        ///     Result: it returned payment declined.
         /// 
         ///		\return void.
         ///
