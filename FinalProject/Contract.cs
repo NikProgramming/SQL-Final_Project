@@ -13,15 +13,15 @@ namespace FinalProject
     /// \brief The purpose of this class is to realistically model the Contract service for the TMS system.
     ///	
     ///		NAME: Contract
-    ///		PURPOSE : The Service class has been created model the Contract system of the TMS solution.
+    ///		PURPOSE : The Contract class has been created to model the Contract system of the TMS solution.
     ///
     /// Within the class definition 
-    /// - Static public string customerName: 
-    /// - static public int jobType:
-    /// - static public int quantity:
-    /// - static public string origin:
-    /// - static public string destination:
-    /// - static public int vanType:
+    /// - Static public string customerName: Used to set the customer name and put into database
+    /// - static public int jobType: Contains the job type in terms of an integer
+    /// - static public int quantity: Contasins the quantity of the item being delivered
+    /// - static public string origin: Contains the origin city to drive from
+    /// - static public string destination: Contains the destination city to drive to 
+    /// - static public int vanType: Contains the van type to use based off of an integer
     /// 
     /// \author  <i>Troy Hill</i>
     ///
