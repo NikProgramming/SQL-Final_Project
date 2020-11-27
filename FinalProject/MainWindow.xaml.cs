@@ -23,7 +23,7 @@ namespace FinalProject
     ///	
     ///		NAME: MainWindow
     ///		PURPOSE : The MainWindow class has been created to display the main window of the program
-    ///
+    ///     RELATIONSHIPS: Login, register, Delivery Date, Marketplace
     /// Within the class definition 
     /// - N/A
     ///

@@ -22,7 +22,7 @@ namespace FinalProject
     ///	
     ///		NAME: MarketPlace
     ///		PURPOSE : The MarketPlace class has been created to model the market place
-    ///
+    ///     RELATIONSHIPS: Main menu (called from), login (required to enter UI)
     /// Within the class definition 
     /// - N/A
     ///
