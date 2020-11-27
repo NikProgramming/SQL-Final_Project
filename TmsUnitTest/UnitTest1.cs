@@ -65,6 +65,11 @@ namespace TmsUnitTest
 
 
 
+
+
+        /// 
+        /// Add comments pls
+        /// 
         [TestMethod]
         public void contractTest()
         {
@@ -77,6 +82,10 @@ namespace TmsUnitTest
             Assert.AreEqual(expected, result);
         }
 
+
+        /// 
+        /// Add comments pls
+        /// 
         [TestMethod]
         public void carrierTest()
         {
@@ -111,15 +120,6 @@ namespace TmsUnitTest
         }
 
 
-        [TestMethod]
-        public void buyerTest()
-        {
-            //Arrange
-           
-            //Act
-
-            //Assert
-        }
 
         ///
         ///		\brief Called to check if the SelectCarrier method works properly.
