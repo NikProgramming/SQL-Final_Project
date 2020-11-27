@@ -33,6 +33,11 @@ namespace TmsUnitTest
         ///		us to check if the test was successful by comparing the receipt logs sent in.
         ///     
         ///     \details <b>Details</b>
+        ///     
+        ///     How the test is conducted: We input a test orderID and customerID buyerID 
+        ///     and the payment status to verify the payment from there we call the receipt 
+        ///     log to get the out come we expect it to fail.
+        /// 
         ///     Type of test: Functional
         ///     
         ///     Expected outcome: For the test to return payment declined.
@@ -99,7 +104,7 @@ namespace TmsUnitTest
         }
 
         ///
-        ///		\brief Called to check if the order method has sucessfully been processed.
+        ///		\brief Called to check if the order method has successfully been processed.
         ///		\details <b>Details</b>
         ///     
         ///     Type of test: Functional

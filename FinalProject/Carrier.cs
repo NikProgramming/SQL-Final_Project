@@ -5,7 +5,27 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace FinalProject
-{ 
+{
+    /// 
+    /// \class Carrier
+    ///
+    /// \brief The purpose of this class is to realistically model the Carrier service for the TMS system.
+    ///	
+    ///		NAME: Service
+    ///		PURPOSE : The Service class has been created model the Carriers set trips for the orders.
+    ///
+    /// Within the class definition 
+    /// - struct Destination - : does stuff -----------------------------------------------------------------------------
+    /// - int carrierID - models the carrier ID.
+    /// - string address - models the address/destination.
+    /// - int driveHours - models the amount of hours the driver need to drive.
+    /// - string company - models the carrier company name.
+    /// - static double - models the total time traveled.
+    /// - static string - models the load .
+    /// - static double - models the remainingTime of the trip.
+    /// 
+    /// \author  <i>Justin Langevin</i>
+    ///
     public class Carrier
     {
         struct Destinations
@@ -33,6 +53,8 @@ namespace FinalProject
         ///		\details <b>Details</b>
         ///
         ///		This Method returns the total time for the trip.
+        ///		
+        ///     Fault exceptions: -----------------------------   
         /// 
         ///		\return Returns a time in hours.
         ///
@@ -226,6 +248,8 @@ namespace FinalProject
         ///		\details <b>Details</b>
         ///
         ///		This Method returns the remaining time for the trip.
+        /// 
+        ///     Fault exceptions:
         /// 
         ///		\return Returns a remaining time in hours.
         ///

@@ -7,6 +7,24 @@ using MySql.Data.MySqlClient;
 
 namespace FinalProject
 {
+    /// 
+    /// \class Contract
+    ///
+    /// \brief The purpose of this class is to realistically model the Contract service for the TMS system.
+    ///	
+    ///		NAME: Contract
+    ///		PURPOSE : The Service class has been created model the Contract system of the TMS solution.
+    ///
+    /// Within the class definition 
+    /// - Static public string customerName: 
+    /// - static public int jobType:
+    /// - static public int quantity:
+    /// - static public string origin:
+    /// - static public string destination:
+    /// - static public int vanType:
+    /// 
+    /// \author  <i>Troy Hill</i>
+    ///
     public class Contract
     {
         //string incomingOrderID;
@@ -28,6 +46,7 @@ namespace FinalProject
         ///		\brief Called to connect the program to the external contract marketplace
         ///		\details <b>Details</b>
         ///
+        ///		This Method returns if the connection succeeded.
         ///		This Method returns if the connection succeeded.
         /// 
         ///		\return Returns a success value.
