@@ -134,6 +134,37 @@ namespace TmsUnitTest
             Assert.AreEqual(expected, result);
         }
 
+        ///
+        ///		\brief Called to check if the order method has unsuccessfully been processed.
+        ///		\details <b>Details</b>
+        ///     
+        ///     How the test is conducted: We test the orderconfirmation by creating the expected result
+        ///     and returning the result that is given in the order confirmation. We then compare and see
+        ///     if the result is equal to the expected meaning that its valid.
+        /// 
+        ///     Type of test: Exception
+        ///         
+        ///     Expected outcome: It returns that the order is not confirmed
+        ///     
+        ///     Result: it returns true to tell that the order was confirmed.
+        /// 
+        ///		This Method Verifies the if the user has had their order confirmation confirmed
+        /// 
+        ///		\return void.
+        ///
+        [TestMethod]
+        public void orderTestException()
+        {
+            //Arrange
+            bool expected = false;
+            bool result;
+            Order testOrder = new Order();
+            //Act
+            result = testOrder.OrderConfirmation();
+            //Assert
+            Assert.AreEqual(expected, result);
+        }
+
 
 
         ///
