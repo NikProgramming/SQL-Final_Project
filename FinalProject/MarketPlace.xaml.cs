@@ -38,11 +38,26 @@ namespace FinalProject
         /// 
         ///		\return N/A.
         ///
+        List <string> contractStrings = new List<string>();
+
         public MarketPlace()
         {
             InitializeComponent();
-
             Contract.connectMarketplace();
+            for(int i=0;i<Contract.contractList.Count;i++)
+            {
+                contractStrings.Add(fileConnecter9000(i));
+            }
+            ContractDisplay.ItemsSource = contractStrings;
+        }
+
+        public string fileConnecter9000(int index)
+        {
+            string stringContract="";
+            stringContract = Contract.contractList[index].customerName +" "+ Contract.contractList[index].jobType + " " + Contract.contractList[index].quantity + " " + Contract.contractList[index].origin + " " + Contract.contractList[index].destination + " " + Contract.contractList[index].vanType;
+
+
+            return stringContract;
         }
 
         ///
@@ -57,7 +72,23 @@ namespace FinalProject
         ///
         private void Button_Click1(object sender, RoutedEventArgs e)
         {
+            ContractDisplay = null;
             DialogResult = true;
+        }
+
+        private void ListView_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click2(object sender, RoutedEventArgs e)
+        {
+           Choice.Text=(string)ContractDisplay.SelectedItem;
+        }
+
+        private void Purchase_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
