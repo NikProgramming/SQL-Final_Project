@@ -41,6 +41,8 @@ namespace FinalProject
         public MarketPlace()
         {
             InitializeComponent();
+
+            Contract.connectMarketplace();
         }
 
         ///

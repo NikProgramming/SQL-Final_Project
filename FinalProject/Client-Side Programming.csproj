@@ -179,5 +179,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ServerSide\ServerSide.csproj">
+      <Project>{f88027ec-248c-431a-b630-7f3bb6ca43d1}</Project>
+      <Name>ServerSide</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

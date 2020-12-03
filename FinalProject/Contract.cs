@@ -41,7 +41,19 @@ namespace FinalProject
         static public string origin;
         static public string destination;
         static public int vanType;
+        static Planner plan = new Planner();
+        public static List<contractDetails> contractList = new List<contractDetails>();
 
+        public struct contractDetails
+        {
+            public string customerName;
+            public int jobType;
+            public int quantity;
+            public string origin;
+            public string destination;
+            public int vanType;
+        }
+        
         ///
         ///		\brief Called to connect the program to the external contract marketplace
         ///		\details <b>Details</b>
@@ -52,6 +64,7 @@ namespace FinalProject
         ///
         static public int connectMarketplace()
         {
+            contractDetails cd = new contractDetails();
             //set up the connection string
             string cs = @"server=159.89.117.198;userid=DevOSHT;password=Snodgr4ss!;database=cmp";
             int success = 0;
@@ -84,7 +97,15 @@ namespace FinalProject
                     //set the van type to be used
                     vanType = rdr.GetInt32(5);
                     //store the contract in our database
-                    storeContractLocal();
+                    cd.destination = destination;
+                    cd.customerName = customerName;
+                    cd.jobType = jobType;
+                    cd.origin = origin;
+                    cd.destination = destination;
+                    cd.vanType = vanType;
+                    contractList.Add(cd);
+                    plan.SelectCarrier(destination);
+                    
                 }
                 //close the reader
                 rdr.Close();
