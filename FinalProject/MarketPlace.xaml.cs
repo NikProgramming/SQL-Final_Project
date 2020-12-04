@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
+
 
 namespace FinalProject
 {
@@ -39,6 +41,10 @@ namespace FinalProject
         ///		\return N/A.
         ///
         List <string> contractStrings = new List<string>();
+        string purchasedItem;
+        string CompanyName;
+        string origin;
+        string destination;
 
         public MarketPlace()
         {
@@ -72,6 +78,10 @@ namespace FinalProject
         ///
         private void Button_Click1(object sender, RoutedEventArgs e)
         {
+            for (int i = 0; i < contractStrings.Count; i++)
+            {
+                contractStrings.RemoveAt(i);
+            }
             ContractDisplay = null;
             DialogResult = true;
         }
@@ -83,7 +93,12 @@ namespace FinalProject
 
         private void Button_Click2(object sender, RoutedEventArgs e)
         {
-           Choice.Text=(string)ContractDisplay.SelectedItem;
+           purchasedItem=(string)ContractDisplay.SelectedItem;
+           string[] words = purchasedItem.Split(' ');
+           CompanyName=words[0];
+           origin = words[1];
+           destination = words[2];
+
         }
 
         private void Purchase_TextChanged(object sender, TextChangedEventArgs e)
