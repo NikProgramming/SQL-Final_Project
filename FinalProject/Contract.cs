@@ -104,7 +104,7 @@ namespace FinalProject
                     cd.destination = destination;
                     cd.vanType = vanType;
                     contractList.Add(cd);
-                    plan.SelectCarrier(destination);
+                    //plan.SelectCarrier(destination);
                     
                 }
                 //close the reader

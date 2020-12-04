@@ -58,5 +58,10 @@ namespace FinalProject
         {
             DialogResult = false;
         }
+
+        private void Button_Click2(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
