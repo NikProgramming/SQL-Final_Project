@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 
 namespace FinalProject
 {
@@ -31,6 +32,9 @@ namespace FinalProject
     ///
     public partial class register : Window
     {
+
+        static public string userN;
+        static public string password;
         ///
         ///		\brief Used to initialize the register.
         ///		\details <b>Details</b>
@@ -61,7 +65,48 @@ namespace FinalProject
 
         private void Button_Click2(object sender, RoutedEventArgs e)
         {
+            if(userN != " " && password != " ")
+            {
+                storeResults(userN, password);
+            }
+            else if(userN == "")
+        }
 
+        private void passWord_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            password = passWord.Text;
+        }
+
+        private void userName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            userN = userName.Text;
+        }
+
+
+        public static void storeResults(string userName, string password)
+        {
+            string cs = @"server=localhost;userid=root;password=Shetland3321;database=`TMS Database`";
+            //set up connection to the database
+            MySqlConnection con = new MySqlConnection(cs);
+            //open the connection
+            con.Open();
+            //set up the command string
+
+            string insertContractQuery = "INSERT INTO awnsers VALUES(@UserName,@Password);";
+            //set up the command itself and get ready to execute
+            MySqlCommand cmd = new MySqlCommand(insertContractQuery, con);
+
+            //apply values to each parameter
+            cmd.Parameters.AddWithValue("@userName", userName);
+            cmd.Parameters.AddWithValue("@Password", password);
+      
+
+            //prepare the command
+            cmd.Prepare();
+            //execute the query to insert the contract
+            cmd.ExecuteNonQuery();
+            //close the connection
+            con.Close();
         }
     }
 }
