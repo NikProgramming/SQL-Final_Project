@@ -76,7 +76,7 @@ namespace FinalProject
         ///
         private void Button_Click2(object sender, RoutedEventArgs e)
         {
-            Connect(userName,Password);
+            DialogResult = Connect(userName,Password);
         }
 
         ///
@@ -101,7 +101,7 @@ namespace FinalProject
 
 
 
-        public static void Connect(string userName,string password)
+        public static bool Connect(string userName,string password)
         {
             string dbUserName;
             string dbPassWord;
@@ -136,6 +136,8 @@ namespace FinalProject
             {
                 throw e;
             }
+            return accepted;
         }
+   
     }
 }
