@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 
 namespace FinalProject
 {
@@ -39,6 +40,9 @@ namespace FinalProject
         /// 
         ///		\return N/A.
         ///
+        static public string userName;
+        static private string Password;
+        static public bool accepted = false;
         public login()
         {
             InitializeComponent();
@@ -72,7 +76,7 @@ namespace FinalProject
         ///
         private void Button_Click2(object sender, RoutedEventArgs e)
         {
-
+            Connect(Password, userName);
         }
 
         ///
@@ -87,7 +91,50 @@ namespace FinalProject
         ///
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
+            userName = userNameTxt.Text;
+        }
 
+        private void passWordTxt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Password = passWordTxt.Text;
+        }
+
+
+
+        public static void Connect(string userName,string password)
+        {
+            string dbUserName;
+            string dbPassWord;
+            try
+            {
+                string cs = @"server=localhost;userid=root;password=Shetland3321;database=`TMS Database`";
+                MySqlConnection con = new MySqlConnection(cs);
+                con.Open();
+
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM accounts", con);
+
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    dbUserName = rdr.GetString(0);
+                    dbPassWord = rdr.GetString(1);
+
+                    if(dbUserName == userName && dbPassWord == password)
+                    {
+                        accepted = true;
+                    }
+                   
+                    
+                }
+                rdr.Close();
+                //close the connection
+                con.Close();
+            }
+            catch (MySqlException e)
+            {
+                throw e;
+            }
         }
     }
 }
