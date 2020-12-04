@@ -98,6 +98,7 @@ namespace FinalProject
            CompanyName=words[0];
            origin = words[1];
            destination = words[2];
+            Buyer.CreateOrder();
 
         }
 
