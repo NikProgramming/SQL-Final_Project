@@ -19,9 +19,9 @@
 
         <!-- The text box where the files are written and saved. -->
 
-        <Grid>
-            <Button x:Name="enterMarketplace" Content="Market Place" FontSize="15" Margin="150,330,476,60"  Height="38" IsEnabled="False" Click="Button_Click_1"/>
-            <Button x:Name="deliveryTimes" Content="Delivery Date" FontSize="15" Margin="476,330,150,60" Height="38" IsEnabled="False" Click="Button_Click_2"/>
+        <Grid Margin="0,0,0,-33">
+            <Button x:Name="enterMarketplace" Content="Market Place" FontSize="15" Margin="150,280,476,110"  Height="38" IsEnabled="True" Click="Button_Click_1" RenderTransformOrigin="0.452,-0.934"/>
+            <Button x:Name="deliveryTimes" Content="Delivery Date" FontSize="15" Margin="476,280,150,110" Height="38" IsEnabled="False" Click="Button_Click_2"/>
             <TextBlock TextWrapping="Wrap" FontSize="25" VerticalAlignment="Top" Margin="275,87,275,0" RenderTransformOrigin="0.615,0.588" Height="79"><Run Text="TMS:"/><Run Text=" Transportation Management System"/></TextBlock>
         </Grid>
     </DockPanel>

@@ -50,8 +50,9 @@ namespace FinalProject
         /// 
         ///		\return void.
         ///
-        public Boolean OrderConfirmation()
+        public Boolean OrderConfirmation(string compName, string destination, string origin)
         {
+
             return true;
         }
     }

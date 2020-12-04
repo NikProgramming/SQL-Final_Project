@@ -9,13 +9,13 @@ namespace FinalProject
     /// 
     /// \class Carrier
     ///
-    /// \brief The purpose of this class is to realistically model the Carrier service for the TMS system.
+    /// \brief The purpose of this class is to realistically models the Carrier service for the TMS system.
     ///	
     ///		NAME: Service
-    ///		PURPOSE : The Service class has been created model the Carriers set trips for the orders.
+    ///		PURPOSE : The Service class has been created to model the Carriers set trips for the orders.
     ///
     /// Within the class definition 
-    /// - struct Destination - : does stuff -----------------------------------------------------------------------------
+    /// - struct Destination - : Contains the current city that you're in(will change name)
     /// - int carrierID - models the carrier ID.
     /// - string address - models the address/destination.
     /// - int driveHours - models the amount of hours the driver need to drive.
@@ -24,10 +24,11 @@ namespace FinalProject
     /// - static string - models the load .
     /// - static double - models the remainingTime of the trip.
     /// 
-    /// \author  <i>Justin Langevin</i>
+    /// \author  <i>Troy Hill</i>
     ///
     public class Carrier
     {
+        //set up struct for each city
         struct Destinations
         {
             public string destination;
@@ -37,13 +38,16 @@ namespace FinalProject
             public string east;
         } 
 
+        //time it takes to load and unload at cities
         const int loadUnloadTime = 2;
 
+        /*
         int carrierID;
         string address;
         int workHours;
         int driveHours;
         string company;
+        */
         static double totalTravelTime = 0;
         static string load;
         static double remainingTime;
@@ -54,18 +58,22 @@ namespace FinalProject
         ///
         ///		This Method returns the total time for the trip.
         ///		
-        ///     Fault exceptions: -----------------------------   
+        ///     Fault exceptions: None  
         /// 
         ///		\return Returns a time in hours.
         ///
         public static double SetTrip()
         {
-            //Contract contract = new Contract();
+            //origin city
             string origin = "Windsor"; //= Contract.origin;
+            //destination city
             string destination = "Hamilton";// = Contract.destination;
+            //current city
             Destinations currentLocation = new Destinations();
+            //what type of load
             load = "LTL";
 
+            //windsor
             Destinations windsor = new Destinations();
             windsor.destination = "Windsor";
             windsor.distance = 191;
@@ -73,6 +81,7 @@ namespace FinalProject
             windsor.west = "END";
             windsor.east = "London";
 
+            //london
             Destinations london = new Destinations();
             london.destination = "London";
             london.distance = 128;
@@ -80,6 +89,7 @@ namespace FinalProject
             london.west = "Windsor";
             london.east = "Hamilton";
 
+            //hamilton
             Destinations hamilton = new Destinations();
             hamilton.destination = "Hamilton";
             hamilton.distance = 68;
@@ -87,6 +97,7 @@ namespace FinalProject
             hamilton.west = "London";
             hamilton.east = "Toronto";
 
+            //toronto
             Destinations toronto = new Destinations();
             toronto.destination = "Toronto";
             toronto.distance = 60;
@@ -94,13 +105,15 @@ namespace FinalProject
             toronto.west = "Hamilton";
             toronto.east = "Oshawa";
 
+            //oshawa
             Destinations oshawa = new Destinations();
             oshawa.destination = "Oshawa";
             oshawa.distance = 134;
             oshawa.time = 1.65;
             oshawa.west = "Toronto";
             oshawa.east = "BelleVille";
- 
+            
+            //belleville
             Destinations belleville = new Destinations();
             belleville.destination = "BelleVille";
             belleville.distance = 82;
@@ -108,7 +121,7 @@ namespace FinalProject
             belleville.west = "Oshawa";
             belleville.east = "Kingston";
 
-
+            //kingston
             Destinations kingston = new Destinations();
             kingston.destination = "Kingston";
             kingston.distance = 196;
@@ -116,6 +129,7 @@ namespace FinalProject
             kingston.west = "BelleVille";
             kingston.east = "Ottawa";
 
+            //ottawa
             Destinations ottawa = new Destinations();
             ottawa.destination = "Ottawa";
             ottawa.distance = 0;
@@ -123,6 +137,7 @@ namespace FinalProject
             ottawa.west = "Kingston";
             ottawa.east = "END";
 
+            //check to see where to start
             if(origin == "Windsor")
             {
                 currentLocation = windsor;
@@ -156,13 +171,16 @@ namespace FinalProject
                 currentLocation = ottawa;
             }
 
-
+            //if the load is "Less than Load"
             if (load == "LTL")
             {
+                //add load time
                 totalTravelTime += loadUnloadTime;
                 while (currentLocation.destination != destination)
                 {
+                    //add to travel time
                     totalTravelTime += currentLocation.time;
+                    //go to next city
                     if(currentLocation.east == "London")
                     {
                         currentLocation = london;
@@ -192,21 +210,29 @@ namespace FinalProject
                         currentLocation = ottawa;
                     }
 
+                    //if not in destination city
                     if(currentLocation.destination != destination)
                     {
+                        //make a stop
                         totalTravelTime += loadUnloadTime;
                     }
+                    //set remaining time
                     remainingTime = timeLeft();
                 }
+                //add travel time for destination city
                 totalTravelTime += currentLocation.time;
+                //unload
                 totalTravelTime += loadUnloadTime;
             }
-            else if (load == "FTL")
+            else if (load == "FTL") //otherwise if load is "Full truck load"
             {
+                //add load time
                 totalTravelTime += loadUnloadTime;
                 while (currentLocation.destination != destination)
                 {
+                    //add travel time
                     totalTravelTime += currentLocation.time;
+                    //go to next city
                     if (currentLocation.east == "London")
                     {
                         currentLocation = london;
@@ -235,8 +261,12 @@ namespace FinalProject
                     {
                         currentLocation = ottawa;
                     }
+                    //set remaining time
                     remainingTime = timeLeft();
                 }
+                //add travel time for destination city
+                totalTravelTime += currentLocation.time;
+                //set unload time
                 totalTravelTime += loadUnloadTime;;
             }
 
@@ -255,8 +285,11 @@ namespace FinalProject
         ///
         public static double timeLeft()
         {
+            //set date time
             DateTime eta = new DateTime();
+            //set time for right now
             eta = DateTime.Now;
+            //set time left in travel
             double timeLeft = (eta.Hour + totalTravelTime) - eta.Hour;
             return timeLeft;
         }

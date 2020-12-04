@@ -35,9 +35,9 @@
 ///
 /// 
 /// <hr>
-/// \section version Current version of the Shape Project :
+/// \section version Current version of the TMS Project :
 /// <ul>
-/// <li>\author    <b><i>Justin Langevin</i></b> <b><i>Nikola Ristic</i></b> <b><i>Troy Hill</i></b> <b><i>Josiah Rehkopf</i></b></li>
+/// <li>\author    <b><i>Justin Langevin</i></b>, <b><i>Nikola Ristic</i></b>, <b><i>Troy Hill</i></b>, <b><i>Josiah Rehkopf</i></b></li>
 /// <li>\version   1.00.01</li>
 /// <li>\date      2020-11-26</li>
 /// <li>\pre       In order to use the <i>TMS</i> - you must first start by downloaded the .exe</li>

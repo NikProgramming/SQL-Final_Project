@@ -49,7 +49,7 @@ namespace FinalProject
         /// 
         ///		\return void.
         ///
-        public void CreateOrder()
+        static public void CreateOrder()
         {
 
         }

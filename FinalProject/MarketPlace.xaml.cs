@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
+
 
 namespace FinalProject
 {
@@ -38,9 +40,30 @@ namespace FinalProject
         /// 
         ///		\return N/A.
         ///
+        List <string> contractStrings = new List<string>();
+        string purchasedItem;
+        string CompanyName;
+        string origin;
+        string destination;
+
         public MarketPlace()
         {
             InitializeComponent();
+            Contract.connectMarketplace();
+            for(int i=0;i<Contract.contractList.Count;i++)
+            {
+                contractStrings.Add(fileConnecter9000(i));
+            }
+            ContractDisplay.ItemsSource = contractStrings;
+        }
+
+        public string fileConnecter9000(int index)
+        {
+            string stringContract="";
+            stringContract = Contract.contractList[index].customerName +" "+ Contract.contractList[index].origin + " " + Contract.contractList[index].destination ;
+
+
+            return stringContract;
         }
 
         ///
@@ -55,7 +78,33 @@ namespace FinalProject
         ///
         private void Button_Click1(object sender, RoutedEventArgs e)
         {
+            for (int i = 0; i < contractStrings.Count; i++)
+            {
+                contractStrings.RemoveAt(i);
+            }
+            ContractDisplay = null;
             DialogResult = true;
+        }
+
+        private void ListView_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click2(object sender, RoutedEventArgs e)
+        {
+           purchasedItem=(string)ContractDisplay.SelectedItem;
+           string[] words = purchasedItem.Split(' ');
+           CompanyName=words[0];
+           origin = words[1];
+           destination = words[2];
+            Buyer.CreateOrder();
+
+        }
+
+        private void Purchase_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
