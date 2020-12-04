@@ -35,6 +35,8 @@ namespace FinalProject
 
         static public string userN;
         static public string password;
+        static public string adminID;
+        static public bool adminbool = false;
         ///
         ///		\brief Used to initialize the register.
         ///		\details <b>Details</b>
@@ -67,23 +69,29 @@ namespace FinalProject
         {
             if(userN != " " && password != " ")
             {
-                storeResults(userN, password);
+                //storeAccounts(userN, password);
             }
-            else if(userN == "")
+            else if(userN != " " && password !="" && adminID =="admin123")
+            {
+                Connect(userN,password, adminID);
+            }
+
         }
 
         private void passWord_TextChanged(object sender, TextChangedEventArgs e)
         {
             password = passWord.Text;
+            password.Trim();
         }
 
         private void userName_TextChanged(object sender, TextChangedEventArgs e)
         {
             userN = userName.Text;
+            userN.Trim();
         }
 
 
-        public static void storeResults(string userName, string password)
+        public static void storeAccounts(string userName, string password)
         {
             string cs = @"server=localhost;userid=root;password=Shetland3321;database=`TMS Database`";
             //set up connection to the database
@@ -107,6 +115,52 @@ namespace FinalProject
             cmd.ExecuteNonQuery();
             //close the connection
             con.Close();
+        }
+
+        private void adminPass_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            adminID = adminUser.Text;
+            adminID.Trim();
+        }
+
+
+
+        public static void Connect(string userName, string password, string adminID)
+        {
+            string dbUserName;
+            string dbPassWord;
+            string adminPass;
+            try
+            {
+                string cs = @"server=localhost;userid=root;password=Shetland3321;database=`TMS Database`";
+                MySqlConnection con = new MySqlConnection(cs);
+                con.Open();
+
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM admins", con);
+
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    dbUserName = rdr.GetString(0);
+                    dbPassWord = rdr.GetString(1);
+                    adminPass = rdr.GetString(2);
+
+                    if (dbUserName == userName && dbPassWord == password && adminPass == adminID)
+                    {
+                        adminbool = true;
+                    }
+
+
+                }
+                rdr.Close();
+                //close the connection
+                con.Close();
+            }
+            catch (MySqlException e)
+            {
+                throw e;
+            }
         }
     }
 }

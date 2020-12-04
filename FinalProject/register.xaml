@@ -22,7 +22,7 @@
         <Button Content="Back"  Margin="567,355,0,0" Width="164" Height="33" Click="Button_Click1"/>
         <TextBlock x:Name="title_Copy" TextWrapping="Wrap" FontSize="20" Margin="181,144,501,245"><Run FontWeight="Bold" Text="Username"/><Run FontWeight="Bold" Text=":"/></TextBlock>
         <TextBlock x:Name="title_Copy1" TextWrapping="Wrap" FontSize="20" Margin="186,204,496,185"><Run FontWeight="Bold" Text="Password"/><Run FontWeight="Bold" Text=":"/></TextBlock>
-        <TextBox x:Name="passWord_Copy" Width="200" Height="30" FontSize="20" Margin="29,352,563,37" TextChanged="adminPass_TextChanged"/>
+        <TextBox x:Name="adminUser" Width="200" Height="30" FontSize="20" Margin="29,352,563,37" TextChanged="adminPass_TextChanged"/>
         <TextBlock x:Name="title_Copy2" TextWrapping="Wrap" FontSize="20" Margin="29,322,640,67"><Run FontWeight="Bold" Text="Admin Pass:"/></TextBlock>
 
     </Grid>
