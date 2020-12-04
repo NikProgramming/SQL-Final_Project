@@ -76,7 +76,7 @@ namespace FinalProject
         ///
         private void Button_Click2(object sender, RoutedEventArgs e)
         {
-            Connect(Password, userName);
+            Connect(userName,Password);
         }
 
         ///
@@ -107,7 +107,7 @@ namespace FinalProject
             string dbPassWord;
             try
             {
-                string cs = @"server=localhost;userid=root;password=Shetland3321;database=`TMS Database`";
+                string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
                 MySqlConnection con = new MySqlConnection(cs);
                 con.Open();
 
@@ -123,6 +123,7 @@ namespace FinalProject
                     if(dbUserName == userName && dbPassWord == password)
                     {
                         accepted = true;
+                        break;
                     }
                    
                     

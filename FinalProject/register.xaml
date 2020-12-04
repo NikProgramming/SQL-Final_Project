@@ -11,9 +11,9 @@
             <Bold>Sign Up</Bold>
         </TextBlock>
 
-        <TextBox Name="passWord" Width="200" Height="30" FontSize="20" Margin="0, -100, 0, 0" TextChanged="passWord_TextChanged">
+        <TextBox Name="userName" Width="200" Height="30" FontSize="20" Margin="0, -100, 0, 0" TextChanged="userName_TextChanged">
         </TextBox>
-        <TextBox Name="userName" Width="200" Height="30" FontSize="20" Margin="0, 20, 0, 0" TextChanged="userName_TextChanged">
+        <TextBox Name="passWord" Width="200" Height="30" FontSize="20" Margin="0, 20, 0, 0" TextChanged="passWord_TextChanged">
         </TextBox>
 
 
