@@ -54,7 +54,7 @@ namespace FinalProject
         public string fileConnecter9000(int index)
         {
             string stringContract="";
-            stringContract = Contract.contractList[index].customerName +" "+ Contract.contractList[index].jobType + " " + Contract.contractList[index].quantity + " " + Contract.contractList[index].origin + " " + Contract.contractList[index].destination + " " + Contract.contractList[index].vanType;
+            stringContract = Contract.contractList[index].customerName +" "+ Contract.contractList[index].origin + " " + Contract.contractList[index].destination ;
 
 
             return stringContract;
