@@ -11,15 +11,17 @@
             <Bold>Sign Up</Bold>
         </TextBlock>
 
-        <TextBox Name="passWord" Width="200" Height="30"  Margin="0, -100, 0, 0">
+        <TextBox Name="passWord" Width="200" Height="30" FontSize="20" Margin="0, -100, 0, 0">
         </TextBox>
-        <TextBox Name="userName" Width="200" Height="30"  Margin="0, 20, 0, 0">
+        <TextBox Name="userName" Width="200" Height="30" FontSize="20" Margin="0, 20, 0, 0">
         </TextBox>
 
-        
+
 
         <Button Content="Continue"  Margin="0,150,0,0" Width="164" Height="33" Click="Button_Click2"/>
         <Button Content="Back"  Margin="567,355,0,0" Width="164" Height="33" Click="Button_Click1"/>
+        <TextBlock x:Name="title_Copy" TextWrapping="Wrap" FontSize="20" Margin="181,144,501,245"><Run FontWeight="Bold" Text="Username"/><Run FontWeight="Bold" Text=":"/></TextBlock>
+        <TextBlock x:Name="title_Copy1" TextWrapping="Wrap" FontSize="20" Margin="186,204,496,185"><Run FontWeight="Bold" Text="Password"/><Run FontWeight="Bold" Text=":"/></TextBlock>
 
     </Grid>
 </Window>
