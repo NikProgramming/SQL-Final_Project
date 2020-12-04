@@ -49,8 +49,13 @@ namespace FinalProject
         /// 
         ///		\return void.
         ///
-        static public void CreateOrder()
+        static public bool CreateOrder(string compName, string destination, string origin)
         {
+            string carrier1;
+            string carrier2;
+            carrier1=Planner.SelectCarrier(destination);
+            carrier2 = Planner.SelectCarrier(origin);
+            return Billing.VerifyPayment(true);
 
         }
     }

@@ -49,16 +49,17 @@ namespace FinalProject
         /// 
         ///		\return void.
         ///
-        public void VerifyPayment(int buyerID, int orderID, int customerID, bool payment)
+        static public bool VerifyPayment(string CompanyID, string carrier1, string carrier2,string origin, string destination, bool payment)
         {
             if (payment == true)
             {
-                Receipt(buyerID, orderID, customerID);
+                //Receipt(buyerID, orderID, customerID);
+                //log either in database or log file
+
+                //return true
+                return true;
             }
-            else
-            {
-                Receipt(buyerID, orderID, customerID);
-            }
+            return false;
         }
 
 
@@ -76,18 +77,18 @@ namespace FinalProject
         /// 
         ///		\return Returns a receipt log.
         ///
-        public string Receipt(int buyerID, int orderID, int customerID)
-        {
-            string receiptLog ="";
-            if (payment == true)
-            {
-                receiptLog = "BuyerID: " + buyerID.ToString() + " OrderID: " + orderID.ToString() + " CustomerID: " + customerID.ToString();
-            }
-            else
-            {
-                receiptLog = "Payment Decline";
-            }
-            return receiptLog;
-        }
+        //static public string Receipt(int buyerID, int orderID, int customerID)
+        //{
+        //    string receiptLog ="";
+        //    if (payment == true)
+        //    {
+        //        receiptLog = "BuyerID: " + buyerID.ToString() + " OrderID: " + orderID.ToString() + " CustomerID: " + customerID.ToString();
+        //    }
+        //    else
+        //    {
+        //        receiptLog = "Payment Decline";
+        //    }
+        //    return receiptLog;
+        //}
     }
 }

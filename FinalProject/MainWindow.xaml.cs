@@ -33,7 +33,7 @@ namespace FinalProject
     {
         //is a user logged in?
         bool? userOn;
-
+        bool? purchaseAccepted;
         ///
         ///		\brief Started when MainWindow is clicked
         ///		\details <b>Details</b>
@@ -61,7 +61,15 @@ namespace FinalProject
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             MarketPlace market = new MarketPlace();
-            market.ShowDialog();
+            purchaseAccepted= market.ShowDialog();
+            if(purchaseAccepted==true)
+            {
+
+            }
+            else
+            {
+
+            }
         }
 
         ///

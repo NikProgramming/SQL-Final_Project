@@ -45,6 +45,7 @@ namespace FinalProject
         string CompanyName;
         string origin;
         string destination;
+        bool exitProgram;
 
         public MarketPlace()
         {
@@ -98,7 +99,8 @@ namespace FinalProject
            CompanyName=words[0];
            origin = words[1];
            destination = words[2];
-            Buyer.CreateOrder();
+           exitProgram= Buyer.CreateOrder(CompanyName,destination, origin);
+           DialogResult = exitProgram;
 
         }
 

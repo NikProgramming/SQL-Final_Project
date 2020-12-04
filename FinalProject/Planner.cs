@@ -42,7 +42,7 @@ namespace FinalProject
         /// 
         ///		\return void.
         ///
-        public string SelectCarrier(string location)
+        static public string SelectCarrier(string location)
         {
             string city = location;
             string carrier = "N/A";
