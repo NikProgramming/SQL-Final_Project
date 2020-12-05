@@ -63,12 +63,8 @@ namespace FinalProject
         /// 
         ///		\return Returns a time in hours.
         ///
-        public static double SetTrip()
+        public static double SetTrip(string origin, string destination)
         {
-            //origin city
-            string origin = Contract.origin;
-            //destination city
-            string destination = Contract.destination;
             //current city
             Destinations currentLocation = new Destinations();
             //what type of load
@@ -112,11 +108,11 @@ namespace FinalProject
             oshawa.distance = 134;
             oshawa.time = 1.65;
             oshawa.west = "Toronto";
-            oshawa.east = "BelleVille";
+            oshawa.east = "Belleville";
             
             //belleville
             Destinations belleville = new Destinations();
-            belleville.destination = "BelleVille";
+            belleville.destination = "Belleville";
             belleville.distance = 82;
             belleville.time = 1.2;
             belleville.west = "Oshawa";
@@ -127,7 +123,7 @@ namespace FinalProject
             kingston.destination = "Kingston";
             kingston.distance = 196;
             kingston.time = 2.5;
-            kingston.west = "BelleVille";
+            kingston.west = "Belleville";
             kingston.east = "Ottawa";
 
             //ottawa
@@ -159,7 +155,7 @@ namespace FinalProject
             {
                 currentLocation = oshawa;
             }
-            else if (origin == "BelleVille")
+            else if (origin == "Belleville")
             {
                 currentLocation = belleville;
             }
@@ -172,7 +168,7 @@ namespace FinalProject
                 currentLocation = ottawa;
             }
 
-            string cs = "server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
+            string cs = "server=localhost;userid=root;password=123sql;database=TMSDatabase";
             string direction = "";
             MySqlConnection directionCon = new MySqlConnection(cs);
             directionCon.Open();
@@ -213,7 +209,7 @@ namespace FinalProject
                         {
                             currentLocation = oshawa;
                         }
-                        else if (currentLocation.east == "BelleVille")
+                        else if (currentLocation.east == "Belleville")
                         {
                             currentLocation = belleville;
                         }
@@ -265,7 +261,7 @@ namespace FinalProject
                         {
                             currentLocation = oshawa;
                         }
-                        else if (currentLocation.east == "BelleVille")
+                        else if (currentLocation.east == "Belleville")
                         {
                             currentLocation = belleville;
                         }
@@ -314,7 +310,7 @@ namespace FinalProject
                         {
                             currentLocation = oshawa;
                         }
-                        else if (currentLocation.west == "BelleVille")
+                        else if (currentLocation.west == "Belleville")
                         {
                             currentLocation = belleville;
                         }

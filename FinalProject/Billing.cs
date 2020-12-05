@@ -121,7 +121,7 @@ namespace FinalProject
 
                 time = Carrier.timeLeft();
                 storeTrips(contractCarrierInfo, travel, time, direction);
-                Carrier.SetTrip();
+                Carrier.SetTrip(origin, destination);
                 //return true
                 return true;
             }
@@ -132,7 +132,7 @@ namespace FinalProject
         {
             try
             {
-                string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
+                string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
                 //set up connection to the database
                 MySqlConnection con = new MySqlConnection(cs);
                 //open the connection
