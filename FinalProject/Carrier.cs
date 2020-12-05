@@ -168,7 +168,7 @@ namespace FinalProject
                 currentLocation = ottawa;
             }
 
-            string cs = "server=localhost;userid=root;password=123sql;database=TMSDatabase";
+            string cs = "server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
             string direction = "";
             MySqlConnection directionCon = new MySqlConnection(cs);
             directionCon.Open();
