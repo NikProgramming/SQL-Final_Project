@@ -121,7 +121,7 @@ namespace FinalProject
 
                 time = Carrier.timeLeft();
                 storeTrips(contractCarrierInfo, travel, time, direction);
-                Carrier.SetTrip(origin, destination);
+                time = Carrier.SetTrip(origin, destination);
                 //return true
                 return true;
             }

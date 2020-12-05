@@ -181,6 +181,8 @@ namespace FinalProject
             readDirection.Close();
             directionCon.Close();
 
+            totalTravelTime = 0;
+
             if(direction == "E")
             {
                 //if the load is "Less than Load"
@@ -329,8 +331,6 @@ namespace FinalProject
                             //make a stop
                             totalTravelTime += loadUnloadTime;
                         }
-                        //set remaining time
-                        remainingTime = timeLeft();
                     }
                     //add travel time for destination city
                     totalTravelTime += currentLocation.time;
@@ -374,8 +374,6 @@ namespace FinalProject
                         {
                             currentLocation = windsor;
                         }
-                        //set remaining time
-                        remainingTime = timeLeft();
                     }
                     //add travel time for destination city
                     totalTravelTime += currentLocation.time;
