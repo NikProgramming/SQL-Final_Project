@@ -35,6 +35,7 @@ namespace FinalProject
         int itemID = 1;//idk if this is needed
         bool payment;
 
+
         ///
         ///		\brief Called to check if the payment has gone through.
         ///		
@@ -54,6 +55,8 @@ namespace FinalProject
         {
             string contractCarrierInfo;
             string travel;
+            double time;
+            string direction = "";
             if (payment == true)
             {
                 //Receipt(buyerID, orderID, customerID);
@@ -74,7 +77,49 @@ namespace FinalProject
                     }
                 }
                 travel = origin + " to " + destination;
-                storeTrips(contractCarrierInfo, travel);
+                time = Carrier.timeLeft();
+                if(origin == "Kingston" && destination == "Toronto")
+                {
+                    direction = "W";
+                }
+                else if (origin == "Toronto" && destination == "Kingston")
+                {
+                    direction = "E";
+                }
+                else if (origin == "Ottawa" && destination == "Belleville")
+                {
+                    direction = "W";
+                }
+                else if (origin == "Belleville" && destination == "Ottawa")
+                {
+                    direction = "E";
+                }
+                else if(origin == "Belleville" && destination == "Windsor")
+                {
+                    direction = "W";
+                }
+                else if(origin =="Windsor" && destination == "Belleville")
+                {
+                    direction = "E";
+                }
+                else if(origin == "London" && destination == "Toronto")
+                {
+                    direction = "E";
+                }
+                else if(origin == "Toronto" && destination == "London")
+                {
+                    direction = "W";
+                }
+                else if(origin == "Windsor" && destination == "Hamilton")
+                {
+                    direction = "E";
+                }
+                else if(origin == "Hamilton" && destination =="Windsor")
+                {
+                    direction = "W";
+                }
+
+                storeTrips(contractCarrierInfo, travel, time, direction);
 
                 //return true
                 return true;
@@ -82,7 +127,7 @@ namespace FinalProject
             return false;
         }
 
-        public static void storeTrips(string contractCarrierInfo, string travel)
+        public static void storeTrips(string contractCarrierInfo, string travel, double time, string direction)
         {
             try
             {
@@ -93,14 +138,15 @@ namespace FinalProject
                 con.Open();
                 //set up the command string
 
-                string insertContractQuery = "INSERT INTO OD VALUES(@travel, @carriers);";
+                string insertContractQuery = "INSERT INTO OD VALUES(@travel, @carriers, @direction, @tTime);";
                 //set up the command itself and get ready to execute
                 MySqlCommand cmd = new MySqlCommand(insertContractQuery, con);
 
                 //apply values to each parameter
                 cmd.Parameters.AddWithValue("@travel", travel);
                 cmd.Parameters.AddWithValue("@carriers", contractCarrierInfo);
-                //cmd.Parameters.AddWithValue("@time", 100);
+                cmd.Parameters.AddWithValue("@direction", direction);
+                cmd.Parameters.AddWithValue("@tTime", time);
 
 
                 //prepare the command
