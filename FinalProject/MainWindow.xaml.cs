@@ -64,7 +64,8 @@ namespace FinalProject
             purchaseAccepted= market.ShowDialog();
             if(purchaseAccepted==true)
             {
-
+                Successful successful = new Successful();
+                successful.ShowDialog();
             }
             else
             {
