@@ -75,6 +75,7 @@ namespace FinalProject
             {
                 Connect(userN,password, adminID);
             }
+            DialogResult = false;
 
         }
 

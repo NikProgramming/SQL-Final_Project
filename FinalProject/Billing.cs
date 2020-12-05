@@ -58,7 +58,22 @@ namespace FinalProject
             {
                 //Receipt(buyerID, orderID, customerID);
                 //log either in database or log file
-                contractCarrierInfo =carrier1 +  " & " + carrier2;
+                if(carrier1 != carrier2)
+                {
+                    contractCarrierInfo = carrier1 + " & " + carrier2;
+                }
+                else
+                {
+                    if(carrier1 == "N/A")
+                    {
+                        contractCarrierInfo = carrier2;
+                    }
+                    else
+                    {
+                        contractCarrierInfo = carrier1;
+                    }
+                   
+                }
                 travel = origin + " to " + destination;
                 storeTrips(contractCarrierInfo, travel);
 
@@ -70,28 +85,36 @@ namespace FinalProject
 
         public static void storeTrips(string contractCarrierInfo, string travel)
         {
-            string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
-            //set up connection to the database
-            MySqlConnection con = new MySqlConnection(cs);
-            //open the connection
-            con.Open();
-            //set up the command string
+            try
+            {
+                string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
+                //set up connection to the database
+                MySqlConnection con = new MySqlConnection(cs);
+                //open the connection
+                con.Open();
+                //set up the command string
 
-            string insertContractQuery = "INSERT INTO orders VALUES(@travel,@carriers);";
-            //set up the command itself and get ready to execute
-            MySqlCommand cmd = new MySqlCommand(insertContractQuery, con);
+                string insertContractQuery = "INSERT INTO OD VALUES(@travel, @carriers);";
+                //set up the command itself and get ready to execute
+                MySqlCommand cmd = new MySqlCommand(insertContractQuery, con);
 
-            //apply values to each parameter
-            cmd.Parameters.AddWithValue("@travel", travel);
-            cmd.Parameters.AddWithValue("@carriers", contractCarrierInfo);
+                //apply values to each parameter
+                cmd.Parameters.AddWithValue("@travel", travel);
+                cmd.Parameters.AddWithValue("@carriers", contractCarrierInfo);
+                //cmd.Parameters.AddWithValue("@time", 100);
 
 
-            //prepare the command
-            cmd.Prepare();
-            //execute the query to insert the contract
-            cmd.ExecuteNonQuery();
-            //close the connection
-            con.Close();
+                //prepare the command
+                cmd.Prepare();
+                //execute the query to insert the contract
+                cmd.ExecuteNonQuery();
+                //close the connection
+                con.Close();
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
         }
 
 
