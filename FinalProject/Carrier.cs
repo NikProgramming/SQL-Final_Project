@@ -285,12 +285,9 @@ namespace FinalProject
         ///
         public static double timeLeft()
         {
-            //set date time
-            DateTime eta = new DateTime();
-            //set time for right now
-            eta = DateTime.Now;
+            totalTravelTime = totalTravelTime - 0.01;
             //set time left in travel
-            double timeLeft = (eta.Hour + totalTravelTime) - eta.Hour;
+            double timeLeft = totalTravelTime;
             return timeLeft;
         }
     }
