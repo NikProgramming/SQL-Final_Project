@@ -115,6 +115,7 @@ namespace FinalProject
         {
             string dbUserName;
             string dbPassWord;
+            accepted = false;
             try
             {
                 string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
