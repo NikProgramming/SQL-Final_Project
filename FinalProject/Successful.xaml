@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:FinalProject"
         ResizeMode="CanMinimize"
         mc:Ignorable="d"
-        Title="Window1" Height="200" Width="400">
+        Title="Window1" Height="228.409" Width="498.864">
     <Grid>
-        <TextBox TextWrapping="Wrap" BorderThickness="0" FontSize="25" Text="Purchase Successful!" TextChanged="TextBox_TextChanged" Margin="79,42,78,87"/>
-        <Button Content="OK" HorizontalAlignment="Left" VerticalAlignment="Top" Width="113" Margin="238,110,0,0" Height="27" Click="Button_Click"/>
+        <TextBox TextWrapping="Wrap" BorderThickness="0" FontSize="25" Text="Purchase Successful!" TextChanged="TextBox_TextChanged" Margin="68,61,57,68"/>
+        <Button Content="OK" HorizontalAlignment="Left" VerticalAlignment="Top" Width="113" Margin="349,136,0,0" Height="27" Click="Button_Click"/>
 
     </Grid>
 </Window>
