@@ -7,6 +7,16 @@
         mc:Ignorable="d"
         Title="DeliveryTimes" Height="450" Width="800">
     <Grid>
+        <TextBlock Name="title" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="34">
+            <Bold>Expected Delivery Times</Bold>
+        </TextBlock>
+        <TextBox Name="time" Width="500" Height="150" FontSize="20" Margin="0, 100, 0, 0" >
+        </TextBox>
+        <TextBlock Name="orderLabel" TextWrapping="Wrap" FontSize="25" Text="Trip" Margin="-300,-100,0,0" Height="30" Width="200">
+        </TextBlock>
+        <TextBlock Name="timeLabel" TextWrapping="Wrap" FontSize="25" Text="Expected Delivery" Margin="300,-100,0,0" Height="30" Width="200">
+        </TextBlock>
+        
         <Button Content="Back" HorizontalAlignment="Left" Margin="567,355,0,0" VerticalAlignment="Top" Width="164" Height="33" Click="Button_Click1"/>
 
     </Grid>
