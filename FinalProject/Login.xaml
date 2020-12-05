@@ -14,6 +14,7 @@
         <TextBox x:Name="passWordTxt" HorizontalAlignment="Left" Margin="60,109,0,0" FontSize="18" VerticalAlignment="Top" Width="323" Height="27" TextChanged="passWordTxt_TextChanged"/>
         <TextBlock HorizontalAlignment="Left" Margin="60,27,0,0" TextWrapping="Wrap" Text="Username:" VerticalAlignment="Top" Width="100"/>
         <TextBlock HorizontalAlignment="Left" Margin="60,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"><Run Text="Password"/><Run Text=":"/></TextBlock>
+        <TextBox x:Name="errorMessage" IsReadOnly="True"  BorderThickness="0" HorizontalAlignment="Left" Height="26" Margin="60,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="323" TextChanged="TextBox_TextChanged_1"/>
     </Grid>
 
 </Window>

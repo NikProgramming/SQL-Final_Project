@@ -43,6 +43,7 @@ namespace FinalProject
         static public string userName;
         static private string Password;
         static public bool accepted = false;
+        static public bool signInResult = false;
         public login()
         {
             InitializeComponent();
@@ -76,7 +77,16 @@ namespace FinalProject
         ///
         private void Button_Click2(object sender, RoutedEventArgs e)
         {
-            DialogResult = Connect(userName,Password);
+            signInResult = Connect(userName,Password);
+            if(signInResult == false)
+            {
+                errorMessage.Foreground = Brushes.Red; 
+                errorMessage.Text = "Credentials are not valid.";
+            }
+            else
+            {
+                DialogResult = true;
+            }
         }
 
         ///
@@ -138,6 +148,10 @@ namespace FinalProject
             }
             return accepted;
         }
-   
+
+        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
