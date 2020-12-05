@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace FinalProject
 {
@@ -51,10 +52,15 @@ namespace FinalProject
         ///
         static public bool VerifyPayment(string CompanyID, string carrier1, string carrier2,string origin, string destination, bool payment)
         {
+            string contractCarrierInfo;
+            string travel;
             if (payment == true)
             {
                 //Receipt(buyerID, orderID, customerID);
                 //log either in database or log file
+                contractCarrierInfo =carrier1 +  " & " + carrier2;
+                travel = origin + " to " + destination;
+                storeTrips(contractCarrierInfo, travel);
 
                 //return true
                 return true;
@@ -62,6 +68,31 @@ namespace FinalProject
             return false;
         }
 
+        public static void storeTrips(string contractCarrierInfo, string travel)
+        {
+            string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
+            //set up connection to the database
+            MySqlConnection con = new MySqlConnection(cs);
+            //open the connection
+            con.Open();
+            //set up the command string
+
+            string insertContractQuery = "INSERT INTO orders VALUES(@travel,@carriers);";
+            //set up the command itself and get ready to execute
+            MySqlCommand cmd = new MySqlCommand(insertContractQuery, con);
+
+            //apply values to each parameter
+            cmd.Parameters.AddWithValue("@travel", travel);
+            cmd.Parameters.AddWithValue("@carriers", contractCarrierInfo);
+
+
+            //prepare the command
+            cmd.Prepare();
+            //execute the query to insert the contract
+            cmd.ExecuteNonQuery();
+            //close the connection
+            con.Close();
+        }
 
 
         ///

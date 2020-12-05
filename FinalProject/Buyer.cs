@@ -55,8 +55,9 @@ namespace FinalProject
             string carrier2;
             carrier1=Planner.SelectCarrier(destination);
             carrier2 = Planner.SelectCarrier(origin);
-            return true; //Billing.VerifyPayment(true);
-
+            return Billing.VerifyPayment(compName, carrier1, carrier2, origin, destination, true); 
         }
+
+
     }
 }
