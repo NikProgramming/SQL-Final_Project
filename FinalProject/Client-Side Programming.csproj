@@ -104,6 +104,9 @@
     <Compile Include="register.xaml.cs">
       <DependentUpon>register.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Successful.xaml.cs">
+      <DependentUpon>Successful.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TmsDoxygenMainPage.cs" />
     <Page Include="DeliveryTimes.xaml">
       <SubType>Designer</SubType>
@@ -143,6 +146,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="register.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Successful.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
