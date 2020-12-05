@@ -72,7 +72,6 @@ namespace FinalProject
                     {
                         contractCarrierInfo = carrier1;
                     }
-                   
                 }
                 travel = origin + " to " + destination;
                 storeTrips(contractCarrierInfo, travel);
