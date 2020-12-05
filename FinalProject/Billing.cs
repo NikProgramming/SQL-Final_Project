@@ -77,7 +77,6 @@ namespace FinalProject
                     }
                 }
                 travel = origin + " to " + destination;
-                time = Carrier.timeLeft();
                 if(origin == "Kingston" && destination == "Toronto")
                 {
                     direction = "W";
@@ -119,8 +118,10 @@ namespace FinalProject
                     direction = "W";
                 }
 
-                storeTrips(contractCarrierInfo, travel, time, direction);
 
+                time = Carrier.timeLeft();
+                storeTrips(contractCarrierInfo, travel, time, direction);
+                Carrier.SetTrip();
                 //return true
                 return true;
             }
@@ -138,7 +139,7 @@ namespace FinalProject
                 con.Open();
                 //set up the command string
 
-                string insertContractQuery = "INSERT INTO OD VALUES(@travel, @carriers, @direction, @tTime);";
+                string insertContractQuery = "INSERT INTO OD VALUES(NULL, @travel, @carriers, @direction, @tTime);";
                 //set up the command itself and get ready to execute
                 MySqlCommand cmd = new MySqlCommand(insertContractQuery, con);
 

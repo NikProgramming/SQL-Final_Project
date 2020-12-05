@@ -132,7 +132,7 @@ namespace FinalProject
         static void storeContractLocal()
         {
             //set up connection string for the local database
-            string cs = @"server=localhost;userid=root;password=123sql;database=TMS Database";
+            string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
             //set up connection to the database
             MySqlConnection con = new MySqlConnection(cs);
             //open the connection

@@ -59,7 +59,7 @@ namespace FinalProject
         ///
         ///		This Method returns the total time for the trip.
         ///		
-        ///     Fault exceptions: None  
+        ///     Fault exceptions: None   
         /// 
         ///		\return Returns a time in hours.
         ///
@@ -172,7 +172,7 @@ namespace FinalProject
                 currentLocation = ottawa;
             }
 
-            string cs = "server=localhost;userid=root;password=123sql;database=TMS Database";
+            string cs = "server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
             string direction = "";
             MySqlConnection directionCon = new MySqlConnection(cs);
             directionCon.Open();
