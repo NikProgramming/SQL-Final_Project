@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using MySql.Data.MySqlClient;
 
 namespace FinalProject
 {
@@ -65,9 +66,9 @@ namespace FinalProject
         public static double SetTrip()
         {
             //origin city
-            string origin = "Windsor"; //= Contract.origin;
+            string origin = Contract.origin;
             //destination city
-            string destination = "Hamilton";// = Contract.destination;
+            string destination = Contract.destination;
             //current city
             Destinations currentLocation = new Destinations();
             //what type of load
@@ -171,104 +172,222 @@ namespace FinalProject
                 currentLocation = ottawa;
             }
 
-            //if the load is "Less than Load"
-            if (load == "LTL")
+            string cs = "server=localhost;userid=root;password=123sql;database=TMS Database";
+            string direction = "";
+            MySqlConnection directionCon = new MySqlConnection(cs);
+            directionCon.Open();
+            MySqlCommand getDirection = new MySqlCommand("SELECT direction FROM OD ORDER BY travelID DESC LIMIT 1", directionCon);
+            MySqlDataReader readDirection = getDirection.ExecuteReader();
+            while(readDirection.Read())
             {
-                //add load time
-                totalTravelTime += loadUnloadTime;
-                while (currentLocation.destination != destination)
-                {
-                    //add to travel time
-                    totalTravelTime += currentLocation.time;
-                    //go to next city
-                    if(currentLocation.east == "London")
-                    {
-                        currentLocation = london;
-                    }
-                    else if(currentLocation.east == "Hamilton")
-                    {
-                        currentLocation = hamilton;
-                    }
-                    else if (currentLocation.east == "Toronto")
-                    {
-                        currentLocation = toronto;
-                    }
-                    else if (currentLocation.east == "Oshawa")
-                    {
-                        currentLocation = oshawa;
-                    }
-                    else if (currentLocation.east == "BelleVille")
-                    {
-                        currentLocation = belleville;
-                    }
-                    else if (currentLocation.east == "Kingston")
-                    {
-                        currentLocation = kingston;
-                    }
-                    else if (currentLocation.east == "Ottawa")
-                    {
-                        currentLocation = ottawa;
-                    }
+                direction = readDirection.GetString(0);
+            }
+            readDirection.Close();
+            directionCon.Close();
 
-                    //if not in destination city
-                    if(currentLocation.destination != destination)
-                    {
-                        //make a stop
-                        totalTravelTime += loadUnloadTime;
-                    }
-                    //set remaining time
-                    remainingTime = timeLeft();
-                }
-                //add travel time for destination city
-                totalTravelTime += currentLocation.time;
-                //unload
-                totalTravelTime += loadUnloadTime;
-            }
-            else if (load == "FTL") //otherwise if load is "Full truck load"
+            if(direction == "E")
             {
-                //add load time
-                totalTravelTime += loadUnloadTime;
-                while (currentLocation.destination != destination)
+                //if the load is "Less than Load"
+                if (load == "LTL")
                 {
-                    //add travel time
+                    //add load time
+                    totalTravelTime += loadUnloadTime;
+                    while (currentLocation.destination != destination)
+                    {
+                        //add to travel time
+                        totalTravelTime += currentLocation.time;
+                        //go to next city
+                        if (currentLocation.east == "London")
+                        {
+                            currentLocation = london;
+                        }
+                        else if (currentLocation.east == "Hamilton")
+                        {
+                            currentLocation = hamilton;
+                        }
+                        else if (currentLocation.east == "Toronto")
+                        {
+                            currentLocation = toronto;
+                        }
+                        else if (currentLocation.east == "Oshawa")
+                        {
+                            currentLocation = oshawa;
+                        }
+                        else if (currentLocation.east == "BelleVille")
+                        {
+                            currentLocation = belleville;
+                        }
+                        else if (currentLocation.east == "Kingston")
+                        {
+                            currentLocation = kingston;
+                        }
+                        else if (currentLocation.east == "Ottawa")
+                        {
+                            currentLocation = ottawa;
+                        }
+
+                        //if not in destination city
+                        if (currentLocation.destination != destination)
+                        {
+                            //make a stop
+                            totalTravelTime += loadUnloadTime;
+                        }
+                        //set remaining time
+                        remainingTime = timeLeft();
+                    }
+                    //add travel time for destination city
                     totalTravelTime += currentLocation.time;
-                    //go to next city
-                    if (currentLocation.east == "London")
-                    {
-                        currentLocation = london;
-                    }
-                    else if (currentLocation.east == "Hamilton")
-                    {
-                        currentLocation = hamilton;
-                    }
-                    else if (currentLocation.east == "Toronto")
-                    {
-                        currentLocation = toronto;
-                    }
-                    else if (currentLocation.east == "Oshawa")
-                    {
-                        currentLocation = oshawa;
-                    }
-                    else if (currentLocation.east == "BelleVille")
-                    {
-                        currentLocation = belleville;
-                    }
-                    else if (currentLocation.east == "Kingston")
-                    {
-                        currentLocation = kingston;
-                    }
-                    else if (currentLocation.east == "Ottawa")
-                    {
-                        currentLocation = ottawa;
-                    }
-                    //set remaining time
-                    remainingTime = timeLeft();
+                    //unload
+                    totalTravelTime += loadUnloadTime;
                 }
-                //add travel time for destination city
-                totalTravelTime += currentLocation.time;
-                //set unload time
-                totalTravelTime += loadUnloadTime;;
+                else if (load == "FTL") //otherwise if load is "Full truck load"
+                {
+                    //add load time
+                    totalTravelTime += loadUnloadTime;
+                    while (currentLocation.destination != destination)
+                    {
+                        //add travel time
+                        totalTravelTime += currentLocation.time;
+                        //go to next city
+                        if (currentLocation.east == "London")
+                        {
+                            currentLocation = london;
+                        }
+                        else if (currentLocation.east == "Hamilton")
+                        {
+                            currentLocation = hamilton;
+                        }
+                        else if (currentLocation.east == "Toronto")
+                        {
+                            currentLocation = toronto;
+                        }
+                        else if (currentLocation.east == "Oshawa")
+                        {
+                            currentLocation = oshawa;
+                        }
+                        else if (currentLocation.east == "BelleVille")
+                        {
+                            currentLocation = belleville;
+                        }
+                        else if (currentLocation.east == "Kingston")
+                        {
+                            currentLocation = kingston;
+                        }
+                        else if (currentLocation.east == "Ottawa")
+                        {
+                            currentLocation = ottawa;
+                        }
+                        //set remaining time
+                        remainingTime = timeLeft();
+                    }
+                    //add travel time for destination city
+                    totalTravelTime += currentLocation.time;
+                    //set unload time
+                    totalTravelTime += loadUnloadTime; ;
+                }
             }
+            else if(direction == "W")
+            {
+                //if the load is "Less than Load"
+                if (load == "LTL")
+                {
+                    //add load time
+                    totalTravelTime += loadUnloadTime;
+                    while (currentLocation.destination != destination)
+                    {
+                        //add to travel time
+                        totalTravelTime += currentLocation.time;
+                        //go to next city
+                        if (currentLocation.west == "London")
+                        {
+                            currentLocation = london;
+                        }
+                        else if (currentLocation.west == "Hamilton")
+                        {
+                            currentLocation = hamilton;
+                        }
+                        else if (currentLocation.west == "Toronto")
+                        {
+                            currentLocation = toronto;
+                        }
+                        else if (currentLocation.west == "Oshawa")
+                        {
+                            currentLocation = oshawa;
+                        }
+                        else if (currentLocation.west == "BelleVille")
+                        {
+                            currentLocation = belleville;
+                        }
+                        else if (currentLocation.west == "Kingston")
+                        {
+                            currentLocation = kingston;
+                        }
+                        else if (currentLocation.west == "Ottawa")
+                        {
+                            currentLocation = ottawa;
+                        }
+
+                        //if not in destination city
+                        if (currentLocation.destination != destination)
+                        {
+                            //make a stop
+                            totalTravelTime += loadUnloadTime;
+                        }
+                        //set remaining time
+                        remainingTime = timeLeft();
+                    }
+                    //add travel time for destination city
+                    totalTravelTime += currentLocation.time;
+                    //unload
+                    totalTravelTime += loadUnloadTime;
+                }
+                else if (load == "FTL") //otherwise if load is "Full truck load"
+                {
+                    //add load time
+                    totalTravelTime += loadUnloadTime;
+                    while (currentLocation.destination != destination)
+                    {
+                        //add travel time
+                        totalTravelTime += currentLocation.time;
+                        //go to next city
+                        if (currentLocation.west == "London")
+                        {
+                            currentLocation = london;
+                        }
+                        else if (currentLocation.west == "Hamilton")
+                        {
+                            currentLocation = hamilton;
+                        }
+                        else if (currentLocation.west == "Toronto")
+                        {
+                            currentLocation = toronto;
+                        }
+                        else if (currentLocation.west == "Oshawa")
+                        {
+                            currentLocation = oshawa;
+                        }
+                        else if (currentLocation.west == "BelleVille")
+                        {
+                            currentLocation = belleville;
+                        }
+                        else if (currentLocation.west == "Kingston")
+                        {
+                            currentLocation = kingston;
+                        }
+                        else if (currentLocation.west == "Ottawa")
+                        {
+                            currentLocation = ottawa;
+                        }
+                        //set remaining time
+                        remainingTime = timeLeft();
+                    }
+                    //add travel time for destination city
+                    totalTravelTime += currentLocation.time;
+                    //set unload time
+                    totalTravelTime += loadUnloadTime; ;
+                }
+            }
+            
 
             return totalTravelTime;
         }
