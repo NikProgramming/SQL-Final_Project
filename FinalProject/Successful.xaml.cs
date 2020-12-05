@@ -28,5 +28,10 @@ namespace FinalProject
         {
             DialogResult = true;
         }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
