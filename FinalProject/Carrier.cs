@@ -318,9 +318,9 @@ namespace FinalProject
                         {
                             currentLocation = kingston;
                         }
-                        else if (currentLocation.west == "Ottawa")
+                        else if(currentLocation.west == "Windsor")
                         {
-                            currentLocation = ottawa;
+                            currentLocation = windsor;
                         }
 
                         //if not in destination city
@@ -370,9 +370,9 @@ namespace FinalProject
                         {
                             currentLocation = kingston;
                         }
-                        else if (currentLocation.west == "Ottawa")
+                        else if (currentLocation.west == "Windsor")
                         {
-                            currentLocation = ottawa;
+                            currentLocation = windsor;
                         }
                         //set remaining time
                         remainingTime = timeLeft();
