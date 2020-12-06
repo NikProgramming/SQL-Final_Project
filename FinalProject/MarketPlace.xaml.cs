@@ -40,25 +40,26 @@ namespace FinalProject
         /// 
         ///		\return N/A.
         ///
-        List <string> contractStrings = new List<string>();
+        public static List <string> contractStrings = new List<string>();
         string purchasedItem;
         string CompanyName;
         string origin;
         string destination;
         bool exitProgram;
-
+        public static bool run = false;
+        public static bool runTwo = false;
         public MarketPlace()
         {
             InitializeComponent();
-            Contract.connectMarketplace();
-            for(int i=0;i<Contract.contractList.Count;i++)
+
+            if (run == false)
             {
-                contractStrings.Add(fileConnecter9000(i));
+                returnlist();
+                ContractDisplay.ItemsSource = contractStrings;
             }
-            ContractDisplay.ItemsSource = contractStrings;
         }
 
-        public string fileConnecter9000(int index)
+        public static string fileConnecter9000(int index)
         {
             string stringContract="";
             stringContract = Contract.contractList[index].customerName +" "+ Contract.contractList[index].origin + " " + Contract.contractList[index].destination ;
@@ -79,12 +80,9 @@ namespace FinalProject
         ///
         private void Button_Click1(object sender, RoutedEventArgs e)
         {
-            for (int i = 0; i < contractStrings.Count; i++)
-            {
-                contractStrings.RemoveAt(i);
-            }
-            ContractDisplay = null;
-            DialogResult = true;
+            contractStrings.Clear();
+            ContractDisplay = null;            
+            DialogResult = false;
         }
 
         private void ListView_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
@@ -106,7 +104,21 @@ namespace FinalProject
 
         private void Purchase_TextChanged(object sender, TextChangedEventArgs e)
         {
+            
+        }
 
+        public void returnlist()
+        {
+            if(runTwo == false)
+            {
+                Contract.connectMarketplace();
+            }
+
+            for (int i = 0; i < Contract.contractList.Count; i++)
+            {
+                contractStrings.Add(fileConnecter9000(i));
+            }
+            runTwo = true;
         }
     }
 }

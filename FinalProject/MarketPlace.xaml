@@ -4,11 +4,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinalProject"
+        ResizeMode="CanMinimize"
         mc:Ignorable="d"
         Title="MarketPlace" Height="447.727" Width="519.318">
     <Grid>
         <Button Content="Back" Margin="282,355,65,0" VerticalAlignment="Top" Height="33" Click="Button_Click1"/>
-        <ListView ItemsSource="{Binding Items}" Name="ContractDisplay" Height="298" VerticalAlignment="Top" Margin="147,36,146,0" SelectionChanged="ListView_SelectionChanged_1">
+        <ListView ItemsSource="{Binding Items}" Name="ContractDisplay" Height="298" VerticalAlignment="Top" Margin="146,24,147,0" SelectionChanged="ListView_SelectionChanged_1">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
