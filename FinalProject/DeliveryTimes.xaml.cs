@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 
 namespace FinalProject
 {
@@ -30,6 +31,7 @@ namespace FinalProject
     ///
     public partial class DeliveryTimes : Window
     {
+        List<string> infoList = new List<string>();
         ///
         ///		\brief Started when Delivery date is clicked
         ///		\details <b>Details</b>
@@ -41,6 +43,11 @@ namespace FinalProject
         public DeliveryTimes()
         {
             InitializeComponent();
+            getTravelTimes();
+            for(int i =0; i < infoList.Count; i++)
+            {
+                time.Text += infoList[i];
+            }
         }
 
 
@@ -61,6 +68,62 @@ namespace FinalProject
 
         private void time_TextChanged(object sender, TextChangedEventArgs e)
         {
+           
+        }
+
+
+        public void getTravelTimes()
+        {
+            //set up the connection string
+            int travelID;
+            string travel;
+            string carriers;
+            string direction;
+            double time;
+            string info = "";
+
+            string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
+            try
+            {
+                //create mysqlconnection and connect to the string connection
+                MySqlConnection con = new MySqlConnection(cs);
+                //open the connection to the marketplace
+                con.Open();
+
+                //prepare to execute the command to grab everything form the marketplace
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM OD", con);
+
+                //execute the command while putting everything into the reader
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                //while still getting the contracts
+                while (rdr.Read())
+                {
+                    //get the customer name
+                     travelID = rdr.GetInt32(0);
+                    //get the job type
+                    travel = rdr.GetString(1);
+                    //get the quantity of the item they want shipped
+                    carriers = rdr.GetString(2);
+                    //get the origin city
+                    direction = rdr.GetString(3);
+                    //get the destination city
+                    time = rdr.GetDouble(4);
+                    //set the van type to be use
+                    //store the contract in our database
+                    //plan.SelectCarrier(destination);
+                    info = travelID + " " + travel + " " + carriers + " " + direction + " " + time +"\n";
+                    infoList.Add(info);
+                }
+                //close the reader
+                rdr.Close();
+                //close the connection
+                con.Close();
+            }
+            catch (MySqlException e)
+            {
+                throw e;
+            }
 
         }
     }

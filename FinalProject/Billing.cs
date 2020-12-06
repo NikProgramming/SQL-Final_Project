@@ -132,7 +132,7 @@ namespace FinalProject
         {
             try
             {
-                string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
+                string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
                 //set up connection to the database
                 MySqlConnection con = new MySqlConnection(cs);
                 //open the connection

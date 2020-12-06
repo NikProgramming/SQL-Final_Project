@@ -118,7 +118,7 @@ namespace FinalProject
             accepted = false;
             try
             {
-                string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
+                string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
                 MySqlConnection con = new MySqlConnection(cs);
                 con.Open();
 
