@@ -128,7 +128,15 @@ namespace FinalProject
         private void Login_Click2(object sender, RoutedEventArgs e)
         {
             adminLogin admin = new adminLogin();
-            admin.ShowDialog();
+            adminOn= admin.ShowDialog();
+            if(adminOn==true)
+            {
+                AdminWorkscreen displayAdmin = new AdminWorkscreen();
+            }
+            else
+            {
+
+            }
         }
     }
 }

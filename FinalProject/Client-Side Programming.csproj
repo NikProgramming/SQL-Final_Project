@@ -104,6 +104,9 @@
     <Compile Include="adminLogin.xaml.cs">
       <DependentUpon>adminLogin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdminWorkscreen.xaml.cs">
+      <DependentUpon>AdminWorkscreen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="register.xaml.cs">
       <DependentUpon>register.xaml</DependentUpon>
     </Compile>
@@ -112,6 +115,10 @@
     </Compile>
     <Compile Include="TmsDoxygenMainPage.cs" />
     <Page Include="adminLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminWorkscreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

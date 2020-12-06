@@ -1,0 +1,14 @@
+﻿<Window x:Class="FinalProject.AdminWorkscreen"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FinalProject"
+        ResizeMode="CanMinimize"
+        mc:Ignorable="d"
+        Title="AdminWorkscreen" Height="450" Width="800">
+    <Grid>
+        <Button Content="Back" Margin="578,362,0,0" VerticalAlignment="Top" Height="33" Click="Button_Click1" HorizontalAlignment="Left" Width="164"/>
+
+    </Grid>
+</Window>
