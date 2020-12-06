@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 
 namespace FinalProject
 {
@@ -19,6 +20,10 @@ namespace FinalProject
     /// </summary>
     public partial class adminLogin : Window
     {
+
+        static public bool adminSignIn = false;
+        static public string adminPass;
+        static public bool adminAccept = false;
         public adminLogin()
         {
             InitializeComponent();
@@ -26,8 +31,69 @@ namespace FinalProject
 
         private void Button_Click1(object sender, RoutedEventArgs e)
         {
-             DialogResult = false;
+            DialogResult = false;
         }
 
+
+        public static bool adminConnect(string password)
+        {
+            string dbPassWord;
+            adminAccept = false;
+            try
+            {
+                string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
+                MySqlConnection con = new MySqlConnection(cs);
+                con.Open();
+
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM adminPass", con);
+
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                while (rdr.Read())
+                {
+                    dbPassWord = rdr.GetString(0);
+
+                    if (adminPass == dbPassWord)
+                    {
+                        adminAccept = true;
+                        break;
+                    }
+
+
+                }
+                rdr.Close();
+                //close the connection
+                con.Close();
+            }
+            catch (MySqlException e)
+            {
+                throw e;
+            }
+            return adminAccept;
+        }
+
+        private void adminTxt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            adminPass = adminP.Text;
+        }
+
+        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click2(object sender, RoutedEventArgs e)
+        {
+            adminSignIn = adminConnect(adminPass);
+            if (adminSignIn == false)
+            {
+                adminError.Foreground = Brushes.Red;
+                adminError.Text = "Admin Pass not valid.";
+            }
+            else
+            {
+                DialogResult = true;
+            }
+        }
     }
 }

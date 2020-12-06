@@ -44,9 +44,7 @@ namespace FinalProject
         static private string Password;
         static public bool accepted = false;
         static public bool signInResult = false;
-        static public bool adminSignIn = false;
-        static public string adminPass;
-        static public bool adminAccept = false;
+
         public login()
         {
             InitializeComponent();
@@ -81,22 +79,10 @@ namespace FinalProject
         private void Button_Click2(object sender, RoutedEventArgs e)
         {
             signInResult = Connect(userName,Password);
-            adminSignIn = adminConnect(adminPass);
             if (signInResult == false)
             {
                 errorMessage.Foreground = Brushes.Red; 
                 errorMessage.Text = "Credentials are not valid.";
-            }
-            else
-            {
-                DialogResult = true;
-            }
-
-
-            if(adminSignIn == false)
-            {
-                errorMessage.Foreground = Brushes.Red;
-                adminError.Text = "Admin Pass not valid.";
             }
             else
             {
@@ -172,46 +158,7 @@ namespace FinalProject
 
         private void adminTxt_TextChanged(object sender, TextChangedEventArgs e)
         {
-            adminPass = admin.Text;
         }
 
-
-
-        public static bool adminConnect(string password)
-        {
-            string dbPassWord;
-            accepted = false;
-            try
-            {
-                string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
-                MySqlConnection con = new MySqlConnection(cs);
-                con.Open();
-
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM adminPass", con);
-
-                MySqlDataReader rdr = cmd.ExecuteReader();
-
-                while (rdr.Read())
-                {
-                    dbPassWord = rdr.GetString(0);
-
-                    if (adminPass == dbPassWord)
-                    {
-                        adminAccept = true;
-                        break;
-                    }
-
-
-                }
-                rdr.Close();
-                //close the connection
-                con.Close();
-            }
-            catch (MySqlException e)
-            {
-                throw e;
-            }
-            return accepted;
-        }
     }
 }

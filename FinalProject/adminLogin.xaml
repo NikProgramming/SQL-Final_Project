@@ -10,7 +10,8 @@
     <Grid>
         <Button Content="Back" Margin="331,145,0,0" VerticalAlignment="Top" Height="33" Click="Button_Click1" HorizontalAlignment="Left" Width="164"/>
         <Button Content="Login" HorizontalAlignment="Left" Margin="78,145,0,0" VerticalAlignment="Top" Width="164" Height="33" Click="Button_Click2" RenderTransformOrigin="0.507,0.507"/>
-        <TextBox x:Name="passWordTxt_Copy" HorizontalAlignment="Left" Margin="78,79,0,0" FontSize="18" VerticalAlignment="Top" Width="324" Height="27" TextChanged="adminTxt_TextChanged"/>
+        <TextBox x:Name="adminP" HorizontalAlignment="Left" Margin="78,79,0,0" FontSize="18" VerticalAlignment="Top" Width="324" Height="27" TextChanged="adminTxt_TextChanged"/>
         <TextBlock HorizontalAlignment="Left" Margin="78,48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"><Run Text="Admin"/><Run Text=" Password"/><Run Text=":"/></TextBlock>
+        <TextBox x:Name="adminError" IsReadOnly="True"  BorderThickness="0" HorizontalAlignment="Left" Height="26" Margin="78,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="261" TextChanged="TextBox_TextChanged_1"/>
     </Grid>
 </Window>
