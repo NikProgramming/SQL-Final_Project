@@ -71,12 +71,10 @@ namespace FinalProject
             {
                 storeAccounts(userN, password);
             }
-            else if(userN != " " && password !="" && adminID =="admin123")
+            else
             {
-                Connect(userN,password, adminID);
+                DialogResult = false;
             }
-            DialogResult = false;
-
         }
 
         private void passWord_TextChanged(object sender, TextChangedEventArgs e)
@@ -118,50 +116,5 @@ namespace FinalProject
             con.Close();
         }
 
-        private void adminPass_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            adminID = adminUser.Text;
-            adminID.Trim();
-        }
-
-
-
-        public static void Connect(string userName, string password, string adminID)
-        {
-            string dbUserName;
-            string dbPassWord;
-            string adminPass;
-            try
-            {
-                string cs = @"server=localhost;userid=root;password=123sql;database=`TMS Database`";
-                MySqlConnection con = new MySqlConnection(cs);
-                con.Open();
-
-                MySqlCommand cmd = new MySqlCommand("SELECT * FROM admins", con);
-
-                MySqlDataReader rdr = cmd.ExecuteReader();
-
-                while (rdr.Read())
-                {
-                    dbUserName = rdr.GetString(0);
-                    dbPassWord = rdr.GetString(1);
-                    adminPass = rdr.GetString(2);
-
-                    if (dbUserName == userName && dbPassWord == password && adminPass == adminID)
-                    {
-                        adminbool = true;
-                    }
-
-
-                }
-                rdr.Close();
-                //close the connection
-                con.Close();
-            }
-            catch (MySqlException e)
-            {
-                throw e;
-            }
-        }
     }
 }
