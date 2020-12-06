@@ -34,6 +34,7 @@ namespace FinalProject
         //is a user logged in?
         bool? userOn;
         bool? purchaseAccepted;
+        bool? adminOn;
         ///
         ///		\brief Started when MainWindow is clicked
         ///		\details <b>Details</b>
@@ -122,6 +123,12 @@ namespace FinalProject
         {
            register regUser = new register();
            regUser.ShowDialog();
+        }
+
+        private void Login_Click2(object sender, RoutedEventArgs e)
+        {
+            adminLogin admin = new adminLogin();
+            admin.ShowDialog();
         }
     }
 }
