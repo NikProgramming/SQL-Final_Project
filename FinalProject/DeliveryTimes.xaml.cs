@@ -58,5 +58,10 @@ namespace FinalProject
         {
             DialogResult = false;
         }
+
+        private void time_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

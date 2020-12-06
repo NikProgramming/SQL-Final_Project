@@ -8,13 +8,15 @@
         mc:Ignorable="d"
         Title="BuyProducts" Height="321.247" Width="649.575">
     <Grid>
-        <Button Content="Back" Margin="360,198,0,0" VerticalAlignment="Top" Height="33" Click="Button_Click1" HorizontalAlignment="Left" Width="164"/>
-        <Button Content="Login" HorizontalAlignment="Left" Margin="60,198,0,0" VerticalAlignment="Top" Width="164" Height="33" Click="Button_Click2" RenderTransformOrigin="0.507,0.507"/>
+        <Button Content="Back" Margin="360,181,0,0" VerticalAlignment="Top" Height="33" Click="Button_Click1" HorizontalAlignment="Left" Width="164"/>
+        <Button Content="Login" HorizontalAlignment="Left" Margin="60,181,0,0" VerticalAlignment="Top" Width="164" Height="33" Click="Button_Click2" RenderTransformOrigin="0.507,0.507"/>
         <TextBox x:Name="userNameTxt" HorizontalAlignment="Left" Height="27" Margin="60,48,0,0" FontSize="18" TextWrapping="Wrap" VerticalAlignment="Top" Width="323" TextChanged="TextBox_TextChanged"/>
         <TextBox x:Name="passWordTxt" HorizontalAlignment="Left" Margin="60,109,0,0" FontSize="18" VerticalAlignment="Top" Width="323" Height="27" TextChanged="passWordTxt_TextChanged"/>
         <TextBlock HorizontalAlignment="Left" Margin="60,27,0,0" TextWrapping="Wrap" Text="Username:" VerticalAlignment="Top" Width="100"/>
         <TextBlock HorizontalAlignment="Left" Margin="60,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"><Run Text="Password"/><Run Text=":"/></TextBlock>
         <TextBox x:Name="errorMessage" IsReadOnly="True"  BorderThickness="0" HorizontalAlignment="Left" Height="26" Margin="60,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="323" TextChanged="TextBox_TextChanged_1"/>
+        <TextBox x:Name="passWordTxt_Copy" HorizontalAlignment="Left" Margin="21,245,0,0" FontSize="18" VerticalAlignment="Top" Width="323" Height="27" TextChanged="passWordTxt_TextChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="21,229,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"><Run Text="Admin"/><Run Text=" Password"/><Run Text=":"/></TextBlock>
     </Grid>
 
 </Window>
