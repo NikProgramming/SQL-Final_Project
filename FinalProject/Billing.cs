@@ -32,7 +32,6 @@ namespace FinalProject
         int buyerID =1;
         int orderID = 1;
         int customerID = 1;
-        int itemID = 1;//idk if this is needed
         bool payment;
 
 
@@ -59,8 +58,6 @@ namespace FinalProject
             string direction = "";
             if (payment == true)
             {
-                //Receipt(buyerID, orderID, customerID);
-                //log either in database or log file
                 if(carrier1 != carrier2)
                 {
                     contractCarrierInfo = carrier1 + " & " + carrier2;
@@ -122,7 +119,7 @@ namespace FinalProject
                 time = Carrier.timeLeft();
                 storeTrips(contractCarrierInfo, travel, time, direction);
                 time = Carrier.SetTrip(origin, destination);
-                string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
+                string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
                 MySqlConnection con = new MySqlConnection(cs);
                 con.Open();
                 MySqlCommand insertNewTime = new MySqlCommand("UPDATE OD SET tTime=" + time + " ORDER BY travelID desc limit 1", con);
@@ -138,7 +135,7 @@ namespace FinalProject
         {
             try
             {
-                string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
+                string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
                 //set up connection to the database
                 MySqlConnection con = new MySqlConnection(cs);
                 //open the connection
@@ -168,33 +165,5 @@ namespace FinalProject
                 throw e;
             }
         }
-
-
-        ///
-        ///		\brief Called to create the receiptLog for the billing.
-        ///		\details <b>Details</b>
-        ///		\param buyerID - <b>int</b> - Represents the buyersID.
-        ///     \param orderID - <b>int</b> - Represents the orderID.
-        ///     \param customerID - <b>int</b> - Represents the customerID.
-        ///
-        ///		This Method returns the Receipt for the user.
-        ///		
-        ///     Fault exceptions: The second time to verify the payment to ensure the value is correct.
-        /// 
-        ///		\return Returns a receipt log.
-        ///
-        //static public string Receipt(int buyerID, int orderID, int customerID)
-        //{
-        //    string receiptLog ="";
-        //    if (payment == true)
-        //    {
-        //        receiptLog = "BuyerID: " + buyerID.ToString() + " OrderID: " + orderID.ToString() + " CustomerID: " + customerID.ToString();
-        //    }
-        //    else
-        //    {
-        //        receiptLog = "Payment Decline";
-        //    }
-        //    return receiptLog;
-        //}
     }
 }
