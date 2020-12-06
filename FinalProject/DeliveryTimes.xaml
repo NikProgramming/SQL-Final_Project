@@ -10,7 +10,7 @@
         <TextBlock Name="title" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="34">
             <Bold>Expected Delivery Times</Bold>
         </TextBlock>
-        <TextBox Name="time" Width="500" Height="150" FontSize="20" Margin="0, 100, 0, 0" IsReadOnly="True">
+        <TextBox Name="time" Width="500" Height="150" FontSize="12" Margin="0, 100, 0, 0" IsReadOnly="True" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Auto" TextChanged="time_TextChanged">
         </TextBox>
         <TextBlock Name="orderLabel" TextWrapping="Wrap" FontSize="25" Text="Trip" Margin="-300,-100,0,0" Height="30" Width="200">
         </TextBlock>
