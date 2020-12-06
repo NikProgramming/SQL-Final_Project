@@ -5,17 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FinalProject"
         mc:Ignorable="d"
-        Title="MarketPlace" Height="450" Width="800">
+        Title="MarketPlace" Height="447.727" Width="519.318">
     <Grid>
-        <Button Content="Back" HorizontalAlignment="Left" Margin="567,355,0,0" VerticalAlignment="Top" Width="164" Height="33" Click="Button_Click1"/>
-        <ListView ItemsSource="{Binding Items}" Name="ContractDisplay" HorizontalAlignment="Left" Height="298" VerticalAlignment="Top" Width="218" Margin="65,43,0,0" SelectionChanged="ListView_SelectionChanged_1">
+        <Button Content="Back" Margin="282,355,65,0" VerticalAlignment="Top" Height="33" Click="Button_Click1"/>
+        <ListView ItemsSource="{Binding Items}" Name="ContractDisplay" Height="298" VerticalAlignment="Top" Margin="147,36,146,0" SelectionChanged="ListView_SelectionChanged_1">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button Content="Purchase" HorizontalAlignment="Left" Margin="318,355,0,0" VerticalAlignment="Top" Width="164" Height="33" Click="Button_Click2"/>
-        <TextBox Name="Choice" HorizontalAlignment="Left" Margin="406,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="52" Width="306" TextChanged="Purchase_TextChanged"/>
+        <Button Content="Purchase" HorizontalAlignment="Left" Margin="65,355,0,0" VerticalAlignment="Top" Width="164" Height="33" Click="Button_Click2"/>
     </Grid>
 </Window>
