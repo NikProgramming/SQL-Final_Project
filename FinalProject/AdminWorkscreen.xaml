@@ -9,7 +9,7 @@
         Title="AdminWorkscreen" Height="450" Width="800">
     <Grid>
         <Button Content="Back" Margin="578,362,0,0" VerticalAlignment="Top" Height="33" Click="Button_Click1" HorizontalAlignment="Left" Width="164"/>
-        <ListView x:Name="ContractDisplay" Height="317" VerticalAlignment="Top" Margin="56,78,376,0" SelectionChanged="ListView_SelectionChanged_1">
+        <ListView x:Name="ContractDisplay" Height="317" VerticalAlignment="Top" Margin="56,78,376,0" SelectionChanged="ContractDisplay_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>

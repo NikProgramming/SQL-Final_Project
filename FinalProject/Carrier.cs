@@ -168,7 +168,7 @@ namespace FinalProject
                 currentLocation = ottawa;
             }
 
-            string cs = "server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
+            string cs = "server=localhost;userid=root;password=123sql;database=TMSDatabase";
             string direction = "";
             MySqlConnection directionCon = new MySqlConnection(cs);
             directionCon.Open();
@@ -230,8 +230,6 @@ namespace FinalProject
                             //make a stop
                             totalTravelTime += loadUnloadTime;
                         }
-                        //set remaining time
-                        remainingTime = timeLeft();
                     }
                     //add travel time for destination city
                     totalTravelTime += currentLocation.time;
@@ -275,8 +273,6 @@ namespace FinalProject
                         {
                             currentLocation = ottawa;
                         }
-                        //set remaining time
-                        remainingTime = timeLeft();
                     }
                     //add travel time for destination city
                     totalTravelTime += currentLocation.time;
