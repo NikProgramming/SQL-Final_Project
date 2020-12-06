@@ -154,5 +154,10 @@ namespace FinalProject
         {
 
         }
+
+        private void adminTxt_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
