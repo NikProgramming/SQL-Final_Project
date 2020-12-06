@@ -38,5 +38,10 @@ namespace FinalProject
         {
 
         }
+
+        private void ContractDisplay_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

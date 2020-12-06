@@ -28,18 +28,7 @@ namespace FinalProject
         int orderID;
         int customerID;
 
-        ///
-        ///		\brief Called to request a customer contract.
-        ///		\details <b>Details</b>
-        ///     
-        ///		This Methods returns the customer contract.
-        /// 
-        ///		\return customerContract.
-        ///
-        public void RequstCustomerContract()
-        {
 
-        }
 
         ///
         ///		\brief Called to create a order.
