@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client-Side Programming", "FinalProject\Client-Side Programming.csproj", "{60C0608C-6358-4EA0-9553-91C1FE1CFF41}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerSide", "ServerSide\ServerSide.csproj", "{F88027EC-248C-431A-B630-7F3BB6CA43D1}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TmsUnitTest", "TmsUnitTest\TmsUnitTest.csproj", "{6A8FF444-D89F-44AA-AEAF-7124B7486392}"
 EndProject
 Global
@@ -19,10 +17,6 @@ Global
 		{60C0608C-6358-4EA0-9553-91C1FE1CFF41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60C0608C-6358-4EA0-9553-91C1FE1CFF41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60C0608C-6358-4EA0-9553-91C1FE1CFF41}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F88027EC-248C-431A-B630-7F3BB6CA43D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F88027EC-248C-431A-B630-7F3BB6CA43D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F88027EC-248C-431A-B630-7F3BB6CA43D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F88027EC-248C-431A-B630-7F3BB6CA43D1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6A8FF444-D89F-44AA-AEAF-7124B7486392}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6A8FF444-D89F-44AA-AEAF-7124B7486392}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A8FF444-D89F-44AA-AEAF-7124B7486392}.Release|Any CPU.ActiveCfg = Release|Any CPU
