@@ -30,7 +30,7 @@ namespace FinalProject
         public AdminWorkscreen()
         {
             InitializeComponent();
-            /*
+            
             if(run == false)
             {
                 Contract.connectMarketplace();
@@ -38,15 +38,17 @@ namespace FinalProject
                 getTravelTimes();
                 getUsers();
             }
-            */
-            updateScreen();
+            else
+            {
+                updateScreen();
+            }
             
-            //run = true;
+            run = true;
         }
 
         public static void updateScreen()
         {
-            Contract.connectMarketplace();
+           // Contract.connectMarketplace();
             adminPass();
             getTravelTimes();
             getUsers();
