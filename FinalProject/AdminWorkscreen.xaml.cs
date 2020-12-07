@@ -38,7 +38,7 @@ namespace FinalProject
         public AdminWorkscreen()
         {
             InitializeComponent();
-            /*
+            
             if(run == false)
             {
                 Contract.connectMarketplace();
@@ -46,10 +46,12 @@ namespace FinalProject
                 getTravelTimes();
                 getUsers();
             }
-            */
-            updateScreen();
+            else
+            {
+                updateScreen();
+            }
             
-            //run = true;
+            run = true;
         }
 
         /* -------------------------------------------------------------------------------------------
@@ -61,7 +63,7 @@ namespace FinalProject
         * ------------------------------------------------------------------------------------------*/
         public static void updateScreen()
         {
-            Contract.connectMarketplace();
+            //Contract.connectMarketplace();
             adminPass();
             getTravelTimes();
             getUsers();
@@ -78,8 +80,9 @@ namespace FinalProject
         {
             DialogResult = false;
             userCon.Clear();
+            Contract.contractList.Clear();
             DeliveriesCon.Clear();
-            purchaseCon.Clear();
+            addAdminCon.Clear();
         }
 
 
@@ -97,12 +100,7 @@ namespace FinalProject
             selected = ListOptions.SelectedItem.ToString();
             string[] result = selected.Split(' ');
             
-            if (result[1] == "Purchased_Contracts")
-            {
-
-                ContractDisplay.ItemsSource = purchaseCon;
-            }
-            else if (result[1] == "Users")
+            if (result[1] == "Users")
             {                
                 ContractDisplay.ItemsSource = userCon;
             }
@@ -354,6 +352,34 @@ namespace FinalProject
             }
         }
 
+        public static void deleteAdmin(string pass)
+        {
+            //set up the connection string
+
+            string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
+            try
+            {
+                //create mysqlconnection and connect to the string connection
+                MySqlConnection con = new MySqlConnection(cs);
+                //open the connection to the marketplace
+                con.Open();
+                string DeleteQuery = "DELETE FROM adminPass WHERE password=";
+                //prepare to execute the command to grab everything form the marketplace
+                MySqlCommand cmd = new MySqlCommand(DeleteQuery, con);
+
+                //prepare the command
+                cmd.Prepare();
+                //execute the query to insert the contract
+                cmd.ExecuteNonQuery();
+                //close the connection
+                con.Close();
+            }
+            catch (MySqlException e)
+            {
+                throw e;
+            }
+        }
+
 
         /* -------------------------------------------------------------------------------------------
         * Method	    :   Button_Click2()
@@ -370,13 +396,8 @@ namespace FinalProject
 
             selected = ListOptions.SelectedItem.ToString();
             string[] result = selected.Split(' ');
-
-            if (result[1] == "Purchased_Contracts")
-            {
-
-               
-            }
-            else if (result[1] == "Users")
+            
+            if (result[1] == "Users")
             {
                 selectedItem = (string)ContractDisplay.SelectedItem;
                 string[] userID = selectedItem.Split(' ');
@@ -413,7 +434,14 @@ namespace FinalProject
             }
             else if (result[1] == "Add_Admin_Passwords")
             {
-               
+                selectedItem = (string)ContractDisplay.SelectedItem;
+                string[] deliveryNumber = selectedItem.Split(' ');
+                toDelete = int.Parse(deliveryNumber[0]);
+                deleteAdmin(selectedItem);
+                DeliveriesCon.RemoveAt(toDelete - 1);
+                ContractDisplay.ItemsSource = null;
+                ContractDisplay.ItemsSource = DeliveriesCon;
+                updateScreen();
             }
 
            

@@ -18,7 +18,6 @@
             </ListView.View>
         </ListView>
         <ComboBox x:Name="ListOptions" HorizontalAlignment="Left" Margin="56,20,0,0" VerticalAlignment="Top" Width="362" SelectionChanged="ComboBox_SelectionChanged">
-            <ComboBoxItem>Purchased_Contracts</ComboBoxItem>
             <ComboBoxItem>Users</ComboBoxItem>
             <ComboBoxItem>Deliveries</ComboBoxItem>
             <ComboBoxItem>Add_Admin_Passwords</ComboBoxItem>
