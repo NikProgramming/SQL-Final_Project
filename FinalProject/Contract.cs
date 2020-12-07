@@ -27,14 +27,6 @@ namespace FinalProject
     ///
     public class Contract
     {
-        //string incomingOrderID;
-        //string incomingCustomerID;
-        int orderID;
-        int customerID;
-        
-        //string customerGender;
-        //string dateOfBirth;
-
         static public string customerName;
         static public int jobType;
         static public int quantity;

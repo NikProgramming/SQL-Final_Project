@@ -29,14 +29,7 @@ namespace FinalProject
     ///
     public class Billing
     {
-        int buyerID = 1;
-        int orderID = 1;
-        int customerID = 1;
-        bool payment;
-
-
         static double cost = 1.0;
-
 
         ///
         ///		\brief Called to check if the payment has gone through.

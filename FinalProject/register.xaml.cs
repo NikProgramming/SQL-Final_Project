@@ -32,7 +32,6 @@ namespace FinalProject
     ///
     public partial class register : Window
     {
-
         static public string userN;
         static public string password;
         static public string adminID;

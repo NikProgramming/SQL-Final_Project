@@ -20,7 +20,6 @@ namespace FinalProject
     /// </summary>
     public partial class adminLogin : Window
     {
-
         static public bool adminSignIn = false;
         static public string adminPass;
         static public bool adminAccept = false;

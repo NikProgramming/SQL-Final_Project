@@ -24,10 +24,6 @@ namespace FinalProject
     ///
     public class Planner
     {
-        int plannerID;
-        int orderID;
-        string address; //(trip)
-
         ///
         ///		\brief Called to select a carrier.
         ///		\details <b>Details</b>

@@ -24,12 +24,6 @@ namespace FinalProject
     ///
     public class Buyer
     {
-        int buyerID;
-        int orderID;
-        int customerID;
-
-
-
         ///
         ///		\brief Called to create a order.
         ///		\details <b>Details</b>
