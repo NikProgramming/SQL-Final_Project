@@ -20,6 +20,7 @@ namespace FinalProject
     /// </summary>
     public partial class AdminWorkscreen : Window
     {
+        //declare variables
         public static List<string> purchaseCon = new List<string>();
         public static List<string> userCon = new List<string>();
         public static List<string> DeliveriesCon = new List<string>();
@@ -46,6 +47,13 @@ namespace FinalProject
             run = true;
         }
 
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   updateScreen()
+        * Description	:   This is the method for updating lists           		
+        * Parameters    :	object sender
+        *               :   RoutedEventArgs e
+        * Returns		:   none
+        * ------------------------------------------------------------------------------------------*/
         public static void updateScreen()
         {
            // Contract.connectMarketplace();
@@ -54,6 +62,13 @@ namespace FinalProject
             getUsers();
         }
 
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   Button_Click()
+        * Description	:   This is the back button for the class            		
+        * Parameters    :	object sender
+        *               :   RoutedEventArgs e
+        * Returns		:   none
+        * ------------------------------------------------------------------------------------------*/
         private void Button_Click1(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
@@ -62,6 +77,14 @@ namespace FinalProject
             purchaseCon.Clear();
         }
 
+
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   ComboBox_SelectionChanged()
+        * Description	:   This is called when an item is selected from a list           		
+        * Parameters    :	object sender
+        *               :   SelectionChangedEventArgs e
+        * Returns		:   none
+        * ------------------------------------------------------------------------------------------*/
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             string selected = "";
@@ -87,25 +110,40 @@ namespace FinalProject
                 ContractDisplay.ItemsSource = addAdminCon;
             }
         }
-        
-    
 
-        private void ListView_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
 
-        }
 
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   ContractDisplay_SelectionChanged()
+        * Description	:   This is the button for when the contractDisplay is changed           		
+        * Parameters    :	object sender
+        *               :   SelectionChangedEventArgs e
+        * Returns		:   none
+        * ------------------------------------------------------------------------------------------*/
         private void ContractDisplay_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
 
+
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   Button_Click()
+        * Description	:   This is the button for the class            		
+        * Parameters    :	object sender
+        *               :   RoutedEventArgs e
+        * Returns		:   none
+        * ------------------------------------------------------------------------------------------*/
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   adminPass()
+        * Description	:   This is the method to get admin passwords           		
+        * Parameters    :	none
+        * Returns		:   none
+        * ------------------------------------------------------------------------------------------*/
         public static void adminPass()
         {
             string adPassword;
@@ -142,6 +180,12 @@ namespace FinalProject
             }
         }
 
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   getTravelTimes()
+        * Description	:   This is the method to get travel information         		
+        * Parameters    :	none
+        * Returns		:   none
+        * ------------------------------------------------------------------------------------------*/
         public static void getTravelTimes()
         {
             //set up the connection string
@@ -197,6 +241,12 @@ namespace FinalProject
 
         }
 
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   getUsers()
+        * Description	:   This is the method to get user information         		
+        * Parameters    :	none
+        * Returns		:   none
+        * ------------------------------------------------------------------------------------------*/
         public static void getUsers()
         {
             int userID;
@@ -232,6 +282,12 @@ namespace FinalProject
             }
         }
 
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   deleteDeleviry()
+        * Description	:   This is the method to delete delivery information        		
+        * Parameters    :	none
+        * Returns		:   none
+        * ------------------------------------------------------------------------------------------*/
         public static void deleteDeleviry()
         {
 
@@ -259,7 +315,12 @@ namespace FinalProject
             }
         }
 
-
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   deleteUser()
+        * Description	:   This is the method to delete user information        		
+        * Parameters    :	none
+        * Returns		:   none
+        * ------------------------------------------------------------------------------------------*/
         public static void deleteUser()
         {
             //set up the connection string
@@ -289,6 +350,14 @@ namespace FinalProject
         }
 
 
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   Button_Click2()
+        * Description	:   This is the button for the class which is used to determine what needs
+        *               :   to be deleted
+        * Parameters    :	object sender
+        *               :   RoutedEventArgs e
+        * Returns		:   none
+        * ------------------------------------------------------------------------------------------*/
         private void Button_Click2(object sender, RoutedEventArgs e)
         {
 
@@ -345,11 +414,27 @@ namespace FinalProject
            
         }
 
+
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   Button_Click3()
+        * Description	:   This is the button for the class to edit            		
+        * Parameters    :	object sender
+        *               :   RoutedEventArgs e
+        * Returns		:   none
+        * ------------------------------------------------------------------------------------------*/
         private void Button_Click3(object sender, RoutedEventArgs e)
         {
 
         }
 
+
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   Button_Click4()
+        * Description	:   This is the button for the class to delete       		
+        * Parameters    :	object sender
+        *               :   RoutedEventArgs e
+        * Returns		:   none
+        * ------------------------------------------------------------------------------------------*/
         private void Button_Click4(object sender, RoutedEventArgs e)
         {
 
