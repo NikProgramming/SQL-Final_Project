@@ -157,21 +157,26 @@ namespace FinalProject
                 currentLocation = ottawa;
             }
 
+            //connect to local database
             string cs = "server=localhost;userid=root;password=123sql;database=TMSDatabase";
             string direction = "";
             MySqlConnection directionCon = new MySqlConnection(cs);
             directionCon.Open();
+            //get direction from most recent contract
             MySqlCommand getDirection = new MySqlCommand("SELECT direction FROM OD ORDER BY travelID DESC LIMIT 1", directionCon);
             MySqlDataReader readDirection = getDirection.ExecuteReader();
             while(readDirection.Read())
             {
                 direction = readDirection.GetString(0);
             }
+            //close connection and reader
             readDirection.Close();
             directionCon.Close();
 
+            //initialize total travel time
             totalTravelTime = 0;
 
+            //if going east
             if(direction == "E")
             {
                 //if the load is "Less than Load"
@@ -212,6 +217,7 @@ namespace FinalProject
                         {
                             currentLocation = ottawa;
                         }
+                        //add distance
                         totalDistance = currentLocation.distance;
                         //if not in destination city
                         if (currentLocation.destination != destination)
@@ -220,6 +226,7 @@ namespace FinalProject
                             totalTravelTime += loadUnloadTime;
                         }
                     }
+                    //add distance
                     totalDistance = currentLocation.distance;
                     //add travel time for destination city
                     totalTravelTime += currentLocation.time;
@@ -263,8 +270,10 @@ namespace FinalProject
                         {
                             currentLocation = ottawa;
                         }
+                        //add distance
                         totalDistance = currentLocation.distance;
                     }
+                    //add distance
                     totalDistance = currentLocation.distance;
                     //add travel time for destination city
                     totalTravelTime += currentLocation.time;
@@ -272,7 +281,7 @@ namespace FinalProject
                     totalTravelTime += loadUnloadTime; ;
                 }
             }
-            else if(direction == "W")
+            else if(direction == "W") //if going west
             {
                 //if the load is "Less than Load"
                 if (load == "LTL")
@@ -312,6 +321,7 @@ namespace FinalProject
                         {
                             currentLocation = windsor;
                         }
+                        //add distance
                         totalDistance = currentLocation.distance;
                         //if not in destination city
                         if (currentLocation.destination != destination)
@@ -320,6 +330,7 @@ namespace FinalProject
                             totalTravelTime += loadUnloadTime;
                         }
                     }
+                    //add distance
                     totalDistance = currentLocation.distance;
                     //add travel time for destination city
                     totalTravelTime += currentLocation.time;
@@ -363,8 +374,10 @@ namespace FinalProject
                         {
                             currentLocation = windsor;
                         }
+                        //add distance
                         totalDistance = currentLocation.distance;
                     }
+                    //add distance
                     totalDistance = currentLocation.distance;
                     //add travel time for destination city
                     totalTravelTime += currentLocation.time;

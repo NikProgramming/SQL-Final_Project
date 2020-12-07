@@ -48,6 +48,7 @@ namespace FinalProject
         ///
         static public bool VerifyPayment(string CompanyID, string carrier1, string carrier2, string origin, string destination, bool payment, int loadValue, int vanType)
         {
+            //declaring variables
             string contractCarrierInfo;
             string travel;
             string load = "";
@@ -55,36 +56,40 @@ namespace FinalProject
             double time;
             string direction = "";
 
+            //declaring rates
             double ftlRate = 0.0;
             double ltlRate = 0.0;
             double reeferRate = 0.0;
 
-
+            //if the payment is accepted
             if (payment == true)
             {
+                //if the load is low
                 if (loadValue == 1)
                 {
                     load = "LTL";
                 }
-                else if (loadValue == 0)
+                else if (loadValue == 0) //if the load is full
                 {
                     load = "FTL";
                 }
 
+                //if a dry van is used
                 if (vanType == 0)
                 {
                     truck_type = "Dry Van";
                 }
-                else if (vanType == 1)
+                else if (vanType == 1) //if the truck is a reefer
                 {
                     truck_type = "Reefer";
                 }
 
+                //if the first carrier is not equal to the second carrier
                 if (carrier1 != carrier2)
                 {
                     contractCarrierInfo = carrier1 + " & " + carrier2;
                 }
-                else
+                else //if there is only one carrier
                 {
                     if (carrier1 == "N/A")
                     {
@@ -95,16 +100,20 @@ namespace FinalProject
                         contractCarrierInfo = carrier1;
                     }
                 }
+
+                //determine direction
                 travel = origin + " to " + destination;
+
+                //if between kingston and Toronto
                 if (origin == "Kingston" && destination == "Toronto")
                 {
                     direction = "W";
                 }
-                else if (origin == "Toronto" && destination == "Kingston")
+                else if (origin == "Toronto" && destination == "Kingston") 
                 {
                     direction = "E";
                 }
-                else if (origin == "Ottawa" && destination == "Belleville")
+                else if (origin == "Ottawa" && destination == "Belleville") //if between Ottawa and Belleville
                 {
                     direction = "W";
                 }
@@ -112,15 +121,15 @@ namespace FinalProject
                 {
                     direction = "E";
                 }
-                else if (origin == "Belleville" && destination == "Windsor")
+                else if (origin == "Belleville" && destination == "Windsor") //if between Belleville and Windsor
                 {
                     direction = "W";
                 }
-                else if (origin == "Windsor" && destination == "Belleville")
+                else if (origin == "Windsor" && destination == "Belleville") 
                 {
                     direction = "E";
                 }
-                else if (origin == "London" && destination == "Toronto")
+                else if (origin == "London" && destination == "Toronto") //if between London and Toronto
                 {
                     direction = "E";
                 }
@@ -128,7 +137,7 @@ namespace FinalProject
                 {
                     direction = "W";
                 }
-                else if (origin == "Windsor" && destination == "Hamilton")
+                else if (origin == "Windsor" && destination == "Hamilton") //if between Hamilton and Windsor
                 {
                     direction = "E";
                 }
@@ -137,75 +146,97 @@ namespace FinalProject
                     direction = "W";
                 }
 
+                //calculate time left
                 time = Carrier.timeLeft();
+                //store trip info
                 storeTrips(contractCarrierInfo, travel, time, direction);
+                //set the trip up
                 time = Carrier.SetTrip(origin, destination, load);
 
+                //initialize cost
                 cost = 1.0;
+                //for each day that passes
                 for (double dayTracker = time; dayTracker >= 0; dayTracker -= 12)
                 {
+                    //if the hours are over 12
                     if (dayTracker > 12)
                     {
+                        //increase estimated time for delivery by 12
                         time += 12;
+                        //increase cost by 150 dollars
                         cost += 150;
                     }
                 }
 
+                //if the carrier is Planet Express
                 if (carrier1 == "Planet Express" || carrier2 == "Planet Express")
                 {
+                    //set their rates
                     ltlRate = 0.3621;
                     ftlRate = 5.21;
                     reeferRate = 0.08;
                 }
-                else if (carrier1 == "Schooner's" || carrier2 == "Schooner's")
+                else if (carrier1 == "Schooner's" || carrier2 == "Schooner's") //if the carrier is Schooner's 
                 {
+                    //set their rates
                     ltlRate = 0.3434;
                     ftlRate = 5.05;
                     reeferRate = 0.07;
                 }
-                else if (carrier1 == "Tillman Transport" || carrier2 == "Tillman Transport")
+                else if (carrier1 == "Tillman Transport" || carrier2 == "Tillman Transport") //if the carrier is Tillman Transport
                 {
+                    //set their rates
                     ltlRate = 0.3012;
                     ftlRate = 5.11;
                     reeferRate = 0.09;
                 }
-                else if (carrier1 == "We Haul" || carrier2 == "We Haul")
+                else if (carrier1 == "We Haul" || carrier2 == "We Haul") //if the carrier is We Haul
                 {
+                    //set their rates
                     ltlRate = 0.0;
                     ftlRate = 5.2;
                     reeferRate = 0.065;
                 }
 
+                //increase rates by OSHT standards
                 ltlRate += ltlRate * 0.05;
                 ftlRate += ftlRate * 0.08;
+                //if Low Truck Load
                 if (load == "LTL")
                 {
+                    //for number of pallets
                     for (int quantity = Contract.quantityReturn(); quantity >= 0; quantity--)
-                    {
-                        for (int km = Carrier.distance(); km >= 0; km--)
+                    { 
+                        //calculate the cost
+                        cost += (cost * (ltlRate * Carrier.distance()));
+                        //if a reefer is used
+                        if (truck_type == "Reefer")
                         {
-                            cost += (cost * (ltlRate * Carrier.distance()));
-                            if (truck_type == "Reefer")
-                            {
-                                cost += cost * reeferRate;
-                            }
+                            //apply reefer rate
+                            cost += cost * reeferRate;
                         }
                     }
                 }
-                else if (load == "FTL")
+                else if (load == "FTL") //if Full Truck Load
                 {
+                    //calculate the cost
                     cost += (cost * (ftlRate*Carrier.distance()));
+                    //if a reefer is used
                     if (truck_type == "Reefer")
                     {
+                        //apply reefer rate
                         cost += cost * reeferRate;
                     }
                 }
 
+                //connect to local database
                 string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
                 MySqlConnection con = new MySqlConnection(cs);
                 con.Open();
+                //Update time
                 MySqlCommand insertNewTime = new MySqlCommand("UPDATE OD SET tTime=" + time + " ORDER BY travelID desc limit 1", con);
                 insertNewTime.ExecuteNonQuery();
+                //set cost
                 MySqlCommand insertCost = new MySqlCommand("UPDATE OD SET cost=" + cost + " ORDER BY travelID desc limit 1", con);
                 insertCost.ExecuteNonQuery();
                 con.Close();

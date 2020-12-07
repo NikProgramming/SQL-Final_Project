@@ -309,14 +309,13 @@ namespace FinalProject
                 userCon.RemoveAt(toDelete - 1);
                 ContractDisplay.ItemsSource = null; 
                 ContractDisplay.ItemsSource = userCon;
-               // ContractDisplay.Items.Remove(ContractDisplay.SelectedItem);
-                updateScreen();
                 string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase"; 
                 MySqlConnection con = new MySqlConnection(cs);
                 con.Open();
                 MySqlCommand resetIndex = new MySqlCommand("ALTER TABLE accounts AUTO_INCREMENT = 1", con);
                 resetIndex.ExecuteNonQuery();
                 con.Close();
+                updateScreen();
 
             }
             else if (result[1] == "Deliveries")
@@ -328,13 +327,13 @@ namespace FinalProject
                 DeliveriesCon.RemoveAt(toDelete - 1);
                 ContractDisplay.ItemsSource = null;
                 ContractDisplay.ItemsSource = DeliveriesCon;
-                updateScreen();
                 string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
                 MySqlConnection con = new MySqlConnection(cs);
                 con.Open();
                 MySqlCommand resetIndex = new MySqlCommand("ALTER TABLE accounts AUTO_INCREMENT = 1", con);
                 resetIndex.ExecuteNonQuery();
                 con.Close();
+                updateScreen();
             }
             else if (result[1] == "Add_Admin_Passwords")
             {
