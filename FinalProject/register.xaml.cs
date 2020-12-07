@@ -2,7 +2,7 @@
 
 /*
 * FILE : register.xaml.cs
-* PROJECT : PROG2121 - Client-Side Programming
+* PROJECT : PROG2020 - Client-Side Programming
 * PROGRAMMER : Justin Langevin & Josiah Rehkopf & Troy Hill & Nikola Ristic
 * FIRST VERSION : 12/1/2020
 * DESCRIPTION : This file is used to run the register logic.
