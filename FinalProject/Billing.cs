@@ -216,6 +216,13 @@ namespace FinalProject
             return false;
         }
 
+
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   storeTrips()
+        * Description	:   This is the method to store all the trips in the tms database.          		
+        * Parameters    :	string contractCarrierInfo  
+        * Returns		:   none
+        * ------------------------------------------------------------------------------------------*/
         public static void storeTrips(string contractCarrierInfo, string travel, double time, string direction)
         {
             try
