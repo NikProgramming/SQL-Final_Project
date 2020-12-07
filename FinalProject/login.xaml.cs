@@ -1,11 +1,7 @@
 ﻿//login.xaml.cs
 /*
 * FILE : login.xaml.cs
-<<<<<<< HEAD
-* PROJECT : PROG2121 - Client-Side Programming
-=======
 * PROJECT : PROG2020 - Client-Side Programming
->>>>>>> 37cc4192181243d2cb63ce04e2364eac7aeda9c0
 * PROGRAMMER : Justin Langevin & Josiah Rehkopf & Troy Hill & Nikola Ristic
 * FIRST VERSION : 12/1/2020
 * DESCRIPTION : This file is used to run the login logic.
