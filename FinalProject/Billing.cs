@@ -35,7 +35,7 @@ namespace FinalProject
         bool payment;
 
 
-        static double cost = 0.0;
+        static double cost = 1.0;
 
 
         ///
@@ -148,6 +148,7 @@ namespace FinalProject
                 storeTrips(contractCarrierInfo, travel, time, direction);
                 time = Carrier.SetTrip(origin, destination, load);
 
+                cost = 1.0;
                 for (double dayTracker = time; dayTracker >= 0; dayTracker -= 12)
                 {
                     if (dayTracker > 12)
