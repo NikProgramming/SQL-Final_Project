@@ -103,9 +103,7 @@ namespace FinalProject
                     cd.jobType = jobType;
                     cd.origin = origin;
                     cd.vanType = vanType;
-                    contractList.Add(cd);
-                    //plan.SelectCarrier(destination);
-                    
+                    contractList.Add(cd);  
                 }
                 //close the reader
                 rdr.Close();
@@ -119,6 +117,8 @@ namespace FinalProject
             }
             return success;
         }
+
+
 
         ///
         ///		\brief Called to store the contracts in the local database

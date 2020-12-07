@@ -69,7 +69,8 @@ namespace FinalProject
         {
             if(userN != " " && password != " ")
             {
-                storeAccounts(userN, password);
+                DialogResult = storeAccounts(userN, password);
+
             }
             else
             {
@@ -90,7 +91,7 @@ namespace FinalProject
         }
 
 
-        public static void storeAccounts(string userName, string password)
+        public static bool storeAccounts(string userName, string password)
         {
             string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
             //set up connection to the database
@@ -99,7 +100,7 @@ namespace FinalProject
             con.Open();
             //set up the command string
 
-            string insertContractQuery = "INSERT INTO accounts VALUES(@UserName,@Password);";
+            string insertContractQuery = "INSERT INTO accounts VALUES(NULL,@UserName,@Password);";
             //set up the command itself and get ready to execute
             MySqlCommand cmd = new MySqlCommand(insertContractQuery, con);
 
@@ -114,6 +115,7 @@ namespace FinalProject
             cmd.ExecuteNonQuery();
             //close the connection
             con.Close();
+            return true;
         }
 
     }

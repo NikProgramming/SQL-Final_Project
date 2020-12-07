@@ -31,7 +31,7 @@ namespace FinalProject
     ///
     public partial class DeliveryTimes : Window
     {
-        List<string> infoList = new List<string>();
+        public static List<string> infoList = new List<string>();
         ///
         ///		\brief Started when Delivery date is clicked
         ///		\details <b>Details</b>
@@ -72,7 +72,7 @@ namespace FinalProject
         }
 
 
-        public void getTravelTimes()
+        public static void getTravelTimes()
         {
             //set up the connection string
             int travelID;

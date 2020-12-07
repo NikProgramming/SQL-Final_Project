@@ -129,8 +129,8 @@ namespace FinalProject
 
                 while (rdr.Read())
                 {
-                    dbUserName = rdr.GetString(0);
-                    dbPassWord = rdr.GetString(1);
+                    dbUserName = rdr.GetString(1);
+                    dbPassWord = rdr.GetString(2);
 
                     if(dbUserName == userName && dbPassWord == password)
                     {
