@@ -68,10 +68,6 @@ namespace FinalProject
                 Successful successful = new Successful();
                 successful.ShowDialog();
             }
-            else
-            {
-
-            }
         }
 
         ///
@@ -133,10 +129,6 @@ namespace FinalProject
             {
                 AdminWorkscreen displayAdmin = new AdminWorkscreen();
                 displayAdmin.ShowDialog();
-            }
-            else
-            {
-
             }
         }
     }
