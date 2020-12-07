@@ -119,7 +119,7 @@ namespace FinalProject
             accepted = false;
             try
             {
-                string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
+                string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
                 MySqlConnection con = new MySqlConnection(cs);
                 con.Open();
 
@@ -129,8 +129,8 @@ namespace FinalProject
 
                 while (rdr.Read())
                 {
-                    dbUserName = rdr.GetString(0);
-                    dbPassWord = rdr.GetString(1);
+                    dbUserName = rdr.GetString(1);
+                    dbPassWord = rdr.GetString(2);
 
                     if(dbUserName == userName && dbPassWord == password)
                     {

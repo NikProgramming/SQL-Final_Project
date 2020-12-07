@@ -134,7 +134,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="AccountSystem.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -143,11 +142,9 @@
     <Compile Include="Buyer.cs" />
     <Compile Include="Carrier.cs" />
     <Compile Include="Contract.cs" />
-    <Compile Include="Customer.cs" />
     <Compile Include="DeliveryTimes.xaml.cs">
       <DependentUpon>DeliveryTimes.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Invoice.cs" />
     <Compile Include="login.xaml.cs">
       <DependentUpon>login.xaml</DependentUpon>
     </Compile>
@@ -172,7 +169,6 @@
     <Compile Include="MarketPlace.xaml.cs">
       <DependentUpon>MarketPlace.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Order.cs" />
     <Compile Include="Planner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -199,12 +195,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ServerSide\ServerSide.csproj">
-      <Project>{f88027ec-248c-431a-b630-7f3bb6ca43d1}</Project>
-      <Name>ServerSide</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
