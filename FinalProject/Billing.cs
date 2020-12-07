@@ -208,7 +208,7 @@ namespace FinalProject
                     }
                 }
 
-                string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
+                string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
                 MySqlConnection con = new MySqlConnection(cs);
                 con.Open();
                 MySqlCommand insertNewTime = new MySqlCommand("UPDATE OD SET tTime=" + time + " ORDER BY travelID desc limit 1", con);
@@ -227,7 +227,7 @@ namespace FinalProject
         {
             try
             {
-                string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
+                string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
                 //set up connection to the database
                 MySqlConnection con = new MySqlConnection(cs);
                 //open the connection

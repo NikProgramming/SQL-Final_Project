@@ -93,7 +93,7 @@ namespace FinalProject
         public static void adminPass()
         {
             string adPassword;
-            string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
+            string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
             try
             {
                 //create mysqlconnection and connect to the string connection
@@ -136,7 +136,7 @@ namespace FinalProject
             double time;
             string info = "";
 
-            string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
+            string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
             try
             {
                 //create mysqlconnection and connect to the string connection
@@ -189,7 +189,7 @@ namespace FinalProject
 
             try
             {
-                string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
+                string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
                 MySqlConnection con = new MySqlConnection(cs);
                 con.Open();
 
@@ -224,7 +224,7 @@ namespace FinalProject
             double time;
             string info = "";
 
-            string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
+            string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
             try
             {
                 //create mysqlconnection and connect to the string connection
