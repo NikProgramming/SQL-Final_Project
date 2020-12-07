@@ -30,6 +30,7 @@ namespace FinalProject
         public AdminWorkscreen()
         {
             InitializeComponent();
+            /*
             if(run == false)
             {
                 Contract.connectMarketplace();
@@ -37,8 +38,10 @@ namespace FinalProject
                 getTravelTimes();
                 getUsers();
             }
+            */
+            updateScreen();
             
-            run = true;
+            //run = true;
         }
 
         public static void updateScreen()
@@ -52,6 +55,9 @@ namespace FinalProject
         private void Button_Click1(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
+            userCon.Clear();
+            DeliveriesCon.Clear();
+            purchaseCon.Clear();
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -301,7 +307,9 @@ namespace FinalProject
                 toDelete = int.Parse(userID[0]);
                 deleteUser();
                 userCon.RemoveAt(toDelete - 1);
+                ContractDisplay.ItemsSource = null; 
                 ContractDisplay.ItemsSource = userCon;
+               // ContractDisplay.Items.Remove(ContractDisplay.SelectedItem);
                 updateScreen();
                 string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase"; 
                 MySqlConnection con = new MySqlConnection(cs);
@@ -318,8 +326,15 @@ namespace FinalProject
                 toDelete = int.Parse(deliveryNumber[0]);
                 deleteDeleviry();
                 DeliveriesCon.RemoveAt(toDelete - 1);
-                ContractDisplay.Items.Clear();
+                ContractDisplay.ItemsSource = null;
                 ContractDisplay.ItemsSource = DeliveriesCon;
+                updateScreen();
+                string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
+                MySqlConnection con = new MySqlConnection(cs);
+                con.Open();
+                MySqlCommand resetIndex = new MySqlCommand("ALTER TABLE accounts AUTO_INCREMENT = 1", con);
+                resetIndex.ExecuteNonQuery();
+                con.Close();
             }
             else if (result[1] == "Add_Admin_Passwords")
             {
