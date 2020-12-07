@@ -40,7 +40,7 @@ namespace FinalProject
             adminAccept = false;
             try
             {
-                string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
+                string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
                 MySqlConnection con = new MySqlConnection(cs);
                 con.Open();
 
