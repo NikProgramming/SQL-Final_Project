@@ -1,4 +1,12 @@
 ﻿//register.xaml.cs
+
+/*
+* FILE : register.xaml.cs
+* PROJECT : PROG2121 - Client-Side Programming
+* PROGRAMMER : Justin Langevin & Josiah Rehkopf & Troy Hill & Nikola Ristic
+* FIRST VERSION : 12/1/2020
+* DESCRIPTION : This file is used to run the register logic.
+*/
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,14 +67,27 @@ namespace FinalProject
         /// 
         ///		\return N/A.
         ///
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   Button_CLick1()
+        * Description	:   This Method is used for the back button              		
+        * Parameters    :	object sender, RoutedEventArgs e.         
+        * Returns		:   none
+        * ------------------------------------------------------------------------------------------*/
         private void Button_Click1(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
         }
 
+
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   Button_CLick2()
+        * Description	:   This Method is used for the continue button              		
+        * Parameters    :	object sender, RoutedEventArgs e.         
+        * Returns		:   none
+        * ------------------------------------------------------------------------------------------*/
         private void Button_Click2(object sender, RoutedEventArgs e)
         {
-            if(userN != " " && password != " ")
+            if(userN != " " && password != " ")//if the password and username inputs are not empty
             {
                 DialogResult = storeAccounts(userN, password);
 
@@ -77,19 +98,37 @@ namespace FinalProject
             }
         }
 
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   passWord_TextChanged()
+        * Description	:   This Method is used for getting the password             		
+        * Parameters    :	object sender, RoutedEventArgs e.         
+        * Returns		:   none
+        * ------------------------------------------------------------------------------------------*/
         private void passWord_TextChanged(object sender, TextChangedEventArgs e)
         {
             password = passWord.Text;
-            password.Trim();
+            password.Trim();//gets rid of white space.
         }
 
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   userName_TextChanged()
+        * Description	:   This Method is used for getting the userName            		
+        * Parameters    :	object sender, RoutedEventArgs e.         
+        * Returns		:   none
+        * ------------------------------------------------------------------------------------------*/
         private void userName_TextChanged(object sender, TextChangedEventArgs e)
         {
             userN = userName.Text;
-            userN.Trim();
+            userN.Trim();//gets rid of white space
         }
 
 
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   storeAccounts()
+        * Description	:   This Method is used for storing the accounts being registers         		
+        * Parameters    :	string userName, string password.      
+        * Returns		:   returns a true flag
+        * ------------------------------------------------------------------------------------------*/
         public static bool storeAccounts(string userName, string password)
         {
             string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
