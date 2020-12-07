@@ -149,24 +149,11 @@ namespace FinalProject
             con.Close();
         }
 
+        //returns the quantity
         public static int quantityReturn()
         {
             return quantity;
         }
 
-        void infoValidation()
-        {
-            /*
-            if (int.TryParse(incomingOrderID, out orderID) == true)
-            {
-
-            }
-
-            if (int.TryParse(incomingCustomerID, out customerID) == true)
-            {
-
-            }
-            */
-        }
     }
 }

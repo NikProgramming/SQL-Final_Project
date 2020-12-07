@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+* FILE : MarketPlace.xaml.cs
+* PROJECT : PROG2020 - Client-Side Programming
+* PROGRAMMER : Justin Langevin & Josiah Rehkopf & Troy Hill & Nikola Ristic
+* FIRST VERSION : 12/1/2020
+* DESCRIPTION : This file is used to run the marketplace logic.
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -48,10 +55,16 @@ namespace FinalProject
         bool exitProgram;
         public static bool run = false;
         public static bool runTwo = false;
+
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   fileConnecter9000()
+        * Description	:   This constructor is used to set the ContractDisplay.
+        * Parameters    :	none  
+        * Returns		:   the contract string
+        * ------------------------------------------------------------------------------------------*/
         public MarketPlace()
         {
             InitializeComponent();
-
             if (run == false)
             {
                 returnlist();
@@ -59,6 +72,12 @@ namespace FinalProject
             }
         }
 
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   fileConnecter9000()
+        * Description	:   This Method is used to populate the list.  		
+        * Parameters    :	none  
+        * Returns		:   the contract string
+        * ------------------------------------------------------------------------------------------*/
         public static string fileConnecter9000(int index)
         {
             string stringContract = "";
@@ -69,11 +88,15 @@ namespace FinalProject
                 companyName = companyName + words[i];
             }
             stringContract = companyName + " " + Contract.contractList[index].origin + " " + Contract.contractList[index].destination;
-
-
             return stringContract;
         }
 
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   loadValue()
+        * Description	:   This Method is used for the loadValue    		
+        * Parameters    :	none  
+        * Returns		:   load
+        * ------------------------------------------------------------------------------------------*/
         public static int loadValue()
         {
             int load = 0;
@@ -82,6 +105,12 @@ namespace FinalProject
             return load;
         }
 
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   vanType()
+        * Description	:   This Method is used for the van type     		
+        * Parameters    :	none  
+        * Returns		:   type
+        * ------------------------------------------------------------------------------------------*/
         public static int vanType()
         {
             int type = 0;
@@ -100,6 +129,12 @@ namespace FinalProject
         /// 
         ///		\return N/A.
         ///
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   Button_Click1()
+        * Description	:   This Method is used for going back      		
+        * Parameters    :	object sender, RoutedEventArgs e      
+        * Returns		:   none
+        * ------------------------------------------------------------------------------------------*/
         private void Button_Click1(object sender, RoutedEventArgs e)
         {
             contractStrings.Clear();
@@ -107,11 +142,24 @@ namespace FinalProject
             DialogResult = false;
         }
 
+
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   ListView_SelectionChanged_1()
+        * Description	:   This Method is used for the list view        		
+        * Parameters    :	object sender, SelectionChangedEventArgs e      
+        * Returns		:   none
+        * ------------------------------------------------------------------------------------------*/
         private void ListView_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
         {
-
         }
 
+
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   Button_Click2()
+        * Description	:   This Method is used for the purchase order         		
+        * Parameters    :	object sender, TextChangedEventArgs e      
+        * Returns		:   none
+        * ------------------------------------------------------------------------------------------*/
         private void Button_Click2(object sender, RoutedEventArgs e)
         {
            purchasedItem=(string)ContractDisplay.SelectedItem;
@@ -122,21 +170,33 @@ namespace FinalProject
            exitProgram= Buyer.CreateOrder(CompanyName,destination, origin);
            contractStrings.Clear();
            DialogResult = exitProgram;
-
         }
 
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   Purchase_TextChanged()
+        * Description	:   This Method is used for a text box          		
+        * Parameters    :	object sender, TextChangedEventArgs e      
+        * Returns		:   none
+        * ------------------------------------------------------------------------------------------*/
         private void Purchase_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            
+        {           
         }
 
+
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   returnlist()
+        * Description	:   This Method is used to return the list of contracts          		
+        * Parameters    :	none      
+        * Returns		:   none
+        * ------------------------------------------------------------------------------------------*/
         public void returnlist()
         {
-            if(runTwo == false)
+            if(runTwo == false)//if checks if it has already been called
             {
                 Contract.connectMarketplace();
             }
 
+            //populates a list
             for (int i = 0; i < Contract.contractList.Count; i++)
             {
                 contractStrings.Add(fileConnecter9000(i));
