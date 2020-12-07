@@ -133,72 +133,10 @@ namespace TmsUnitTest
             double expected = 11.5;
             double result = 0.0;
             //Act
-            result = Carrier.SetTrip("Windsor", "Hamilton");
+            result = Carrier.SetTrip("Windsor", "Hamilton", "LTL");
             //Assert
             Assert.AreEqual(expected, result);
         }
-
-        ///
-        ///		\brief Called to check if the order method has successfully been processed.
-        ///		\details <b>Details</b>
-        ///     
-        ///     How the test is conducted: We test the orderconfirmation by creating the expected result
-        ///     and returning the result that is given in the order confirmation. We then compare and see
-        ///     if the result is equal to the expected.
-        /// 
-        ///     Type of test: Functional
-        ///         
-        ///     Expected outcome: It returns if the order is confirmed
-        ///     
-        ///     Result: it returns true to tell that the order was confirmed.
-        /// 
-        ///		This Method Verifies the if the user has had their order confirmation confirmed
-        /// 
-        ///		\return void.
-        ///
-        [TestMethod]
-        public void orderTest()
-        {
-            //Arrange
-            bool expected = true;
-            bool result;
-            //Act
-            result= Order.OrderConfirmation();
-            //Assert
-            Assert.AreEqual(expected, result);
-        }
-
-        ///
-        ///		\brief Called to check if the order method has unsuccessfully been processed.
-        ///		\details <b>Details</b>
-        ///     
-        ///     How the test is conducted: We test the orderconfirmation by creating the expected result
-        ///     and returning the result that is given in the order confirmation. We then compare and see
-        ///     if the result is equal to the expected meaning that its valid.
-        /// 
-        ///     Type of test: Exception
-        ///         
-        ///     Expected outcome: It returns that the order is not confirmed
-        ///     
-        ///     Result: it returns true to tell that the order was confirmed.
-        /// 
-        ///		This Method Verifies the if the user has had their order confirmation confirmed
-        /// 
-        ///		\return void.
-        ///
-        [TestMethod]
-        public void orderTestException()
-        {
-            //Arrange
-            bool expected = false;
-            bool result;
-            //Act
-            result = Order.OrderConfirmation();
-            //Assert
-            Assert.AreEqual(expected, result);
-        }
-
-
 
         ///
         ///		\brief Called to check if the SelectCarrier method works properly.

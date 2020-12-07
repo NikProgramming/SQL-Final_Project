@@ -31,6 +31,7 @@ namespace FinalProject
         public AdminWorkscreen()
         {
             InitializeComponent();
+            /*
             if(run == false)
             {
                 Contract.connectMarketplace();
@@ -38,8 +39,10 @@ namespace FinalProject
                 getTravelTimes();
                 getUsers();
             }
+            */
+            updateScreen();
             
-            run = true;
+            //run = true;
         }
 
         /* -------------------------------------------------------------------------------------------
@@ -67,6 +70,9 @@ namespace FinalProject
         private void Button_Click1(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
+            userCon.Clear();
+            DeliveriesCon.Clear();
+            purchaseCon.Clear();
         }
 
 
@@ -370,14 +376,15 @@ namespace FinalProject
                 toDelete = int.Parse(userID[0]);
                 deleteUser();
                 userCon.RemoveAt(toDelete - 1);
+                ContractDisplay.ItemsSource = null; 
                 ContractDisplay.ItemsSource = userCon;
-                updateScreen();
                 string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase"; 
                 MySqlConnection con = new MySqlConnection(cs);
                 con.Open();
                 MySqlCommand resetIndex = new MySqlCommand("ALTER TABLE accounts AUTO_INCREMENT = 1", con);
                 resetIndex.ExecuteNonQuery();
                 con.Close();
+                updateScreen();
 
             }
             else if (result[1] == "Deliveries")
@@ -387,8 +394,15 @@ namespace FinalProject
                 toDelete = int.Parse(deliveryNumber[0]);
                 deleteDeleviry();
                 DeliveriesCon.RemoveAt(toDelete - 1);
-                ContractDisplay.Items.Clear();
+                ContractDisplay.ItemsSource = null;
                 ContractDisplay.ItemsSource = DeliveriesCon;
+                string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
+                MySqlConnection con = new MySqlConnection(cs);
+                con.Open();
+                MySqlCommand resetIndex = new MySqlCommand("ALTER TABLE accounts AUTO_INCREMENT = 1", con);
+                resetIndex.ExecuteNonQuery();
+                con.Close();
+                updateScreen();
             }
             else if (result[1] == "Add_Admin_Passwords")
             {
