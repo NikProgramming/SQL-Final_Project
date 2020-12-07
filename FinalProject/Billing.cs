@@ -215,6 +215,8 @@ namespace FinalProject
                 con.Open();
                 MySqlCommand insertNewTime = new MySqlCommand("UPDATE OD SET tTime=" + time + " ORDER BY travelID desc limit 1", con);
                 insertNewTime.ExecuteNonQuery();
+                MySqlCommand insertCost = new MySqlCommand("UPDATE OD SET cost=" + cost + " ORDER BY travelID desc limit 1", con);
+                insertCost.ExecuteNonQuery();
                 con.Close();
 
                 //return true
@@ -256,11 +258,6 @@ namespace FinalProject
             {
                 throw e;
             }
-        }
-
-        public static double getCost()
-        {
-            return cost;
         }
     }
 }
