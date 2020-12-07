@@ -190,7 +190,7 @@ namespace FinalProject
                     {
                         for (int km = Carrier.distance(); km >= 0; km--)
                         {
-                            cost += (cost * ltlRate);
+                            cost += (cost * (ltlRate * Carrier.distance()));
                             if (truck_type == "Reefer")
                             {
                                 cost += cost * reeferRate;
@@ -200,13 +200,10 @@ namespace FinalProject
                 }
                 else if (load == "FTL")
                 {
-                    for (int km = Carrier.distance(); km >= 0; km--)
+                    cost += (cost * (ftlRate*Carrier.distance()));
+                    if (truck_type == "Reefer")
                     {
-                        cost += (cost * ftlRate);
-                        if (truck_type == "Reefer")
-                        {
-                            cost += cost * reeferRate;
-                        }
+                        cost += cost * reeferRate;
                     }
                 }
 
