@@ -1,4 +1,14 @@
-﻿using System;
+﻿/* -------------------------------------------------------------------------------------------
+        * File           : Carrier.cs
+        * Project        : PROG2020 - SQ Final
+        * Programmers    : Troy Hill, Justin Langevin, Nikola Ristic, Josiah Rehkopf
+        * First Version  : 12/1/2020
+        * Description    : This file holds the code that is used to model the carrier of the TMS system.
+        *                  It creates trips and calculates the distance and time they will take.
+
+        * ------------------------------------------------------------------------------------------*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -54,6 +64,15 @@ namespace FinalProject
         /// 
         ///		\return Returns a time in hours.
         ///
+
+        /* -------------------------------------------------------------------------------------------
+       * Method        :   SetTrip()
+       * Description   :   calcuates the distance of a trip
+       * Parameters    :   string origin - the trip starting point
+       *                   string destination - where the trip ends
+       *                   string load - the type of load being sent
+       * Returns       :   double - the distance
+       * ------------------------------------------------------------------------------------------*/
         public static double SetTrip(string origin, string destination, string load)
         {
             //current city
@@ -376,6 +395,12 @@ namespace FinalProject
             return totalTravelTime;
         }
 
+        /* -------------------------------------------------------------------------------------------
+        * Method        :   distance()
+        * Description   :   returns the total distance of the trip
+        * Parameters    :   none
+        * Returns       :   int - the distance
+        * ------------------------------------------------------------------------------------------*/
         public static int distance()
         {
             return totalDistance;
@@ -391,6 +416,13 @@ namespace FinalProject
         /// 
         ///		\return Returns a remaining time in hours.
         ///
+        
+        /* -------------------------------------------------------------------------------------------
+        * Method       :   timeLeft()
+        * Description  :   returns the remaining time of the trip
+        * Parameters   :   none
+        * Returns      :   double - the time left
+        * ------------------------------------------------------------------------------------------*/
         public static double timeLeft()
         {
             totalTravelTime = totalTravelTime - 0.01;
