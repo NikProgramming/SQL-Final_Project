@@ -1,4 +1,12 @@
-﻿//Planner.cs
+﻿/* -------------------------------------------------------------------------------------------
+        * File           : Planner.cs
+        * Project        : PROG2020 - SQ Final
+        * Programmers    : Troy Hill, Justin Langevin, Nikola Ristic, Josiah Rehkopf
+        * First Version  : 12/1/2020
+        * Description    : This file holds the code that is used to model the planner of the TMS system.
+        *                  It recieves a city and returns the appropriate carrier.
+
+        * ------------------------------------------------------------------------------------------*/
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +23,6 @@ namespace FinalProject
     ///		NAME: Planner
     ///		PURPOSE : The Planner class has been created to model the Planner.
     ///
-    /// Within the class definition 
-    /// - int plannerID	- models the ID of a plannerID.
-    /// - int orderID   - models the ID of the order.
-    /// - string address - models the ID of the address.
     ///
     /// \author  <i>Josiah Rehkopf</i>
     ///
@@ -42,40 +46,40 @@ namespace FinalProject
         {
             string city = location;
             string carrier = "N/A";
-            if (city == "Windsor")
+            if (city == "Windsor") //checks if city is Windsor
             {
-                carrier = "Tillman Transport";
+                carrier = "Tillman Transport"; //sets carrier to Tillman Transport
             }
-            if (city == "Hamilton")
+            if (city == "Hamilton") //checks if city is Hamilton
             {
-                carrier = "Tillman Transport";
+                carrier = "Tillman Transport"; //sets carrier to Tillman Transport
             }
-            if (city == "Oshawa")
+            if (city == "Oshawa") //checks if city is Oshawa
             {
-                carrier = "Planet Express";
+                carrier = "Planet Express"; //sets carrier to Planet Express
             }
-            if (city == "Belleville")
+            if (city == "Belleville") //checks if city is Belleville
             {
-                carrier = "Planet Express";
+                carrier = "Planet Express"; //sets carrier to Planet Express
             }
-            if (city == "Ottawa") 
+            if (city == "Ottawa") //checks if city is Ottawa
             {
-                carrier = "We Haul";
+                carrier = "We Haul"; //sets carrier to We Haul
             }
-            if (city == "London")
+            if (city == "London") //checks if city is London
             {
-                carrier = "Schooner's";
+                carrier = "Schooner's"; //sets carrier to Schooner's
             }
-            if (city == "Toronto")
+            if (city == "Toronto") //checks if city is Toronto
             {
-                carrier = "We Haul";
+                carrier = "We Haul"; //sets carrier to We Haul
             }
-            if (city == "Kingston")
+            if (city == "Kingston") //checks if city is Kingston
             {
-                carrier = "Schooner's";
+                carrier = "Schooner's"; //sets carrier to Schooner's
             }
 
-            return carrier;
+            return carrier; //returns the selected carrier
         }
     }
 }
