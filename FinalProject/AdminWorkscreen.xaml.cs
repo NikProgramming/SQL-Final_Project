@@ -41,6 +41,14 @@ namespace FinalProject
             run = true;
         }
 
+        public static void updateScreen()
+        {
+            Contract.connectMarketplace();
+            adminPass();
+            getTravelTimes();
+            getUsers();
+        }
+
         private void Button_Click1(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
@@ -126,7 +134,7 @@ namespace FinalProject
             }
         }
 
-        public void getTravelTimes()
+        public static void getTravelTimes()
         {
             //set up the connection string
             int travelID;
@@ -181,8 +189,9 @@ namespace FinalProject
 
         }
 
-        public void getUsers()
+        public static void getUsers()
         {
+            int userID;
             string dbUserName;
             string dbPassWord;
             string user;
@@ -199,9 +208,10 @@ namespace FinalProject
 
                 while (rdr.Read())
                 {
-                    dbUserName = rdr.GetString(0);
-                    dbPassWord = rdr.GetString(1);
-                    user = dbUserName + " " + dbPassWord;
+                    userID = rdr.GetInt32(0);
+                    dbUserName = rdr.GetString(1);
+                    dbPassWord = rdr.GetString(2);
+                    user = userID + " " +dbUserName + " " + dbPassWord;
                     userCon.Add(user);
                 }
                 rdr.Close();
@@ -214,15 +224,8 @@ namespace FinalProject
             }
         }
 
-        public void deleteDeleviry()
+        public static void deleteDeleviry()
         {
-            //set up the connection string
-            int travelID;
-            string travel;
-            string carriers;
-            string direction;
-            double time;
-            string info = "";
 
             string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
             try
@@ -249,12 +252,74 @@ namespace FinalProject
         }
 
 
+        public static void deleteUser()
+        {
+            //set up the connection string
+
+            string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
+            try
+            {
+                //create mysqlconnection and connect to the string connection
+                MySqlConnection con = new MySqlConnection(cs);
+                //open the connection to the marketplace
+                con.Open();
+                string DeleteQuery = "DELETE FROM accounts WHERE acountID = " + toDelete;
+                //prepare to execute the command to grab everything form the marketplace
+                MySqlCommand cmd = new MySqlCommand(DeleteQuery, con);
+
+                //prepare the command
+                cmd.Prepare();
+                //execute the query to insert the contract
+                cmd.ExecuteNonQuery();
+                //close the connection
+                con.Close();
+            }
+            catch (MySqlException e)
+            {
+                throw e;
+            }
+        }
+
+
         private void Button_Click2(object sender, RoutedEventArgs e)
         {
-            selectedItem = (string)ContractDisplay.SelectedItem;
-            string[] result = selectedItem.Split(' ');
-            toDelete = int.Parse(result[0]);
-            deleteDeleviry();
+
+            string selected = "";
+
+            selected = ListOptions.SelectedItem.ToString();
+            string[] result = selected.Split(' ');
+
+            if (result[1] == "Purchased_Contracts")
+            {
+
+               
+            }
+            else if (result[1] == "Users")
+            {
+                selectedItem = (string)ContractDisplay.SelectedItem;
+                string[] userID = selectedItem.Split(' ');
+                toDelete = int.Parse(userID[0]);
+                deleteUser();
+                userCon.RemoveAt(toDelete - 1);
+                ContractDisplay.ItemsSource = userCon;
+                updateScreen();
+            }
+            else if (result[1] == "Deliveries")
+            {
+                selectedItem = (string)ContractDisplay.SelectedItem;
+                string[] deliveryNumber = selectedItem.Split(' ');
+                toDelete = int.Parse(deliveryNumber[0]);
+                deleteDeleviry();
+                DeliveriesCon.RemoveAt(toDelete - 1);
+                ContractDisplay.Items.Clear();
+                ContractDisplay.ItemsSource = DeliveriesCon;
+            }
+            else if (result[1] == "Add_Admin_Passwords")
+            {
+               
+            }
+
+           
         }
 
         private void Button_Click3(object sender, RoutedEventArgs e)
