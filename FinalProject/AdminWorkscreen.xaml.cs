@@ -256,7 +256,7 @@ namespace FinalProject
         {
             //set up the connection string
 
-            string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
+            string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
             try
             {
                 //create mysqlconnection and connect to the string connection
@@ -303,6 +303,13 @@ namespace FinalProject
                 userCon.RemoveAt(toDelete - 1);
                 ContractDisplay.ItemsSource = userCon;
                 updateScreen();
+                string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase"; 
+                MySqlConnection con = new MySqlConnection(cs);
+                con.Open();
+                MySqlCommand resetIndex = new MySqlCommand("ALTER TABLE accounts AUTO_INCREMENT = 1", con);
+                resetIndex.ExecuteNonQuery();
+                con.Close();
+
             }
             else if (result[1] == "Deliveries")
             {
