@@ -80,9 +80,10 @@ namespace FinalProject
             string carriers;
             string direction;
             double time;
+            double cost;
             string info = "";
 
-            string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
+            string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
             try
             {
                 //create mysqlconnection and connect to the string connection
@@ -109,10 +110,11 @@ namespace FinalProject
                     direction = rdr.GetString(3);
                     //get the destination city
                     time = rdr.GetDouble(4);
+                    cost = rdr.GetDouble(5);
                     //set the van type to be use
                     //store the contract in our database
                     //plan.SelectCarrier(destination);
-                    info = travelID + " " + travel + " " + carriers + " " + direction + " " + time +"\n";
+                    info = travelID + " " + travel + " " + carriers + " " + direction + " " + time + " " +cost +"\n";
                     infoList.Add(info);
                 }
                 //close the reader

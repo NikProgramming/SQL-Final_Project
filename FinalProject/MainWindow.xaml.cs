@@ -132,6 +132,7 @@ namespace FinalProject
             if(adminOn==true)
             {
                 AdminWorkscreen displayAdmin = new AdminWorkscreen();
+                displayAdmin.ShowDialog();
             }
             else
             {

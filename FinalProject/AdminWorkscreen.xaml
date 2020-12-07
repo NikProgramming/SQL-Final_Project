@@ -9,7 +9,8 @@
         Title="AdminWorkscreen" Height="450" Width="800">
     <Grid>
         <Button Content="Back" Margin="578,362,0,0" VerticalAlignment="Top" Height="33" Click="Button_Click1" HorizontalAlignment="Left" Width="164"/>
-        <ListView x:Name="ContractDisplay" Height="317" VerticalAlignment="Top" Margin="56,78,376,0" SelectionChanged="ContractDisplay_SelectionChanged">
+        <ListView x:Name="ContractDisplay" ItemsSource="{Binding items}" Height="317" VerticalAlignment="Top" Margin="56,78,376,0" SelectionChanged="ContractDisplay_SelectionChanged">
+ 
             <ListView.View>
                 <GridView>
                     <GridViewColumn/>
@@ -17,11 +18,14 @@
             </ListView.View>
         </ListView>
         <ComboBox x:Name="ListOptions" HorizontalAlignment="Left" Margin="56,20,0,0" VerticalAlignment="Top" Width="362" SelectionChanged="ComboBox_SelectionChanged">
-            <ComboBoxItem>Purchased Contracts</ComboBoxItem>
+            <ComboBoxItem>Purchased_Contracts</ComboBoxItem>
             <ComboBoxItem>Users</ComboBoxItem>
             <ComboBoxItem>Deliveries</ComboBoxItem>
-            <ComboBoxItem>Add Admin Passwords</ComboBoxItem>
+            <ComboBoxItem>Add_Admin_Passwords</ComboBoxItem>
         </ComboBox>
+        <Button Content="Delete" Margin="578,272,0,0" VerticalAlignment="Top" Height="33" Click="Button_Click2" HorizontalAlignment="Left" Width="164"/>
+        <Button Content="Edit" Margin="578,194,0,0" VerticalAlignment="Top" Height="33" Click="Button_Click3" HorizontalAlignment="Left" Width="164"/>
+        <Button Content="Add" Margin="578,117,0,0" VerticalAlignment="Top" Height="33" Click="Button_Click4" HorizontalAlignment="Left" Width="164" RenderTransformOrigin="0.444,-1.996"/>
 
     </Grid>
 </Window>
