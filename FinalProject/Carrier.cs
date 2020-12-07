@@ -41,14 +41,6 @@ namespace FinalProject
 
         //time it takes to load and unload at cities
         const int loadUnloadTime = 2;
-
-        /*
-        int carrierID;
-        string address;
-        int workHours;
-        int driveHours;
-        string company;
-        */
         static double totalTravelTime = 0;
         static int totalDistance = 0;
 
