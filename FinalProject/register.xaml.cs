@@ -87,7 +87,7 @@ namespace FinalProject
         * ------------------------------------------------------------------------------------------*/
         private void Button_Click2(object sender, RoutedEventArgs e)
         {
-            if(userN != " " && password != " ")
+            if(userN != " " && password != " ")//if the password and username inputs are not empty
             {
                 DialogResult = storeAccounts(userN, password);
 
@@ -107,7 +107,7 @@ namespace FinalProject
         private void passWord_TextChanged(object sender, TextChangedEventArgs e)
         {
             password = passWord.Text;
-            password.Trim();
+            password.Trim();//gets rid of white space.
         }
 
         /* -------------------------------------------------------------------------------------------
@@ -119,7 +119,7 @@ namespace FinalProject
         private void userName_TextChanged(object sender, TextChangedEventArgs e)
         {
             userN = userName.Text;
-            userN.Trim();
+            userN.Trim();//gets rid of white space
         }
 
 

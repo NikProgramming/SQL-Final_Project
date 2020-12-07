@@ -167,14 +167,17 @@ namespace FinalProject
             accepted = false;
             try
             {
+                //the connection string.
                 string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
                 MySqlConnection con = new MySqlConnection(cs);
                 con.Open();
-
+                //the msql statement.
                 MySqlCommand cmd = new MySqlCommand("SELECT * FROM accounts", con);
 
+                //where the command gets executed.
                 MySqlDataReader rdr = cmd.ExecuteReader();
 
+                //reads the entire table checking for the user name and password.
                 while (rdr.Read())
                 {
                     dbUserName = rdr.GetString(1);//gets the username from the db
