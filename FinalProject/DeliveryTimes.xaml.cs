@@ -114,7 +114,7 @@ namespace FinalProject
                     //set the van type to be use
                     //store the contract in our database
                     //plan.SelectCarrier(destination);
-                    info = travelID + " " + travel + " " + carriers + " " + direction + " " + time + " " +cost +"\n";
+                    info = travelID + " " + travel + " " + carriers + " " + direction + " " + time + " " + cost +"\n";
                     infoList.Add(info);
                 }
                 //close the reader

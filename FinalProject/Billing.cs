@@ -35,7 +35,7 @@ namespace FinalProject
         bool payment;
 
 
-        static double cost = 0.0;
+        static double cost = 1.0;
 
 
         ///
@@ -148,6 +148,7 @@ namespace FinalProject
                 storeTrips(contractCarrierInfo, travel, time, direction);
                 time = Carrier.SetTrip(origin, destination, load);
 
+                cost = 1.0;
                 for (double dayTracker = time; dayTracker >= 0; dayTracker -= 12)
                 {
                     if (dayTracker > 12)
@@ -190,7 +191,7 @@ namespace FinalProject
                     {
                         for (int km = Carrier.distance(); km >= 0; km--)
                         {
-                            cost += (cost * ltlRate);
+                            cost += (cost * (ltlRate * Carrier.distance()));
                             if (truck_type == "Reefer")
                             {
                                 cost += cost * reeferRate;
@@ -200,13 +201,10 @@ namespace FinalProject
                 }
                 else if (load == "FTL")
                 {
-                    for (int km = Carrier.distance(); km >= 0; km--)
+                    cost += (cost * (ftlRate*Carrier.distance()));
+                    if (truck_type == "Reefer")
                     {
-                        cost += (cost * ftlRate);
-                        if (truck_type == "Reefer")
-                        {
-                            cost += cost * reeferRate;
-                        }
+                        cost += cost * reeferRate;
                     }
                 }
 
