@@ -50,14 +50,26 @@ namespace FinalProject
         /// 
         ///		\return void.
         ///
-        static public bool VerifyPayment(string CompanyID, string carrier1, string carrier2,string origin, string destination, bool payment)
+        static public bool VerifyPayment(string CompanyID, string carrier1, string carrier2,string origin, string destination, bool payment, int loadValue)
         {
             string contractCarrierInfo;
             string travel;
+            string load = "";
             double time;
             string direction = "";
+
+
             if (payment == true)
             {
+                if (loadValue == 1)
+                {
+                    load = "LTL";
+                }
+                else if(loadValue == 0)
+                {
+                    load = "FTL";
+                }
+
                 if(carrier1 != carrier2)
                 {
                     contractCarrierInfo = carrier1 + " & " + carrier2;
@@ -118,8 +130,8 @@ namespace FinalProject
 
                 time = Carrier.timeLeft();
                 storeTrips(contractCarrierInfo, travel, time, direction);
-                time = Carrier.SetTrip(origin, destination);
-                string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
+                time = Carrier.SetTrip(origin, destination, load);
+                string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
                 MySqlConnection con = new MySqlConnection(cs);
                 con.Open();
                 MySqlCommand insertNewTime = new MySqlCommand("UPDATE OD SET tTime=" + time + " ORDER BY travelID desc limit 1", con);
@@ -135,7 +147,7 @@ namespace FinalProject
         {
             try
             {
-                string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
+                string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
                 //set up connection to the database
                 MySqlConnection con = new MySqlConnection(cs);
                 //open the connection

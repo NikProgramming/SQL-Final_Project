@@ -61,11 +61,25 @@ namespace FinalProject
 
         public static string fileConnecter9000(int index)
         {
-            string stringContract="";
-            stringContract = Contract.contractList[index].customerName +" "+ Contract.contractList[index].origin + " " + Contract.contractList[index].destination ;
+            string stringContract = "";
+            string[] words = Contract.contractList[index].customerName.Split(' ');
+            string companyName = "";
+            for (int i = 0; i < words.Length; i++)
+            {
+                companyName = companyName + words[i];
+            }
+            stringContract = companyName + " " + Contract.contractList[index].origin + " " + Contract.contractList[index].destination;
 
 
             return stringContract;
+        }
+
+        public static int loadValue()
+        {
+            int load = 0;
+            Contract.contractDetails contract = new Contract.contractDetails();
+            load = contract.jobType;
+            return load;
         }
 
         ///

@@ -63,12 +63,10 @@ namespace FinalProject
         /// 
         ///		\return Returns a time in hours.
         ///
-        public static double SetTrip(string origin, string destination)
+        public static double SetTrip(string origin, string destination, string load)
         {
             //current city
             Destinations currentLocation = new Destinations();
-            //what type of load
-            load = "LTL";
 
             //windsor
             Destinations windsor = new Destinations();
@@ -168,7 +166,7 @@ namespace FinalProject
                 currentLocation = ottawa;
             }
 
-            string cs = "server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
+            string cs = "server=localhost;userid=root;password=123sql;database=TMSDatabase";
             string direction = "";
             MySqlConnection directionCon = new MySqlConnection(cs);
             directionCon.Open();
@@ -358,7 +356,7 @@ namespace FinalProject
                         {
                             currentLocation = oshawa;
                         }
-                        else if (currentLocation.west == "BelleVille")
+                        else if (currentLocation.west == "Belleville")
                         {
                             currentLocation = belleville;
                         }
@@ -377,7 +375,6 @@ namespace FinalProject
                     totalTravelTime += loadUnloadTime; ;
                 }
             }
-            
 
             return totalTravelTime;
         }

@@ -101,7 +101,6 @@ namespace FinalProject
                     cd.customerName = customerName;
                     cd.jobType = jobType;
                     cd.origin = origin;
-                    cd.destination = destination;
                     cd.vanType = vanType;
                     contractList.Add(cd);
                     //plan.SelectCarrier(destination);
@@ -132,7 +131,7 @@ namespace FinalProject
         static void storeContractLocal()
         {
             //set up connection string for the local database
-            string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
+            string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
             //set up connection to the database
             MySqlConnection con = new MySqlConnection(cs);
             //open the connection
