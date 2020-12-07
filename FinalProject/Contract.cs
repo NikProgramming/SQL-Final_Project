@@ -99,6 +99,7 @@ namespace FinalProject
                     //store the contract in our database
                     cd.destination = destination;
                     cd.customerName = customerName;
+                    cd.quantity = quantity;
                     cd.jobType = jobType;
                     cd.origin = origin;
                     cd.vanType = vanType;
@@ -154,6 +155,11 @@ namespace FinalProject
             cmd.ExecuteNonQuery();
             //close the connection
             con.Close();
+        }
+
+        public static int quantityReturn()
+        {
+            return quantity;
         }
 
         void infoValidation()

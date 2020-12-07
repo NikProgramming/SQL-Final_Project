@@ -45,7 +45,8 @@ namespace FinalProject
             carrier1=Planner.SelectCarrier(destination);
             carrier2 = Planner.SelectCarrier(origin);
             int load = MarketPlace.loadValue();
-            return Billing.VerifyPayment(compName, carrier1, carrier2, origin, destination, true, load); 
+            int truckType = MarketPlace.vanType();
+            return Billing.VerifyPayment(compName, carrier1, carrier2, origin, destination, true, load, truckType); 
         }
 
 

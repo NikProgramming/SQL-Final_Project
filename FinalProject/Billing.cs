@@ -29,10 +29,13 @@ namespace FinalProject
     ///
     public class Billing
     {
-        int buyerID =1;
+        int buyerID = 1;
         int orderID = 1;
         int customerID = 1;
         bool payment;
+
+
+        static double cost = 0.0;
 
 
         ///
@@ -50,13 +53,18 @@ namespace FinalProject
         /// 
         ///		\return void.
         ///
-        static public bool VerifyPayment(string CompanyID, string carrier1, string carrier2,string origin, string destination, bool payment, int loadValue)
+        static public bool VerifyPayment(string CompanyID, string carrier1, string carrier2, string origin, string destination, bool payment, int loadValue, int vanType)
         {
             string contractCarrierInfo;
             string travel;
             string load = "";
+            string truck_type = "";
             double time;
             string direction = "";
+
+            double ftlRate = 0.0;
+            double ltlRate = 0.0;
+            double reeferRate = 0.0;
 
 
             if (payment == true)
@@ -65,18 +73,27 @@ namespace FinalProject
                 {
                     load = "LTL";
                 }
-                else if(loadValue == 0)
+                else if (loadValue == 0)
                 {
                     load = "FTL";
                 }
 
-                if(carrier1 != carrier2)
+                if (vanType == 0)
+                {
+                    truck_type = "Dry Van";
+                }
+                else if (vanType == 1)
+                {
+                    truck_type = "Reefer";
+                }
+
+                if (carrier1 != carrier2)
                 {
                     contractCarrierInfo = carrier1 + " & " + carrier2;
                 }
                 else
                 {
-                    if(carrier1 == "N/A")
+                    if (carrier1 == "N/A")
                     {
                         contractCarrierInfo = carrier2;
                     }
@@ -86,7 +103,7 @@ namespace FinalProject
                     }
                 }
                 travel = origin + " to " + destination;
-                if(origin == "Kingston" && destination == "Toronto")
+                if (origin == "Kingston" && destination == "Toronto")
                 {
                     direction = "W";
                 }
@@ -102,41 +119,104 @@ namespace FinalProject
                 {
                     direction = "E";
                 }
-                else if(origin == "Belleville" && destination == "Windsor")
+                else if (origin == "Belleville" && destination == "Windsor")
                 {
                     direction = "W";
                 }
-                else if(origin =="Windsor" && destination == "Belleville")
+                else if (origin == "Windsor" && destination == "Belleville")
                 {
                     direction = "E";
                 }
-                else if(origin == "London" && destination == "Toronto")
+                else if (origin == "London" && destination == "Toronto")
                 {
                     direction = "E";
                 }
-                else if(origin == "Toronto" && destination == "London")
+                else if (origin == "Toronto" && destination == "London")
                 {
                     direction = "W";
                 }
-                else if(origin == "Windsor" && destination == "Hamilton")
+                else if (origin == "Windsor" && destination == "Hamilton")
                 {
                     direction = "E";
                 }
-                else if(origin == "Hamilton" && destination =="Windsor")
+                else if (origin == "Hamilton" && destination == "Windsor")
                 {
                     direction = "W";
                 }
-
 
                 time = Carrier.timeLeft();
                 storeTrips(contractCarrierInfo, travel, time, direction);
                 time = Carrier.SetTrip(origin, destination, load);
+
+                for (double dayTracker = time; dayTracker >= 0; dayTracker -= 12)
+                {
+                    if (dayTracker > 12)
+                    {
+                        time += 12;
+                        cost += 150;
+                    }
+                }
+
+                if (carrier1 == "Planet Express" || carrier2 == "Planet Express")
+                {
+                    ltlRate = 0.3621;
+                    ftlRate = 5.21;
+                    reeferRate = 0.08;
+                }
+                else if (carrier1 == "Schooner's" || carrier2 == "Schooner's")
+                {
+                    ltlRate = 0.3434;
+                    ftlRate = 5.05;
+                    reeferRate = 0.07;
+                }
+                else if (carrier1 == "Tillman Transport" || carrier2 == "Tillman Transport")
+                {
+                    ltlRate = 0.3012;
+                    ftlRate = 5.11;
+                    reeferRate = 0.09;
+                }
+                else if (carrier1 == "We Haul" || carrier2 == "We Haul")
+                {
+                    ltlRate = 0.0;
+                    ftlRate = 5.2;
+                    reeferRate = 0.065;
+                }
+
+                ltlRate += ltlRate * 0.05;
+                ftlRate += ftlRate * 0.08;
+                if (load == "LTL")
+                {
+                    for (int quantity = Contract.quantityReturn(); quantity >= 0; quantity--)
+                    {
+                        for (int km = Carrier.distance(); km >= 0; km--)
+                        {
+                            cost += (cost * ltlRate);
+                            if (truck_type == "Reefer")
+                            {
+                                cost += cost * reeferRate;
+                            }
+                        }
+                    }
+                }
+                else if (load == "FTL")
+                {
+                    for (int km = Carrier.distance(); km >= 0; km--)
+                    {
+                        cost += (cost * ftlRate);
+                        if (truck_type == "Reefer")
+                        {
+                            cost += cost * reeferRate;
+                        }
+                    }
+                }
+
                 string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
                 MySqlConnection con = new MySqlConnection(cs);
                 con.Open();
                 MySqlCommand insertNewTime = new MySqlCommand("UPDATE OD SET tTime=" + time + " ORDER BY travelID desc limit 1", con);
                 insertNewTime.ExecuteNonQuery();
                 con.Close();
+
                 //return true
                 return true;
             }
@@ -172,10 +252,15 @@ namespace FinalProject
                 //close the connection
                 con.Close();
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 throw e;
             }
+        }
+
+        public static double getCost()
+        {
+            return cost;
         }
     }
 }

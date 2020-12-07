@@ -82,6 +82,14 @@ namespace FinalProject
             return load;
         }
 
+        public static int vanType()
+        {
+            int type = 0;
+            Contract.contractDetails contract = new Contract.contractDetails();
+            type = contract.vanType;
+            return type;
+        }
+
         ///
         ///		\brief Called to create the back button for the MarketPlace.
         ///		\details <b>Details</b>

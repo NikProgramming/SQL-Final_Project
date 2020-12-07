@@ -50,8 +50,7 @@ namespace FinalProject
         string company;
         */
         static double totalTravelTime = 0;
-        static string load;
-        static double remainingTime;
+        static int totalDistance = 0;
 
         ///
         ///		\brief Called to set up the trip and go through the trip.
@@ -221,7 +220,7 @@ namespace FinalProject
                         {
                             currentLocation = ottawa;
                         }
-
+                        totalDistance = currentLocation.distance;
                         //if not in destination city
                         if (currentLocation.destination != destination)
                         {
@@ -229,6 +228,7 @@ namespace FinalProject
                             totalTravelTime += loadUnloadTime;
                         }
                     }
+                    totalDistance = currentLocation.distance;
                     //add travel time for destination city
                     totalTravelTime += currentLocation.time;
                     //unload
@@ -271,7 +271,9 @@ namespace FinalProject
                         {
                             currentLocation = ottawa;
                         }
+                        totalDistance = currentLocation.distance;
                     }
+                    totalDistance = currentLocation.distance;
                     //add travel time for destination city
                     totalTravelTime += currentLocation.time;
                     //set unload time
@@ -318,7 +320,7 @@ namespace FinalProject
                         {
                             currentLocation = windsor;
                         }
-
+                        totalDistance = currentLocation.distance;
                         //if not in destination city
                         if (currentLocation.destination != destination)
                         {
@@ -326,6 +328,7 @@ namespace FinalProject
                             totalTravelTime += loadUnloadTime;
                         }
                     }
+                    totalDistance = currentLocation.distance;
                     //add travel time for destination city
                     totalTravelTime += currentLocation.time;
                     //unload
@@ -368,15 +371,22 @@ namespace FinalProject
                         {
                             currentLocation = windsor;
                         }
+                        totalDistance = currentLocation.distance;
                     }
+                    totalDistance = currentLocation.distance;
                     //add travel time for destination city
                     totalTravelTime += currentLocation.time;
                     //set unload time
-                    totalTravelTime += loadUnloadTime; ;
+                    totalTravelTime += loadUnloadTime; 
                 }
             }
 
             return totalTravelTime;
+        }
+
+        public static int distance()
+        {
+            return totalDistance;
         }
 
         ///
