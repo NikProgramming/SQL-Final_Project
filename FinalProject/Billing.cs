@@ -236,7 +236,7 @@ namespace FinalProject
                 con.Open();
                 //set up the command string
 
-                string insertContractQuery = "INSERT INTO OD VALUES(NULL, @travel, @carriers, @direction, @tTime);";
+                string insertContractQuery = "INSERT INTO OD VALUES(NULL, @travel, @carriers, @direction, @tTime, NULL);";
                 //set up the command itself and get ready to execute
                 MySqlCommand cmd = new MySqlCommand(insertContractQuery, con);
 
