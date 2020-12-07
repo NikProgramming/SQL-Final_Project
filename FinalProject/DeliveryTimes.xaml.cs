@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+* FILE : DeliveryTimes.xaml.cs
+* PROJECT : PROG2020 - Client-Side Programming
+* PROGRAMMER : Justin Langevin & Josiah Rehkopf & Troy Hill & Nikola Ristic
+* FIRST VERSION : 12/1/2020
+* DESCRIPTION : This file is used for the Delivery time display logic.
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -40,11 +47,18 @@ namespace FinalProject
         /// 
         ///		\return N/A.
         ///
+
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   DeliveryTimes()
+        * Description	:   This is the construct for the DeliveryTimes class            		
+        * Parameters    :	none  
+        * Returns		:   none
+        * ------------------------------------------------------------------------------------------*/
         public DeliveryTimes()
         {
             InitializeComponent();
-            getTravelTimes();
-            for(int i =0; i < infoList.Count; i++)
+            getTravelTimes();//gets the travel times
+            for(int i =0; i < infoList.Count; i++)//for loop to display the times
             {
                 time.Text += infoList[i];
             }
@@ -61,17 +75,34 @@ namespace FinalProject
         /// 
         ///		\return N/A.
         ///
+
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   Button_Click()
+        * Description	:   This is the method for the Button_Click           		
+        * Parameters    :	object sender, RoutedEventArgs e  
+        * Returns		:   none
+        * ------------------------------------------------------------------------------------------*/
         private void Button_Click1(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
         }
 
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   time_TextChanged()
+        * Description	:   This is the Method for the text class            		
+        * Parameters    :	object sender, RoutedEventArgs e 
+        * Returns		:   none
+        * ------------------------------------------------------------------------------------------*/
         private void time_TextChanged(object sender, TextChangedEventArgs e)
-        {
-           
+        {           
         }
 
-
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   getTravelTimes()
+        * Description	:   This is the method for the getTravelTimes it gets the travel time from the TMSdatabase.            		
+        * Parameters    :	none  
+        * Returns		:   none
+        * ------------------------------------------------------------------------------------------*/
         public static void getTravelTimes()
         {
             //set up the connection string
