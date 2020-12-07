@@ -25,7 +25,8 @@ namespace FinalProject
         public static List<string> DeliveriesCon = new List<string>();
         public static List<string> addAdminCon = new List<string>();
         public static bool run = false;
-        public static string toDelete;
+        public static int toDelete;
+        public static string selectedItem;
         public AdminWorkscreen()
         {
             InitializeComponent();
@@ -92,7 +93,7 @@ namespace FinalProject
         public static void adminPass()
         {
             string adPassword;
-            string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
+            string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
             try
             {
                 //create mysqlconnection and connect to the string connection
@@ -135,7 +136,7 @@ namespace FinalProject
             double time;
             string info = "";
 
-            string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
+            string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
             try
             {
                 //create mysqlconnection and connect to the string connection
@@ -188,7 +189,7 @@ namespace FinalProject
 
             try
             {
-                string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
+                string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
                 MySqlConnection con = new MySqlConnection(cs);
                 con.Open();
 
@@ -223,41 +224,21 @@ namespace FinalProject
             double time;
             string info = "";
 
-            string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
+            string cs = @"server=localhost;userid=root;password=Shetland3321;database=TMSDatabase";
             try
             {
                 //create mysqlconnection and connect to the string connection
                 MySqlConnection con = new MySqlConnection(cs);
                 //open the connection to the marketplace
                 con.Open();
-
+                string DeleteQuery = "DELETE FROM OD WHERE travelID = " +toDelete;
                 //prepare to execute the command to grab everything form the marketplace
-                MySqlCommand cmd = new MySqlCommand("DELETE * FROM OD WHERE travelID = "+toDelete, con);
+                MySqlCommand cmd = new MySqlCommand(DeleteQuery, con);
 
-                //execute the command while putting everything into the reader
-                MySqlDataReader rdr = cmd.ExecuteReader();
-
-                //while still getting the contracts
-                while (rdr.Read())
-                {
-                    //get the customer name
-                    travelID = rdr.GetInt32(0);
-                    //get the job type
-                    travel = rdr.GetString(1);
-                    //get the quantity of the item they want shipped
-                    carriers = rdr.GetString(2);
-                    //get the origin city
-                    direction = rdr.GetString(3);
-                    //get the destination city
-                    time = rdr.GetDouble(4);
-                    //set the van type to be use
-                    //store the contract in our database
-                    //plan.SelectCarrier(destination);
-                    info = travelID + " " + travel + " " + carriers + " " + direction + " " + time + "\n";
-                    DeliveriesCon.Add(info);
-                }
-                //close the reader
-                rdr.Close();
+                //prepare the command
+                cmd.Prepare();
+                //execute the query to insert the contract
+                cmd.ExecuteNonQuery();
                 //close the connection
                 con.Close();
             }
@@ -270,7 +251,10 @@ namespace FinalProject
 
         private void Button_Click2(object sender, RoutedEventArgs e)
         {
-
+            selectedItem = (string)ContractDisplay.SelectedItem;
+            string[] result = selectedItem.Split(' ');
+            toDelete = int.Parse(result[0]);
+            deleteDeleviry();
         }
 
         private void Button_Click3(object sender, RoutedEventArgs e)

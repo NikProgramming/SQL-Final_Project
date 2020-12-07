@@ -120,6 +120,7 @@ namespace FinalProject
            origin = words[1];
            destination = words[2];
            exitProgram= Buyer.CreateOrder(CompanyName,destination, origin);
+           contractStrings.Clear();
            DialogResult = exitProgram;
 
         }
