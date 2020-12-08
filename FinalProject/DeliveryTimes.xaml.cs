@@ -85,6 +85,7 @@ namespace FinalProject
         private void Button_Click1(object sender, RoutedEventArgs e)
         {
             DialogResult = false;
+            infoList.Clear();
         }
 
         /* -------------------------------------------------------------------------------------------

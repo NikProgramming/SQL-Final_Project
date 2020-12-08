@@ -28,7 +28,6 @@ namespace FinalProject
     public partial class AdminWorkscreen : Window
     {
         //declare variables
-        public static List<string> purchaseCon = new List<string>();
         public static List<string> userCon = new List<string>();
         public static List<string> DeliveriesCon = new List<string>();
         public static List<string> addAdminCon = new List<string>();
@@ -197,6 +196,7 @@ namespace FinalProject
             string carriers;
             string direction;
             double time;
+            double price;
             string info = "";
 
             string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
@@ -226,10 +226,11 @@ namespace FinalProject
                     direction = rdr.GetString(3);
                     //get the destination city
                     time = rdr.GetDouble(4);
+                    price = rdr.GetDouble(5);
                     //set the van type to be use
                     //store the contract in our database
                     //plan.SelectCarrier(destination);
-                    info = travelID + " " + travel + " " + carriers + " " + direction + " " + time + "\n";
+                    info = travelID + "," + travel + "," + carriers + "," + direction + "," + time + "," + price + "\n";
                     DeliveriesCon.Add(info);
                 }
                 //close the reader
@@ -409,8 +410,20 @@ namespace FinalProject
                 string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase"; 
                 MySqlConnection con = new MySqlConnection(cs);
                 con.Open();
-                MySqlCommand resetIndex = new MySqlCommand("ALTER TABLE accounts AUTO_INCREMENT = 1", con);
+                MySqlCommand resetIndex = new MySqlCommand("TRUNCATE TABLE accounts", con);
                 resetIndex.ExecuteNonQuery();
+
+                MySqlCommand reEnterData;
+                foreach (string appUser in userCon)
+                {
+                    string[] username = appUser.Split(' ');
+                    reEnterData = new MySqlCommand("INSERT INTO accounts VALUES(NULL, @name, @pass);", con);//("INSERT INTO accounts VALUES(NULL, " + username[1] + ", " + username[2] + ")", con);
+                    reEnterData.Parameters.AddWithValue("@name", username[1]);
+                    reEnterData.Parameters.AddWithValue("@pass", username[2]);
+                    reEnterData.Prepare();
+                    reEnterData.ExecuteNonQuery();
+                }   
+                
                 con.Close();
                 updateScreen();
 
@@ -418,7 +431,7 @@ namespace FinalProject
             else if (result[1] == "Deliveries")
             {
                 selectedItem = (string)ContractDisplay.SelectedItem;
-                string[] deliveryNumber = selectedItem.Split(' ');
+                string[] deliveryNumber = selectedItem.Split(',');
                 toDelete = int.Parse(deliveryNumber[0]);
                 deleteDeleviry();
                 DeliveriesCon.RemoveAt(toDelete - 1);
@@ -427,8 +440,23 @@ namespace FinalProject
                 string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
                 MySqlConnection con = new MySqlConnection(cs);
                 con.Open();
-                MySqlCommand resetIndex = new MySqlCommand("ALTER TABLE accounts AUTO_INCREMENT = 1", con);
+                MySqlCommand resetIndex = new MySqlCommand("TRUNCATE TABLE OD", con);
                 resetIndex.ExecuteNonQuery();
+
+                MySqlCommand reEnterData;
+                foreach(string appDelivery in DeliveriesCon)
+                {
+                    string[] delivery = appDelivery.Split(',');
+                    reEnterData = new MySqlCommand("INSERT INTO OD VALUES(NULL, @travel, @carrier, @direction, @tTime, @price)", con);
+                    reEnterData.Parameters.AddWithValue("@travel", delivery[1]);
+                    reEnterData.Parameters.AddWithValue("@carrier", delivery[2]);
+                    reEnterData.Parameters.AddWithValue("@direction", delivery[3]);
+                    reEnterData.Parameters.AddWithValue("@tTime", double.Parse(delivery[4]));
+                    reEnterData.Parameters.AddWithValue("@price", double.Parse(delivery[5]));
+                    reEnterData.Prepare();
+                    reEnterData.ExecuteNonQuery();
+                }
+                
                 con.Close();
                 updateScreen();
             }
