@@ -114,7 +114,6 @@ namespace FinalProject
         }
 
 
-
         /* -------------------------------------------------------------------------------------------
         * Method	    :   ContractDisplay_SelectionChanged()
         * Description	:   This is the button for when the contractDisplay is changed           		
@@ -353,6 +352,12 @@ namespace FinalProject
             }
         }
 
+        /* -------------------------------------------------------------------------------------------
+        * Method	    :   deleteAdmin()
+        * Description	:   This is the method to delete admin passwords       		
+        * Parameters    :	none
+        * Returns		:   none
+        * ------------------------------------------------------------------------------------------*/
         public static void deleteAdmin(string pass)
         {
             //set up the connection string
@@ -395,18 +400,25 @@ namespace FinalProject
 
             string selected = "";
 
+            //grab the selected option
             selected = ListOptions.SelectedItem.ToString();
             string[] result = selected.Split(' ');
             
+            //if the user is removing a user
             if (result[1] == "Users")
             {
+                //grab the selected user
                 selectedItem = (string)ContractDisplay.SelectedItem;
                 string[] userID = selectedItem.Split(' ');
+                //set user to delete
                 toDelete = int.Parse(userID[0]);
+                //delete the user from the local database
                 deleteUser();
+                //remove user from list
                 userCon.RemoveAt(toDelete - 1);
                 ContractDisplay.ItemsSource = null; 
                 ContractDisplay.ItemsSource = userCon;
+                //truncate table
                 string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase"; 
                 MySqlConnection con = new MySqlConnection(cs);
                 con.Open();
@@ -416,27 +428,35 @@ namespace FinalProject
                 MySqlCommand reEnterData;
                 foreach (string appUser in userCon)
                 {
+                    //split user
                     string[] username = appUser.Split(' ');
-                    reEnterData = new MySqlCommand("INSERT INTO accounts VALUES(NULL, @name, @pass);", con);//("INSERT INTO accounts VALUES(NULL, " + username[1] + ", " + username[2] + ")", con);
+                    //insert existing user into table
+                    reEnterData = new MySqlCommand("INSERT INTO accounts VALUES(NULL, @name, @pass);", con);
                     reEnterData.Parameters.AddWithValue("@name", username[1]);
                     reEnterData.Parameters.AddWithValue("@pass", username[2]);
                     reEnterData.Prepare();
                     reEnterData.ExecuteNonQuery();
                 }   
-                
+                //close connection
                 con.Close();
+                //update screen
                 updateScreen();
 
             }
-            else if (result[1] == "Deliveries")
+            else if (result[1] == "Deliveries") //if user is removing a delivery
             {
+                //grab selected delivery
                 selectedItem = (string)ContractDisplay.SelectedItem;
                 string[] deliveryNumber = selectedItem.Split(',');
+                //select delivery to delete
                 toDelete = int.Parse(deliveryNumber[0]);
+                //delete delivery from local database
                 deleteDeleviry();
+                //remove delivery from list
                 DeliveriesCon.RemoveAt(toDelete - 1);
                 ContractDisplay.ItemsSource = null;
                 ContractDisplay.ItemsSource = DeliveriesCon;
+                //truncate table
                 string cs = @"server=localhost;userid=root;password=123sql;database=TMSDatabase";
                 MySqlConnection con = new MySqlConnection(cs);
                 con.Open();
@@ -446,7 +466,9 @@ namespace FinalProject
                 MySqlCommand reEnterData;
                 foreach(string appDelivery in DeliveriesCon)
                 {
+                    //split delivery
                     string[] delivery = appDelivery.Split(',');
+                    //insert existing delivery into table
                     reEnterData = new MySqlCommand("INSERT INTO OD VALUES(NULL, @travel, @carrier, @direction, @tTime, @price)", con);
                     reEnterData.Parameters.AddWithValue("@travel", delivery[1]);
                     reEnterData.Parameters.AddWithValue("@carrier", delivery[2]);
@@ -456,16 +478,21 @@ namespace FinalProject
                     reEnterData.Prepare();
                     reEnterData.ExecuteNonQuery();
                 }
-                
+                //close connection
                 con.Close();
+                //update screen
                 updateScreen();
             }
-            else if (result[1] == "Add_Admin_Passwords")
+            else if (result[1] == "Add_Admin_Passwords") //if the user is removing an admin password
             {
+                //grab admin password
                 selectedItem = (string)ContractDisplay.SelectedItem;
                 string[] deliveryNumber = selectedItem.Split(' ');
+                //select password to delete 
                 toDelete = int.Parse(deliveryNumber[0]);
+                //remove admin password from local database
                 deleteAdmin(selectedItem);
+                //remove admin password from list
                 DeliveriesCon.RemoveAt(toDelete - 1);
                 ContractDisplay.ItemsSource = null;
                 ContractDisplay.ItemsSource = DeliveriesCon;
